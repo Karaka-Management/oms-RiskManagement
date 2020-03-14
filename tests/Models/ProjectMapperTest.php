@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\tests\RiskManagement\Models;
+namespace Modules\RiskManagement\tests\Models;
 
 use Modules\RiskManagement\Models\Project;
 use Modules\RiskManagement\Models\ProjectMapper;

@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\tests\RiskManagement\Admin;
+namespace Modules\RiskManagement\tests\Admin;
 
 /**
  * @internal
