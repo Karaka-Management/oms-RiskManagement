@@ -29,7 +29,7 @@ echo $this->getData('nav')->render(); ?>
                         <tbody>
                         <?php $c = 0; foreach ($units as $key => $value) : ++$c;
                         $url = \phpOMS\Uri\UriFactory::build('{/prefix}riskmanagement/unit/single?{?}&id=' . $value->getId()); ?>
-                <tr data-href="<?= $url; ?>">
+                <tr tabindex="0" data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getId()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getName()); ?></a>
                         <?php endforeach; ?>
