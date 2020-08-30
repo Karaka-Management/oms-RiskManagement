@@ -33,6 +33,7 @@ class RiskObject
     protected int $id = 0;
 
     private $title = '';
+
     /**
      * Description.
      *
@@ -40,6 +41,7 @@ class RiskObject
      * @since 1.0.0
      */
     private string $description = '';
+
     /**
      * Description.
      *

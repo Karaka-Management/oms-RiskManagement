@@ -39,6 +39,7 @@ class Risk
      * @since 1.0.0
      */
     private string $name = '';
+
     /**
      * Description.
      *
@@ -46,6 +47,7 @@ class Risk
      * @since 1.0.0
      */
     private string $description = '';
+
     /**
      * Description.
      *

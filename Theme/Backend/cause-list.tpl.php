@@ -19,12 +19,12 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box wf-100">
             <table class="default">
-                <caption><?= $this->getHtml('Causes') ?><i class="fa fa-download floatRight download btn"></i></caption>
+                <caption><?= $this->getHtml('Causes'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', '0', '0'); ?>
-                    <td class="wf-100"><?= $this->getHtml('Title') ?>
-                    <td><?= $this->getHtml('Risk') ?>
+                    <td class="wf-100"><?= $this->getHtml('Title'); ?>
+                    <td><?= $this->getHtml('Risk'); ?>
                         <tfoot>
                 <tr><td colspan="3">
                         <tbody>

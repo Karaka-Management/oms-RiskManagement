@@ -29,26 +29,26 @@ echo $this->getData('nav')->render(); ?>
         </ul>
     </div>
     <div class="tab-content">
-        <input type="radio" id="c-tab-1" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-1' ? ' checked' : '' ?>>
+        <input type="radio" id="c-tab-1" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-1' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-6">
                     <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Unit') ?></h1></header>
+                        <header><h1><?= $this->getHtml('Unit'); ?></h1></header>
 
                         <div class="inner">
                             <form id="fRisk" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
-                                    <tr><td><?= $this->getHtml('Name') ?></label><td><?= $this->printHtml($unit->getName()); ?>
-                                    <tr><td><?= $this->getHtml('Description') ?>:<td><?= $this->printHtml($unit->getDescription()); ?>
-                                    <tr><td><?= $this->getHtml('Risks') ?>:<td>
-                                    <tr><td><?= $this->getHtml('Departments') ?>:<td>
-                                    <tr><td><?= $this->getHtml('Categories') ?>:<td>
-                                    <tr><td><?= $this->getHtml('Projects') ?>:<td>
-                                    <tr><td><?= $this->getHtml('Processes') ?>:<td>
-                                    <tr><td><?= $this->getHtml('Causes') ?>:<td>
-                                    <tr><td><?= $this->getHtml('Solutions') ?>:<td>
+                                    <tr><td><?= $this->getHtml('Name'); ?></label><td><?= $this->printHtml($unit->getName()); ?>
+                                    <tr><td><?= $this->getHtml('Description'); ?>:<td><?= $this->printHtml($unit->getDescription()); ?>
+                                    <tr><td><?= $this->getHtml('Risks'); ?>:<td>
+                                    <tr><td><?= $this->getHtml('Departments'); ?>:<td>
+                                    <tr><td><?= $this->getHtml('Categories'); ?>:<td>
+                                    <tr><td><?= $this->getHtml('Projects'); ?>:<td>
+                                    <tr><td><?= $this->getHtml('Processes'); ?>:<td>
+                                    <tr><td><?= $this->getHtml('Causes'); ?>:<td>
+                                    <tr><td><?= $this->getHtml('Solutions'); ?>:<td>
                                 </table>
                             </form>
                         </div>
@@ -57,15 +57,15 @@ echo $this->getData('nav')->render(); ?>
 
                 <div class="col-xs-12 col-md-6">
                     <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Media') ?></h1></header>
+                        <header><h1><?= $this->getHtml('Media'); ?></h1></header>
 
                         <div class="inner">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
-                                    <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media') ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select') ?></button>
-                                    <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload') ?></label>
+                                    <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
+                                    <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>
                             </form>
@@ -77,13 +77,13 @@ echo $this->getData('nav')->render(); ?>
             <div class="row">
                 <div class="col-xs-12 col-md-6">
                     <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Responsibility') ?></h1></header>
+                        <header><h1><?= $this->getHtml('Responsibility'); ?></h1></header>
 
                         <div class="inner">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
-                                    <tr><td><label for="iResponsibility"><?= $this->getHtml('Responsibility') ?></label><td><label for="iUser"><?= $this->getHtml('UserGroup') ?></label><td>
+                                    <tr><td><label for="iResponsibility"><?= $this->getHtml('Responsibility'); ?></label><td><label for="iUser"><?= $this->getHtml('UserGroup'); ?></label><td>
                                     <tr><td><select id="iStatus" name="status">
                                                 <option value="">
                                             </select>
@@ -95,20 +95,20 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </div>
         </div>
-        <input type="radio" id="c-tab-2" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-2' ? ' checked' : '' ?>>
+        <input type="radio" id="c-tab-2" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-2' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Risks') ?><i class="fa fa-download floatRight download btn"></i></caption>
+                            <caption><?= $this->getHtml('Risks'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
-                                <td class="wf-100"><?= $this->getHtml('Title') ?>
-                                <td><?= $this->getHtml('Causes') ?>
-                                <td><?= $this->getHtml('Solutions') ?>
-                                <td><?= $this->getHtml('RiskObjects') ?>
+                                <td class="wf-100"><?= $this->getHtml('Title'); ?>
+                                <td><?= $this->getHtml('Causes'); ?>
+                                <td><?= $this->getHtml('Solutions'); ?>
+                                <td><?= $this->getHtml('RiskObjects'); ?>
                                     <tfoot>
                             <tr><td colspan="5">
                                     <tbody>
@@ -129,17 +129,17 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </div>
         </div>
-        <input type="radio" id="c-tab-3" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-3' ? ' checked' : '' ?>>
+        <input type="radio" id="c-tab-3" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-3' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Departments') ?><i class="fa fa-download floatRight download btn"></i></caption>
+                            <caption><?= $this->getHtml('Departments'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
-                                <td class="wf-100"><?= $this->getHtml('Title') ?>
+                                <td class="wf-100"><?= $this->getHtml('Title'); ?>
                                     <tfoot>
                             <tr><td colspan="3">
                                     <tbody>
@@ -157,17 +157,17 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </div>
         </div>
-        <input type="radio" id="c-tab-4" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-4' ? ' checked' : '' ?>>
+        <input type="radio" id="c-tab-4" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-4' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Categories') ?><i class="fa fa-download floatRight download btn"></i></caption>
+                            <caption><?= $this->getHtml('Categories'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
-                                <td class="wf-100"><?= $this->getHtml('Title') ?>
+                                <td class="wf-100"><?= $this->getHtml('Title'); ?>
                                     <tfoot>
                             <tr><td colspan="3">
                                     <tbody>
@@ -185,17 +185,17 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </div>
         </div>
-        <input type="radio" id="c-tab-5" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-5' ? ' checked' : '' ?>>
+        <input type="radio" id="c-tab-5" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-5' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Projects') ?><i class="fa fa-download floatRight download btn"></i></caption>
+                            <caption><?= $this->getHtml('Projects'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
-                                <td class="wf-100"><?= $this->getHtml('Title') ?>
+                                <td class="wf-100"><?= $this->getHtml('Title'); ?>
                                     <tfoot>
                             <tr><td colspan="3">
                                     <tbody>
@@ -213,17 +213,17 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </div>
         </div>
-        <input type="radio" id="c-tab-6" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-6' ? ' checked' : '' ?>>
+        <input type="radio" id="c-tab-6" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-6' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Processes') ?><i class="fa fa-download floatRight download btn"></i></caption>
+                            <caption><?= $this->getHtml('Processes'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
-                                <td class="wf-100"><?= $this->getHtml('Title') ?>
+                                <td class="wf-100"><?= $this->getHtml('Title'); ?>
                                     <tfoot>
                             <tr><td colspan="3">
                                     <tbody>
@@ -241,18 +241,18 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </div>
         </div>
-        <input type="radio" id="c-tab-7" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-7' ? ' checked' : '' ?>>
+        <input type="radio" id="c-tab-7" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-7' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Causes') ?><i class="fa fa-download floatRight download btn"></i></caption>
+                            <caption><?= $this->getHtml('Causes'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
-                                <td class="wf-100"><?= $this->getHtml('Title') ?>
-                                <td><?= $this->getHtml('Risk') ?>
+                                <td class="wf-100"><?= $this->getHtml('Title'); ?>
+                                <td><?= $this->getHtml('Risk'); ?>
                                     <tfoot>
                             <tr><td colspan="3">
                                     <tbody>
@@ -271,19 +271,19 @@ echo $this->getData('nav')->render(); ?>
                 </div>
             </div>
         </div>
-        <input type="radio" id="c-tab-8" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-8' ? ' checked' : '' ?>>
+        <input type="radio" id="c-tab-8" name="tabular-2"<?= $this->request->getUri()->getFragment() === 'c-tab-8' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Solutions') ?><i class="fa fa-download floatRight download btn"></i></caption>
+                            <caption><?= $this->getHtml('Solutions'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
-                                <td class="wf-100"><?= $this->getHtml('Title') ?>
-                                <td><?= $this->getHtml('Risk') ?>
-                                <td><?= $this->getHtml('Cause') ?>
+                                <td class="wf-100"><?= $this->getHtml('Title'); ?>
+                                <td><?= $this->getHtml('Risk'); ?>
+                                <td><?= $this->getHtml('Cause'); ?>
                                     <tfoot>
                             <tr><td colspan="4">
                                     <tbody>

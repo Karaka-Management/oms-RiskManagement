@@ -29,16 +29,16 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12 col-md-9">
         <div class="box wf-100">
             <table class="default">
-                <caption><?= $this->getHtml('TopRisks') ?><i class="fa fa-download floatRight download btn"></i></caption>
+                <caption><?= $this->getHtml('TopRisks'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
                 <tr>
-                    <td><?= $this->getHtml('Severity') ?>
-                    <td class="wf-100"><?= $this->getHtml('Name') ?>
-                    <td><?= $this->getHtml('Department') ?>
-                    <td><?= $this->getHtml('Category') ?>
-                    <td><?= $this->getHtml('Process') ?>
-                    <td><?= $this->getHtml('Project') ?>
-                    <td><?= $this->getHtml('Unit') ?>
+                    <td><?= $this->getHtml('Severity'); ?>
+                    <td class="wf-100"><?= $this->getHtml('Name'); ?>
+                    <td><?= $this->getHtml('Department'); ?>
+                    <td><?= $this->getHtml('Category'); ?>
+                    <td><?= $this->getHtml('Process'); ?>
+                    <td><?= $this->getHtml('Project'); ?>
+                    <td><?= $this->getHtml('Unit'); ?>
                 <tfoot>
                 <tr><td colspan="6">
                 <tbody>
@@ -62,38 +62,38 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12 col-md-3">
         <section class="box wf-100">
             <div class="inner">
-                <a tabindex="0" class="button" href="<?= \phpOMS\Uri\UriFactory::build('{/prefix}riskmanagement/risk/create'); ?>"><?= $this->getHtml('NewRisk') ?></a>
+                <a tabindex="0" class="button" href="<?= \phpOMS\Uri\UriFactory::build('{/prefix}riskmanagement/risk/create'); ?>"><?= $this->getHtml('NewRisk'); ?></a>
             </div>
         </section>
 
         <section class="box wf-100">
-            <header><h1><?= $this->getHtml('Statistics') ?></h1></header>
+            <header><h1><?= $this->getHtml('Statistics'); ?></h1></header>
             <div class="inner">
                 <table class="list">
                     <thead>
                     <tr>
-                        <th><?= $this->getHtml('Risks') ?>
+                        <th><?= $this->getHtml('Risks'); ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getHtml('Causes') ?>
+                        <th><?= $this->getHtml('Causes'); ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getHtml('Solutions') ?>
+                        <th><?= $this->getHtml('Solutions'); ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getHtml('Department') ?>
+                        <th><?= $this->getHtml('Department'); ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getHtml('Category') ?>
+                        <th><?= $this->getHtml('Category'); ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getHtml('Process') ?>
+                        <th><?= $this->getHtml('Process'); ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getHtml('Project') ?>
+                        <th><?= $this->getHtml('Project'); ?>
                         <td>0
                     <tr>
-                        <th><?= $this->getHtml('Total') ?>
+                        <th><?= $this->getHtml('Total'); ?>
                         <td>0
                 </table>
             </div>
