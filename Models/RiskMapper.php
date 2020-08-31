@@ -57,28 +57,28 @@ final class RiskMapper extends DataMapperAbstract
      */
     protected static array $hasMany = [
         'media'       => [
-            'mapper' => MediaMapper::class,
-            'table'  => 'riskmngmt_risk_media',
+            'mapper'   => MediaMapper::class,
+            'table'    => 'riskmngmt_risk_media',
             'external' => 'riskmngmt_risk_media_risk',
-            'self'   => 'riskmngmt_risk_media_media',
+            'self'     => 'riskmngmt_risk_media_media',
         ],
         'riskObjects' => [
-            'mapper' => RiskObjectMapper::class,
-            'table'  => 'riskmngmt_risk_object',
+            'mapper'   => RiskObjectMapper::class,
+            'table'    => 'riskmngmt_risk_object',
             'external' => 'riskmngmt_risk_object_risk',
-            'self'   => null,
+            'self'     => null,
         ],
         'causes'      => [
-            'mapper' => CauseMapper::class,
-            'table'  => 'riskmngmt_cause',
+            'mapper'   => CauseMapper::class,
+            'table'    => 'riskmngmt_cause',
             'external' => 'riskmngmt_cause_risk',
-            'self'   => null,
+            'self'     => null,
         ],
         'solutions'   => [
-            'mapper' => SolutionMapper::class,
-            'table'  => 'riskmngmt_solution',
+            'mapper'   => SolutionMapper::class,
+            'table'    => 'riskmngmt_solution',
             'external' => 'riskmngmt_solution_risk',
-            'self'   => null,
+            'self'     => null,
         ],
     ];
 
