@@ -22,7 +22,6 @@ use Modules\RiskManagement\Models\ProcessMapper;
 use Modules\RiskManagement\Models\ProjectMapper;
 use Modules\RiskManagement\Models\RiskMapper;
 use Modules\RiskManagement\Models\SolutionMapper;
-
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
