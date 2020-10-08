@@ -21,6 +21,10 @@ use Modules\RiskManagement\Models\Solution;
  */
 class SolutionTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\Solution
+     * @group module
+     */
     public function testDefault() : void
     {
         $obj = new Solution();
@@ -34,6 +38,10 @@ class SolutionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $obj->getRisk());
     }
 
+    /**
+     * @covers Modules\RiskManagement\Models\Solution
+     * @group module
+     */
     public function testSetGet() : void
     {
         $obj = new Solution();

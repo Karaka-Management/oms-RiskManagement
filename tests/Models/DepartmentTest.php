@@ -21,6 +21,10 @@ use Modules\RiskManagement\Models\Department;
  */
 class DepartmentTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\Department
+     * @group module
+     */
     public function testDefault() : void
     {
         $obj = new Department();
@@ -31,6 +35,10 @@ class DepartmentTest extends \PHPUnit\Framework\TestCase
         self::assertNull($obj->getDeputy());
     }
 
+    /**
+     * @covers Modules\RiskManagement\Models\Department
+     * @group module
+     */
     public function testSetGet() : void
     {
         $obj = new Department();

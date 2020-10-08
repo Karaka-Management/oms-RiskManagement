@@ -21,6 +21,10 @@ use Modules\RiskManagement\Models\Cause;
  */
 class CauseTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\Cause
+     * @group module
+     */
     public function testDefault() : void
     {
         $obj = new Cause();
@@ -35,6 +39,10 @@ class CauseTest extends \PHPUnit\Framework\TestCase
         self::assertNull($obj->getCategory());
     }
 
+    /**
+     * @covers Modules\RiskManagement\Models\Cause
+     * @group module
+     */
     public function testSetGet() : void
     {
         $obj = new Cause();

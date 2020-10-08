@@ -21,6 +21,10 @@ use Modules\RiskManagement\Models\Category;
  */
 class CategoryTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\Category
+     * @group module
+     */
     public function testDefault() : void
     {
         $obj = new Category();
@@ -34,6 +38,10 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
         self::assertNull($obj->getDeputy());
     }
 
+    /**
+     * @covers Modules\RiskManagement\Models\Category
+     * @group module
+     */
     public function testSetGet() : void
     {
         $obj = new Category();

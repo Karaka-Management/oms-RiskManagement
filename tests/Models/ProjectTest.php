@@ -21,6 +21,10 @@ use Modules\RiskManagement\Models\Project;
  */
 class ProjectTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\Project
+     * @group module
+     */
     public function testDefault() : void
     {
         $obj = new Project();
@@ -31,6 +35,10 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         self::assertNull($obj->getDeputy());
     }
 
+    /**
+     * @covers Modules\RiskManagement\Models\Project
+     * @group module
+     */
     public function testSetGet() : void
     {
         $obj = new Project();

@@ -21,6 +21,10 @@ use Modules\RiskManagement\Models\RiskObject;
  */
 class RiskObjectTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\RiskObject
+     * @group module
+     */
     public function testDefault() : void
     {
         $obj = new RiskObject();
@@ -32,6 +36,10 @@ class RiskObjectTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $obj->getRisk());
     }
 
+    /**
+     * @covers Modules\RiskManagement\Models\RiskObject
+     * @group module
+     */
     public function testSetGet() : void
     {
         $obj = new RiskObject();

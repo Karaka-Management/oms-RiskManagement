@@ -24,6 +24,10 @@ use Modules\RiskManagement\Models\Solution;
  */
 class RiskTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\Risk
+     * @group module
+     */
     public function testDefault() : void
     {
         $obj = new Risk();
@@ -46,6 +50,10 @@ class RiskTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $obj->getMedia());
     }
 
+    /**
+     * @covers Modules\RiskManagement\Models\Risk
+     * @group module
+     */
     public function testSetGet() : void
     {
         $obj = new Risk();
