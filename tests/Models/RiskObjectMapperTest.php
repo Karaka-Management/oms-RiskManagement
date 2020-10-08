@@ -22,6 +22,10 @@ use Modules\RiskManagement\Models\RiskObjectMapper;
  */
 class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\RiskObjectMapper
+     * @group module
+     */
     public function testCRUD() : void
     {
         $obj = new RiskObject();

@@ -22,6 +22,10 @@ use Modules\RiskManagement\Models\ProcessMapper;
  */
 class ProcessMapperTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\ProcessMapper
+     * @group module
+     */
     public function testCRUD() : void
     {
         $obj = new Process();

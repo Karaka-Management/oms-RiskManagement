@@ -25,6 +25,10 @@ use Modules\RiskManagement\Models\Risk;
  */
 class CauseMapperTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\CauseMapper
+     * @group module
+     */
     public function testCRUD() : void
     {
         $obj = new Cause();

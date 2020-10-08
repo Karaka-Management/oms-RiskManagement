@@ -22,6 +22,10 @@ use Modules\RiskManagement\Models\CategoryMapper;
  */
 class CategoryMapperTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\CategoryMapper
+     * @group module
+     */
     public function testCRUD() : void
     {
         $obj = new Category();

@@ -30,6 +30,10 @@ use Modules\RiskManagement\Models\Solution;
  */
 class RiskMapperTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\RiskMapper
+     * @group module
+     */
     public function testCRUD() : void
     {
         $obj = new Risk();

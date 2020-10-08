@@ -22,6 +22,10 @@ use Modules\RiskManagement\Models\DepartmentMapper;
  */
 class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @covers Modules\RiskManagement\Models\DepartmentMapper
+     * @group module
+     */
     public function testCRUD() : void
     {
         $obj = new Department();
