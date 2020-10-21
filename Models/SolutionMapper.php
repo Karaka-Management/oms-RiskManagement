@@ -51,11 +51,11 @@ final class SolutionMapper extends DataMapperAbstract
     protected static array $belongsTo = [
         'risk'  => [
             'mapper' => RiskMapper::class,
-            'self'   => 'riskmngmt_solution_risk',
+            'external'   => 'riskmngmt_solution_risk',
         ],
         'cause' => [
             'mapper' => CauseMapper::class,
-            'self'   => 'riskmngmt_solution_cause',
+            'external'   => 'riskmngmt_solution_cause',
         ],
     ];
 

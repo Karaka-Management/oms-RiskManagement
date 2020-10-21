@@ -59,26 +59,26 @@ final class RiskMapper extends DataMapperAbstract
         'media'       => [
             'mapper'   => MediaMapper::class,
             'table'    => 'riskmngmt_risk_media',
-            'external' => 'riskmngmt_risk_media_risk',
-            'self'     => 'riskmngmt_risk_media_media',
+            'external' => 'riskmngmt_risk_media_media',
+            'self'     => 'riskmngmt_risk_media_risk',
         ],
         'riskObjects' => [
             'mapper'   => RiskObjectMapper::class,
             'table'    => 'riskmngmt_risk_object',
-            'external' => 'riskmngmt_risk_object_risk',
-            'self'     => null,
+            'self' => 'riskmngmt_risk_object_risk',
+            'external'     => null,
         ],
         'causes'      => [
             'mapper'   => CauseMapper::class,
             'table'    => 'riskmngmt_cause',
-            'external' => 'riskmngmt_cause_risk',
-            'self'     => null,
+            'self' => 'riskmngmt_cause_risk',
+            'external'     => null,
         ],
         'solutions'   => [
             'mapper'   => SolutionMapper::class,
             'table'    => 'riskmngmt_solution',
-            'external' => 'riskmngmt_solution_risk',
-            'self'     => null,
+            'self' => 'riskmngmt_solution_risk',
+            'external'     => null,
         ],
     ];
 
@@ -91,23 +91,23 @@ final class RiskMapper extends DataMapperAbstract
     protected static array $belongsTo = [
         'project'    => [
             'mapper' => ProjectMapper::class,
-            'self'   => 'riskmngmt_risk_project',
+            'external'   => 'riskmngmt_risk_project',
         ],
         'process'    => [
             'mapper' => ProcessMapper::class,
-            'self'   => 'riskmngmt_risk_process',
+            'external'   => 'riskmngmt_risk_process',
         ],
         'category'   => [
             'mapper' => CategoryMapper::class,
-            'self'   => 'riskmngmt_risk_category',
+            'external'   => 'riskmngmt_risk_category',
         ],
         'department' => [
             'mapper' => DepartmentMapper::class,
-            'self'   => 'riskmngmt_risk_department',
+            'external'   => 'riskmngmt_risk_department',
         ],
         'unit'       => [
             'mapper' => UnitMapper::class,
-            'self'   => 'riskmngmt_risk_unit',
+            'external'   => 'riskmngmt_risk_unit',
         ],
     ];
 
