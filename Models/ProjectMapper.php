@@ -63,7 +63,7 @@ final class ProjectMapper extends DataMapperAbstract
      */
     protected static array $belongsTo = [
         'project' => [
-            'mapper' => \Modules\ProjectManagement\Models\ProjectMapper::class,
+            'mapper'     => \Modules\ProjectManagement\Models\ProjectMapper::class,
             'external'   => 'riskmngmt_project_project',
         ],
     ];

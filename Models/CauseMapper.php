@@ -51,15 +51,15 @@ final class CauseMapper extends DataMapperAbstract
      */
     protected static array $belongsTo = [
         'risk'       => [
-            'mapper' => RiskMapper::class,
+            'mapper'     => RiskMapper::class,
             'external'   => 'riskmngmt_cause_risk',
         ],
         'category'   => [
-            'mapper' => CategoryMapper::class,
+            'mapper'     => CategoryMapper::class,
             'external'   => 'riskmngmt_cause_category',
         ],
         'department' => [
-            'mapper' => DepartmentMapper::class,
+            'mapper'     => DepartmentMapper::class,
             'external'   => 'riskmngmt_cause_department',
         ],
     ];

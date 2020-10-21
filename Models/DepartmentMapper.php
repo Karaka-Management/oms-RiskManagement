@@ -63,7 +63,7 @@ final class DepartmentMapper extends DataMapperAbstract
      */
     protected static array $belongsTo = [
         'department' => [
-            'mapper' => \Modules\Organization\Models\DepartmentMapper::class,
+            'mapper'     => \Modules\Organization\Models\DepartmentMapper::class,
             'external'   => 'riskmngmt_department_department',
         ],
     ];

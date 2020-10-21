@@ -52,11 +52,11 @@ final class ProcessMapper extends DataMapperAbstract
      */
     protected static array $belongsTo = [
         'unit'       => [
-            'mapper' => UnitMapper::class,
+            'mapper'     => UnitMapper::class,
             'external'   => 'riskmngmt_process_unit',
         ],
         'department' => [
-            'mapper' => DepartmentMapper::class,
+            'mapper'     => DepartmentMapper::class,
             'external'   => 'riskmngmt_process_department',
         ],
     ];
