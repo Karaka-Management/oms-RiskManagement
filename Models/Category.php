@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\Models;
 
+use Modules\Admin\Models\Account;
+
 /**
  * Risk Management class.
  *
@@ -64,9 +66,21 @@ class Category
      */
     private $parent = null;
 
-    private $responsible = null;
+    /**
+     * Responsible person
+     *
+     * @var null|Account
+     * @since 1.0.0
+     */
+    private ?Account $responsible = null;
 
-    private $deputy = null;
+    /**
+     * Responsible person
+     *
+     * @var null|Account
+     * @since 1.0.0
+     */
+    private ?Account $deputy = null;
 
     /**
      * Get id.
