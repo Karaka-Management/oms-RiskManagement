@@ -30,7 +30,7 @@ class SolutionMapperTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new Solution();
 
-        $obj->title = 'Title';
+        $obj->title          = 'Title';
         $obj->descriptionRaw = 'Description';
         $obj->setProbability(1);
         $obj->setCause(1);

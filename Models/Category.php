@@ -14,8 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\Models;
 
-use Modules\Admin\Models\Account;
-
 /**
  * Risk Management class.
  *

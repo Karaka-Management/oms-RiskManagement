@@ -31,8 +31,8 @@ class CauseMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testCRUD() : void
     {
-        $obj = new Cause();
-        $obj->title = 'Cause Test';
+        $obj                 = new Cause();
+        $obj->title          = 'Cause Test';
         $obj->descriptionRaw = 'Description';
         $obj->setProbability(1);
 
@@ -40,11 +40,11 @@ class CauseMapperTest extends \PHPUnit\Framework\TestCase
         $department->setDepartment(2);
         $obj->setDepartment($department);
 
-        $category = new Category();
+        $category        = new Category();
         $category->title = 'Test Cat';
         $obj->setCategory($category);
 
-        $risk = new Risk();
+        $risk       = new Risk();
         $risk->name = 'Cause Test Risk';
         $risk->setUnit(1);
         $obj->setRisk($risk);

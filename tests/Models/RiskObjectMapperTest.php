@@ -28,8 +28,8 @@ class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testCRUD() : void
     {
-        $obj = new RiskObject();
-        $obj->title = 'Name';
+        $obj                 = new RiskObject();
+        $obj->title          = 'Name';
         $obj->descriptionRaw = 'Description';
         $obj->setRisk(1);
 

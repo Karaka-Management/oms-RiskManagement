@@ -28,8 +28,8 @@ class ProcessMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testCRUD() : void
     {
-        $obj = new Process();
-        $obj->title = 'Name';
+        $obj                 = new Process();
+        $obj->title          = 'Name';
         $obj->descriptionRaw = 'Description';
         $obj->setDepartment(2);
         $obj->setResponsible(1);

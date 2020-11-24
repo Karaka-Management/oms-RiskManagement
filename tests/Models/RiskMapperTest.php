@@ -38,7 +38,7 @@ class RiskMapperTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new Risk();
 
-        $obj->name = 'Risk Test';
+        $obj->name           = 'Risk Test';
         $obj->descriptionRaw = 'Description';
         $obj->setUnit(1);
         $obj->setDepartment(2);
@@ -56,27 +56,27 @@ class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $obj->setResponsible(1);
         $obj->setDeputy(1);
 
-        $causeObj = new Cause();
+        $causeObj        = new Cause();
         $causeObj->title = 'Risk Test Cause';
         $obj->addCause($causeObj);
 
-        $solutionObj = new Solution();
+        $solutionObj        = new Solution();
         $solutionObj->title = 'Risk Test Solution';
         $obj->addSolution($solutionObj);
 
-        $riskObj = new RiskObject();
+        $riskObj        = new RiskObject();
         $riskObj->title = 'Risk Test Object';
         $obj->addRiskObject($riskObj);
 
         $obj->addHistory(2);
 
-        $media = new Media();
-        $media->createdBy = new NullAccount(1);
+        $media              = new Media();
+        $media->createdBy   = new NullAccount(1);
         $media->description = 'desc';
         $media->setPath('some/path');
-        $media->size = 11;
+        $media->size      = 11;
         $media->extension = 'png';
-        $media->name = 'Image';
+        $media->name      = 'Image';
         $obj->addMedia($media);
 
         RiskMapper::create($obj);
