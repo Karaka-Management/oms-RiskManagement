@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\RiskManagement\Models\Category;
 use Modules\RiskManagement\Models\CategoryMapper;
 
@@ -29,17 +30,17 @@ class CategoryMapperTest extends \PHPUnit\Framework\TestCase
     public function testCRUD() : void
     {
         $obj = new Category();
-        $obj->setTitle('Name');
-        $obj->setDescriptionRaw('Description');
-        $obj->setResponsible(1);
-        $obj->setDeputy(1);
+        $obj->title = 'Name';
+        $obj->descriptionRaw = 'Description';
+        $obj->responsible = 1;
+        $obj->deputy = 1;
 
         CategoryMapper::create($obj);
 
         $objR = CategoryMapper::get($obj->getId());
-        self::assertEquals($obj->getTitle(), $objR->getTitle());
-        self::assertEquals($obj->getDescriptionRaw(), $objR->getDescriptionRaw());
-        self::assertEquals($obj->getResponsible(), $objR->getResponsible());
-        self::assertEquals($obj->getDeputy(), $objR->getDeputy());
+        self::assertEquals($obj->title, $objR->title);
+        self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
+        self::assertEquals($obj->responsible, $objR->responsible);
+        self::assertEquals($obj->deputy, $objR->deputy);
     }
 }

@@ -30,12 +30,12 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
         $obj = new Category();
 
         self::assertEquals(0, $obj->getId());
-        self::assertEquals('', $obj->getTitle());
-        self::assertEquals('', $obj->getDescription());
-        self::assertEquals('', $obj->getDescriptionRaw());
-        self::assertNull($obj->getParent());
-        self::assertNull($obj->getResponsible());
-        self::assertNull($obj->getDeputy());
+        self::assertEquals('', $obj->title);
+        self::assertEquals('', $obj->description);
+        self::assertEquals('', $obj->descriptionRaw);
+        self::assertNull($obj->parent);
+        self::assertNull($obj->responsible);
+        self::assertNull($obj->deputy);
     }
 
     /**
@@ -46,19 +46,19 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new Category();
 
-        $obj->setTitle('Name');
-        self::assertEquals('Name', $obj->getTitle());
+        $obj->title = 'Name';
+        self::assertEquals('Name', $obj->title);
 
-        $obj->setDescriptionRaw('Description');
-        self::assertEquals('Description', $obj->getDescriptionRaw());
+        $obj->descriptionRaw = 'Description';
+        self::assertEquals('Description', $obj->descriptionRaw);
 
-        $obj->setResponsible(1);
-        self::assertEquals(1, $obj->getResponsible());
+        $obj->responsible = 1;
+        self::assertEquals(1, $obj->responsible);
 
-        $obj->setDeputy(1);
-        self::assertEquals(1, $obj->getDeputy());
+        $obj->deputy = 1;
+        self::assertEquals(1, $obj->deputy);
 
-        $obj->setParent(1);
-        self::assertEquals(1, $obj->getParent());
+        $obj->parent = 1;
+        self::assertEquals(1, $obj->parent);
     }
 }

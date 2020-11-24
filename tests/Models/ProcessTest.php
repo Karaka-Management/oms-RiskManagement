@@ -30,9 +30,9 @@ class ProcessTest extends \PHPUnit\Framework\TestCase
         $obj = new Process();
 
         self::assertEquals(0, $obj->getId());
-        self::assertEquals('', $obj->getTitle());
-        self::assertEquals('', $obj->getDescription());
-        self::assertEquals('', $obj->getDescriptionRaw());
+        self::assertEquals('', $obj->title);
+        self::assertEquals('', $obj->description);
+        self::assertEquals('', $obj->descriptionRaw);
         self::assertNull($obj->getDepartment());
         self::assertEquals(1, $obj->getUnit());
         self::assertNull($obj->getResponsible());
@@ -47,11 +47,11 @@ class ProcessTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new Process();
 
-        $obj->setTitle('Name');
-        self::assertEquals('Name', $obj->getTitle());
+        $obj->title = 'Name';
+        self::assertEquals('Name', $obj->title);
 
-        $obj->setDescriptionRaw('Description');
-        self::assertEquals('Description', $obj->getDescriptionRaw());
+        $obj->descriptionRaw = 'Description';
+        self::assertEquals('Description', $obj->descriptionRaw);
 
         $obj->setResponsible(1);
         self::assertEquals(1, $obj->getResponsible());

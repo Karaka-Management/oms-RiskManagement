@@ -32,7 +32,7 @@ class Solution
      */
     protected int $id = 0;
 
-    private $title = '';
+    public string $title = '';
 
     /**
      * Description.
@@ -40,7 +40,7 @@ class Solution
      * @var string
      * @since 1.0.0
      */
-    private string $description = '';
+    public string $description = '';
 
     /**
      * Description.
@@ -48,7 +48,7 @@ class Solution
      * @var string
      * @since 1.0.0
      */
-    private string $descriptionRaw = '';
+    public string $descriptionRaw = '';
 
     private $probability = 0;
 
@@ -144,32 +144,6 @@ class Solution
     public function setProbability(int $probability) : void
     {
         $this->probability = $probability;
-    }
-
-    /**
-     * Get title.
-     *
-     * @return string
-     *
-     * @since 1.0.0
-     */
-    public function getTitle() : string
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set title.
-     *
-     * @param string $title Title
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setTitle(string $title) : void
-    {
-        $this->title = $title;
     }
 
     /**

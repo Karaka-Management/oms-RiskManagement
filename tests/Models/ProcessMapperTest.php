@@ -29,8 +29,8 @@ class ProcessMapperTest extends \PHPUnit\Framework\TestCase
     public function testCRUD() : void
     {
         $obj = new Process();
-        $obj->setTitle('Name');
-        $obj->setDescriptionRaw('Description');
+        $obj->title = 'Name';
+        $obj->descriptionRaw = 'Description';
         $obj->setDepartment(2);
         $obj->setResponsible(1);
         $obj->setDeputy(1);
@@ -39,8 +39,8 @@ class ProcessMapperTest extends \PHPUnit\Framework\TestCase
         ProcessMapper::create($obj);
 
         $objR = ProcessMapper::get($obj->getId());
-        self::assertEquals($obj->getTitle(), $objR->getTitle());
-        self::assertEquals($obj->getDescriptionRaw(), $objR->getDescriptionRaw());
+        self::assertEquals($obj->title, $objR->title);
+        self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->getResponsible(), $objR->getResponsible());
         self::assertEquals($obj->getDeputy(), $objR->getDeputy());
         self::assertEquals($obj->getDepartment(), $objR->getDepartment()->getId());

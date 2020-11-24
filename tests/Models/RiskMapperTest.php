@@ -38,8 +38,8 @@ class RiskMapperTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new Risk();
 
-        $obj->setName('Risk Test');
-        $obj->setDescriptionRaw('Description');
+        $obj->name = 'Risk Test';
+        $obj->descriptionRaw = 'Description';
         $obj->setUnit(1);
         $obj->setDepartment(2);
 
@@ -57,33 +57,33 @@ class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $obj->setDeputy(1);
 
         $causeObj = new Cause();
-        $causeObj->setTitle('Risk Test Cause');
+        $causeObj->title = 'Risk Test Cause';
         $obj->addCause($causeObj);
 
         $solutionObj = new Solution();
-        $solutionObj->setTitle('Risk Test Solution');
+        $solutionObj->title = 'Risk Test Solution';
         $obj->addSolution($solutionObj);
 
         $riskObj = new RiskObject();
-        $riskObj->setTitle('Risk Test Object');
+        $riskObj->title = 'Risk Test Object';
         $obj->addRiskObject($riskObj);
 
         $obj->addHistory(2);
 
         $media = new Media();
-        $media->setCreatedBy(new NullAccount(1));
-        $media->setDescription('desc');
+        $media->createdBy = new NullAccount(1);
+        $media->description = 'desc';
         $media->setPath('some/path');
-        $media->setSize(11);
-        $media->setExtension('png');
-        $media->setName('Image');
+        $media->size = 11;
+        $media->extension = 'png';
+        $media->name = 'Image';
         $obj->addMedia($media);
 
         RiskMapper::create($obj);
 
         $objR = RiskMapper::get($obj->getId());
-        self::assertEquals($obj->getName(), $objR->getName());
-        self::assertEquals($obj->getDescriptionRaw(), $objR->getDescriptionRaw());
+        self::assertEquals($obj->name, $objR->name);
+        self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->getUnit(), $objR->getUnit()->getId());
         self::assertEquals($obj->getDepartment(), $objR->getDepartment()->getId());
         self::assertEquals($obj->getCategory()->getId(), $objR->getCategory()->getId());
@@ -93,13 +93,13 @@ class RiskMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($obj->getProject()->getProject(), $objR->getProject()->getProject()->getId());
 
         $causes = $objR->getCauses();
-        self::assertEquals($obj->getCauses()[0]->getTitle(), \end($causes)->getTitle());
+        self::assertEquals($obj->getCauses()[0]->title, \end($causes)->title);
 
         $solutions = $objR->getSolutions();
-        self::assertEquals($obj->getSolutions()[0]->getTitle(), \end($solutions)->getTitle());
+        self::assertEquals($obj->getSolutions()[0]->title, \end($solutions)->title);
 
         $riskObjects = $objR->getRiskObjects();
-        self::assertEquals($obj->getRiskObjects()[0]->getTitle(), \end($riskObjects)->getTitle());
+        self::assertEquals($obj->getRiskObjects()[0]->title, \end($riskObjects)->title);
 
         //self::assertEquals($obj->getHistory()[0], $objR->getHistory()[0]);
         $media = $objR->getMedia();

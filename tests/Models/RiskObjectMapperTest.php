@@ -29,15 +29,15 @@ class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
     public function testCRUD() : void
     {
         $obj = new RiskObject();
-        $obj->setTitle('Name');
-        $obj->setDescriptionRaw('Description');
+        $obj->title = 'Name';
+        $obj->descriptionRaw = 'Description';
         $obj->setRisk(1);
 
         RiskObjectMapper::create($obj);
 
         $objR = RiskObjectMapper::get($obj->getId());
-        self::assertEquals($obj->getTitle(), $objR->getTitle());
-        self::assertEquals($obj->getDescriptionRaw(), $objR->getDescriptionRaw());
+        self::assertEquals($obj->title, $objR->title);
+        self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->getRisk(), $objR->getRisk());
     }
 }

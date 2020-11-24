@@ -40,7 +40,7 @@ class Category
      * @var string
      * @since 1.0.0
      */
-    private $title = '';
+    public string $title = '';
 
     /**
      * Description.
@@ -48,7 +48,7 @@ class Category
      * @var string
      * @since 1.0.0
      */
-    private string $description = '';
+    public string $description = '';
 
     /**
      * Description.
@@ -56,7 +56,7 @@ class Category
      * @var string
      * @since 1.0.0
      */
-    private string $descriptionRaw = '';
+    public string $descriptionRaw = '';
 
     /**
      * Parent category.
@@ -64,23 +64,23 @@ class Category
      * @var null|int|self
      * @since 1.0.0
      */
-    private $parent = null;
+    public $parent = null;
 
     /**
      * Responsible person
      *
-     * @var null|Account
+     * @var null|int
      * @since 1.0.0
      */
-    private ?Account $responsible = null;
+    public ?int $responsible = null;
 
     /**
      * Responsible person
      *
-     * @var null|Account
+     * @var null|int
      * @since 1.0.0
      */
-    private ?Account $deputy = null;
+    public ?int $deputy = null;
 
     /**
      * Get id.
@@ -92,147 +92,5 @@ class Category
     public function getId() : int
     {
         return $this->id;
-    }
-
-    /**
-     * Get parent category.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * Set parent category.
-     *
-     * @param mixed $parent Parent category
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setParent($parent) : void
-    {
-        $this->parent = $parent;
-    }
-
-    /**
-     * Get responsible.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getResponsible()
-    {
-        return $this->responsible;
-    }
-
-    /**
-     * Set responsible.
-     *
-     * @param mixed $responsible Responsible
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setResponsible($responsible) : void
-    {
-        $this->responsible = $responsible;
-    }
-
-    /**
-     * Set deputy.
-     *
-     * @param mixed $deputy Deputy
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setDeputy($deputy) : void
-    {
-        $this->deputy = $deputy;
-    }
-
-    /**
-     * Get deputy.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getDeputy()
-    {
-        return $this->deputy;
-    }
-
-    /**
-     * Get title.
-     *
-     * @return string
-     *
-     * @since 1.0.0
-     */
-    public function getTitle() : string
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set title.
-     *
-     * @param string $title Title
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setTitle(string $title) : void
-    {
-        $this->title = $title;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     *
-     * @since 1.0.0
-     */
-    public function getDescription() : string
-    {
-        return $this->description;
-    }
-
-    /**
-     * Get raw description.
-     *
-     * @return string
-     *
-     * @since 1.0.0
-     */
-    public function getDescriptionRaw() : string
-    {
-        return $this->descriptionRaw;
-    }
-
-    /**
-     * Set raw description
-     *
-     * @param string $description Description
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setDescriptionRaw(string $description) : void
-    {
-        $this->descriptionRaw = $description;
     }
 }

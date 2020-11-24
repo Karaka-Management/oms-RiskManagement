@@ -33,9 +33,9 @@ class RiskTest extends \PHPUnit\Framework\TestCase
         $obj = new Risk();
 
         self::assertEquals(0, $obj->getId());
-        self::assertEquals('', $obj->getName());
-        self::assertEquals('', $obj->getDescription());
-        self::assertEquals('', $obj->getDescriptionRaw());
+        self::assertEquals('', $obj->name);
+        self::assertEquals('', $obj->description);
+        self::assertEquals('', $obj->descriptionRaw);
         self::assertEquals(1, $obj->getUnit());
         self::assertNull($obj->getDepartment());
         self::assertNull($obj->getCategory());
@@ -58,11 +58,11 @@ class RiskTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new Risk();
 
-        $obj->setName('Name');
-        self::assertEquals('Name', $obj->getName());
+        $obj->name = 'Name';
+        self::assertEquals('Name', $obj->name);
 
-        $obj->setDescriptionRaw('Description');
-        self::assertEquals('Description', $obj->getDescriptionRaw());
+        $obj->descriptionRaw = 'Description';
+        self::assertEquals('Description', $obj->descriptionRaw);
 
         $obj->setUnit(1);
         self::assertEquals(1, $obj->getUnit());
