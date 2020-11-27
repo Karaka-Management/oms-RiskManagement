@@ -34,11 +34,11 @@ class Department
      */
     protected int $id = 0;
 
-    private $department = null;
+    private ?Department $department = null;
 
-    private $responsible = null;
+    private ?int $responsible = null;
 
-    private $deputy = null;
+    private ?int $deputy = null;
 
     /**
      * Get id.

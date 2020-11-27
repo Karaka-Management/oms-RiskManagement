@@ -50,11 +50,11 @@ class Solution
      */
     public string $descriptionRaw = '';
 
-    private $probability = 0;
+    private int $probability = 0;
 
-    private $cause = null;
+    private ?int $cause = null;
 
-    private $risk = null;
+    private ?int $risk = null;
 
     /**
      * Get id.

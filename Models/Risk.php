@@ -56,31 +56,31 @@ class Risk
      */
     public string $descriptionRaw = '';
 
-    private $unit = 1;
+    private int $unit = 1;
 
-    private $department = null;
+    private ?int $department = null;
 
-    private $category = null;
+    private ?int $category = null;
 
-    private $project = null;
+    private ?int $project = null;
 
-    private $process = null;
+    private ?int $process = null;
 
-    private $responsible = null;
+    private ?int $responsible = null;
 
-    private $deputy = null;
+    private ?int $deputy = null;
 
-    private $histScore = [];
+    private array $histScore = [];
 
-    private $causes = [];
+    private array $causes = [];
 
-    private $solutions = [];
+    private array $solutions = [];
 
-    private $riskObjects = [];
+    private array $riskObjects = [];
 
-    private $media = [];
+    private array $media = [];
 
-    private $createdAt = null;
+    private \DateTimeImmutable $createdAt;
 
     /**
      * Constructor.

@@ -32,11 +32,11 @@ class Project
      */
     protected int $id = 0;
 
-    private $project = null;
+    private ?int $project = null;
 
-    private $responsible = null;
+    private ?int $responsible = null;
 
-    private $deputy = null;
+    private ?int $deputy = null;
 
     /**
      * Get id.

@@ -50,13 +50,13 @@ class Cause
      */
     public string $descriptionRaw = '';
 
-    private $probability = 0;
+    private int $probability = 0;
 
-    private $department = null;
+    private ?Department $department = null;
 
-    private $risk = null;
+    private ?Risk $risk = null;
 
-    private $category = null;
+    private ?Category $category = null;
 
     /**
      * Get id.

@@ -50,13 +50,13 @@ class Process
      */
     public string $descriptionRaw = '';
 
-    private $department = null;
+    private ?int $department = null;
 
-    private $responsible = null;
+    private ?int $responsible = null;
 
-    private $deputy = null;
+    private ?int $deputy = null;
 
-    private $unit = 1;
+    private int $unit = 1;
 
     /**
      * Get id.

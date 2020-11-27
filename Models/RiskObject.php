@@ -50,7 +50,7 @@ class RiskObject
      */
     public string $descriptionRaw = '';
 
-    private $risk = null;
+    private ?int $risk = null;
 
     /**
      * Get id.
