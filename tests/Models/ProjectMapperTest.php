@@ -16,6 +16,7 @@ namespace Modules\RiskManagement\tests\Models;
 
 use Modules\RiskManagement\Models\Project;
 use Modules\RiskManagement\Models\ProjectMapper;
+use Modules\ProjectManagement\Models\NullProject;
 
 /**
  * @internal
@@ -29,14 +30,14 @@ class ProjectMapperTest extends \PHPUnit\Framework\TestCase
     public function testCRUD() : void
     {
         $obj = new Project();
-        $obj->setProject(1);
+        $obj->setProject(new NullProject(1));
         $obj->setResponsible(1);
         $obj->setDeputy(1);
 
         ProjectMapper::create($obj);
 
         $objR = ProjectMapper::get($obj->getId());
-        self::assertEquals($obj->getProject(), $objR->getProject()->getId());
+        self::assertEquals($obj->getProject()->getId(), $objR->getProject()->getId());
         self::assertEquals($obj->getResponsible(), $objR->getResponsible());
         self::assertEquals($obj->getDeputy(), $objR->getDeputy());
     }

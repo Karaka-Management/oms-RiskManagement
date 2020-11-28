@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\RiskManagement\tests\Models;
 
 use Modules\RiskManagement\Models\Project;
+use Modules\ProjectManagement\Models\NullProject;
 
 /**
  * @internal
@@ -30,7 +31,7 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         $obj = new Project();
 
         self::assertEquals(0, $obj->getId());
-        self::assertEquals(0, $obj->getProject());
+        self::assertEquals(null, $obj->getProject());
         self::assertNull($obj->getResponsible());
         self::assertNull($obj->getDeputy());
     }
@@ -49,7 +50,7 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         $obj->setDeputy(1);
         self::assertEquals(1, $obj->getDeputy());
 
-        $obj->setProject(1);
-        self::assertEquals(1, $obj->getProject());
+        $obj->setProject(new NullProject(1));
+        self::assertEquals(1, $obj->getProject()->getId());
     }
 }

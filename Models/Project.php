@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\Models;
 
+use Modules\ProjectManagement\Models\Project as PMProject;
+
 /**
  * Risk Management class.
  *
@@ -32,7 +34,7 @@ class Project
      */
     protected int $id = 0;
 
-    private ?int $project = null;
+    private ?PMProject $project = null;
 
     private ?int $responsible = null;
 

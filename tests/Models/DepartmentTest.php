@@ -15,6 +15,8 @@ declare(strict_types=1);
 namespace Modules\RiskManagement\tests\Models;
 
 use Modules\RiskManagement\Models\Department;
+use Modules\Organization\Models\Department as OrgDepartment;
+use Modules\Organization\Models\NullDepartment as NullOrgDepartment;
 
 /**
  * @internal
@@ -30,7 +32,7 @@ class DepartmentTest extends \PHPUnit\Framework\TestCase
         $obj = new Department();
 
         self::assertEquals(0, $obj->getId());
-        self::assertInstanceOf('Modules\Organization\Models\NullDepartment', $obj->getDepartment());
+        self::assertEquals(null, $obj->department);
         self::assertNull($obj->getResponsible());
         self::assertNull($obj->getDeputy());
     }
@@ -43,8 +45,8 @@ class DepartmentTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new Department();
 
-        $obj->setDepartment(2);
-        self::assertEquals(2, $obj->getDepartment());
+        $obj->department = new NullOrgDepartment(2);
+        self::assertEquals(2, $obj->department->getId());
 
         $obj->setResponsible(1);
         self::assertEquals(1, $obj->getResponsible());

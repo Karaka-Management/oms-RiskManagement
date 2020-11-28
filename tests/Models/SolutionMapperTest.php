@@ -16,6 +16,8 @@ namespace Modules\RiskManagement\tests\Models;
 
 use Modules\RiskManagement\Models\Solution;
 use Modules\RiskManagement\Models\SolutionMapper;
+use Modules\RiskManagement\Models\NullCause;
+use Modules\RiskManagement\Models\NullRisk;
 
 /**
  * @internal
@@ -33,8 +35,8 @@ class SolutionMapperTest extends \PHPUnit\Framework\TestCase
         $obj->title          = 'Title';
         $obj->descriptionRaw = 'Description';
         $obj->setProbability(1);
-        $obj->setCause(1);
-        $obj->setRisk(1);
+        $obj->setCause(new NullCause(1));
+        $obj->setRisk(new NullRisk(1));
 
         SolutionMapper::create($obj);
 
@@ -42,7 +44,7 @@ class SolutionMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($obj->title, $objR->title);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->getProbability(), $objR->getProbability());
-        self::assertEquals($obj->getRisk(), $objR->getRisk()->getId());
-        self::assertEquals($obj->getCause(), $objR->getCause()->getId());
+        self::assertEquals($obj->getRisk()->getId(), $objR->getRisk()->getId());
+        self::assertEquals($obj->getCause()->getId(), $objR->getCause()->getId());
     }
 }

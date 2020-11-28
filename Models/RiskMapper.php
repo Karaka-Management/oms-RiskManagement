@@ -16,6 +16,7 @@ namespace Modules\RiskManagement\Models;
 
 use Modules\Media\Models\MediaMapper;
 use Modules\Organization\Models\UnitMapper;
+use Modules\Organization\Models\DepartmentMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 /**

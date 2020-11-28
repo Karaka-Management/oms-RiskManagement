@@ -158,7 +158,7 @@
             "riskmngmt_department_department": {
                 "name": "riskmngmt_department_department",
                 "type": "INT",
-                "null": false,
+                "null": true,
                 "foreignTable": "organization_department",
                 "foreignKey": "organization_department_id"
             },

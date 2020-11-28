@@ -15,6 +15,8 @@ declare(strict_types=1);
 namespace Modules\RiskManagement\tests\Models;
 
 use Modules\RiskManagement\Models\Solution;
+use Modules\RiskManagement\Models\NullCause;
+use Modules\RiskManagement\Models\NullRisk;
 
 /**
  * @internal
@@ -55,10 +57,10 @@ class SolutionTest extends \PHPUnit\Framework\TestCase
         $obj->setProbability(1);
         self::assertEquals(1, $obj->getProbability());
 
-        $obj->setCause(1);
-        self::assertEquals(1, $obj->getCause());
+        $obj->setCause(new NullCause(1));
+        self::assertEquals(1, $obj->getCause()->getId());
 
-        $obj->setRisk(1);
-        self::assertEquals(1, $obj->getRisk());
+        $obj->setRisk(new NullRisk(1));
+        self::assertEquals(1, $obj->getRisk()->getId());
     }
 }

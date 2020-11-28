@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\Models;
 
+use Modules\Organization\Models\Department;
+use Modules\Organization\Models\Unit;
+
 /**
  * Risk Management class.
  *
@@ -56,15 +59,15 @@ class Risk
      */
     public string $descriptionRaw = '';
 
-    private int $unit = 1;
+    private ?Unit $unit = null;
 
-    private ?int $department = null;
+    private ?Department $department = null;
 
-    private ?int $category = null;
+    private ?Category $category = null;
 
-    private ?int $project = null;
+    private ?Project $project = null;
 
-    private ?int $process = null;
+    private ?Process $process = null;
 
     private ?int $responsible = null;
 

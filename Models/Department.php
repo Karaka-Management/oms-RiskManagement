@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\Models;
 
+use Modules\Organization\Models\Department as OrgDepartment;
 use Modules\Organization\Models\NullDepartment as NullOrgDepartment;
 
 /**
@@ -34,7 +35,7 @@ class Department
      */
     protected int $id = 0;
 
-    private ?Department $department = null;
+    public ?OrgDepartment $department = null;
 
     private ?int $responsible = null;
 
@@ -50,32 +51,6 @@ class Department
     public function getId() : int
     {
         return $this->id;
-    }
-
-    /**
-     * Get department.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getDepartment()
-    {
-        return $this->department ?? new NullOrgDepartment();
-    }
-
-    /**
-     * Set department.
-     *
-     * @param mixed $department Department
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setDepartment($department) : void
-    {
-        $this->department = $department;
     }
 
     /**

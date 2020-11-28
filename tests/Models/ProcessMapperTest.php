@@ -14,8 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
+use Modules\Organization\Models\NullUnit;
 use Modules\RiskManagement\Models\Process;
 use Modules\RiskManagement\Models\ProcessMapper;
+use Modules\RiskManagement\Models\NullDepartment;
 
 /**
  * @internal
@@ -31,10 +33,10 @@ class ProcessMapperTest extends \PHPUnit\Framework\TestCase
         $obj                 = new Process();
         $obj->title          = 'Name';
         $obj->descriptionRaw = 'Description';
-        $obj->setDepartment(2);
+        $obj->setDepartment(new NullDepartment(2));
         $obj->setResponsible(1);
         $obj->setDeputy(1);
-        $obj->setUnit(1);
+        $obj->setUnit(new NullUnit(1));
 
         ProcessMapper::create($obj);
 
@@ -43,7 +45,7 @@ class ProcessMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->getResponsible(), $objR->getResponsible());
         self::assertEquals($obj->getDeputy(), $objR->getDeputy());
-        self::assertEquals($obj->getDepartment(), $objR->getDepartment()->getId());
-        self::assertEquals($obj->getUnit(), $objR->getUnit()->getId());
+        self::assertEquals($obj->getDepartment()->getId(), $objR->getDepartment()->getId());
+        self::assertEquals($obj->getUnit()->getId(), $objR->getUnit()->getId());
     }
 }

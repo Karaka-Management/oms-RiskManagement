@@ -52,9 +52,9 @@ class Solution
 
     private int $probability = 0;
 
-    private ?int $cause = null;
+    private ?Cause $cause = null;
 
-    private ?int $risk = null;
+    private ?Risk $risk = null;
 
     /**
      * Get id.

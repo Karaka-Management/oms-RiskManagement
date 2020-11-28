@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\Models;
 
+use Modules\Organization\Models\Unit;
+
 /**
  * Risk Management class.
  *
@@ -50,13 +52,13 @@ class Process
      */
     public string $descriptionRaw = '';
 
-    private ?int $department = null;
+    private ?Department $department = null;
 
     private ?int $responsible = null;
 
     private ?int $deputy = null;
 
-    private int $unit = 1;
+    private ?Unit $unit = null;
 
     /**
      * Get id.

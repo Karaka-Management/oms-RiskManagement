@@ -15,6 +15,9 @@ declare(strict_types=1);
 namespace Modules\RiskManagement\tests\Models;
 
 use Modules\RiskManagement\Models\Cause;
+use Modules\RiskManagement\Models\NullCategory;
+use Modules\RiskManagement\Models\NullRisk;
+use Modules\RiskManagement\Models\NullDepartment;
 
 /**
  * @internal
@@ -56,13 +59,13 @@ class CauseTest extends \PHPUnit\Framework\TestCase
         $obj->setProbability(1);
         self::assertEquals(1, $obj->getProbability());
 
-        $obj->setCategory(2);
-        self::assertEquals(2, $obj->getCategory());
+        $obj->setCategory(new NullCategory(2));
+        self::assertEquals(2, $obj->getCategory()->getId());
 
-        $obj->setRisk(1);
-        self::assertEquals(1, $obj->getRisk());
+        $obj->setRisk(new NullRisk(1));
+        self::assertEquals(1, $obj->getRisk()->getId());
 
-        $obj->setDepartment(1);
-        self::assertEquals(1, $obj->getDepartment());
+        $obj->setDepartment(new NullDepartment(1));
+        self::assertEquals(1, $obj->getDepartment()->getId());
     }
 }
