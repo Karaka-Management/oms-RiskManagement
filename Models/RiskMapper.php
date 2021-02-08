@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace Modules\RiskManagement\Models;
 
 use Modules\Media\Models\MediaMapper;
-use Modules\Organization\Models\UnitMapper;
 use Modules\Organization\Models\DepartmentMapper;
+use Modules\Organization\Models\UnitMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
 
 /**

@@ -14,9 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
-use Modules\RiskManagement\Models\Process;
 use Modules\Organization\Models\NullUnit;
 use Modules\RiskManagement\Models\NullDepartment;
+use Modules\RiskManagement\Models\Process;
 
 /**
  * @internal
@@ -36,7 +36,7 @@ class ProcessTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $obj->description);
         self::assertEquals('', $obj->descriptionRaw);
         self::assertNull($obj->getDepartment());
-        self::assertEquals(null, $obj->getUnit());
+        self::assertNull($obj->getUnit());
         self::assertNull($obj->getResponsible());
         self::assertNull($obj->getDeputy());
     }

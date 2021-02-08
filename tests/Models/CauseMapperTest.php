@@ -14,15 +14,13 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
+use Modules\Organization\Models\NullDepartment as NullOrgDepartment;
+use Modules\Organization\Models\NullUnit;
 use Modules\RiskManagement\Models\Category;
 use Modules\RiskManagement\Models\Cause;
 use Modules\RiskManagement\Models\CauseMapper;
 use Modules\RiskManagement\Models\Department;
-use Modules\RiskManagement\Models\NullDepartment;
-use Modules\Organization\Models\Department as OrgDepartment;
-use Modules\Organization\Models\NullDepartment as NullOrgDepartment;
 use Modules\RiskManagement\Models\Risk;
-use Modules\Organization\Models\NullUnit;
 
 /**
  * @internal
@@ -40,7 +38,7 @@ class CauseMapperTest extends \PHPUnit\Framework\TestCase
         $obj->descriptionRaw = 'Description';
         $obj->setProbability(1);
 
-        $department = new Department();
+        $department             = new Department();
         $department->department = new NullOrgDepartment(2);
         $obj->setDepartment($department);
 

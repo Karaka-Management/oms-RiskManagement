@@ -14,14 +14,14 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
+use Modules\Organization\Models\NullDepartment;
+use Modules\Organization\Models\NullUnit;
 use Modules\RiskManagement\Models\Cause;
 use Modules\RiskManagement\Models\Department;
-use Modules\RiskManagement\Models\Risk;
-use Modules\RiskManagement\Models\Solution;
-use Modules\Organization\Models\NullUnit;
-use Modules\Organization\Models\NullDepartment;
 use Modules\RiskManagement\Models\NullCategory;
 use Modules\RiskManagement\Models\NullProcess;
+use Modules\RiskManagement\Models\Risk;
+use Modules\RiskManagement\Models\Solution;
 
 /**
  * @internal
@@ -40,7 +40,7 @@ class RiskTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $obj->name);
         self::assertEquals('', $obj->description);
         self::assertEquals('', $obj->descriptionRaw);
-        self::assertEquals(null, $obj->getUnit());
+        self::assertNull($obj->getUnit());
         self::assertNull($obj->getDepartment());
         self::assertNull($obj->getCategory());
         self::assertNull($obj->getProcess());
@@ -77,7 +77,7 @@ class RiskTest extends \PHPUnit\Framework\TestCase
         $obj->setProcess(new NullProcess(4));
         self::assertEquals(4, $obj->getProcess()->getId());
 
-        $department = new Department();
+        $department             = new Department();
         $department->department = new NullDepartment(1);
         $obj->setDepartment(new NullDepartment(1));
 

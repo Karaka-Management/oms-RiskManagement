@@ -15,9 +15,9 @@ declare(strict_types=1);
 namespace Modules\RiskManagement\tests\Models;
 
 use Modules\Organization\Models\NullUnit;
+use Modules\RiskManagement\Models\NullDepartment;
 use Modules\RiskManagement\Models\Process;
 use Modules\RiskManagement\Models\ProcessMapper;
-use Modules\RiskManagement\Models\NullDepartment;
 
 /**
  * @internal

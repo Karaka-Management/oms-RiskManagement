@@ -16,6 +16,9 @@ namespace Modules\RiskManagement\tests\Models;
 
 use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Media;
+use Modules\Organization\Models\NullDepartment;
+use Modules\Organization\Models\NullUnit;
+use Modules\ProjectManagement\Models\NullProject;
 use Modules\RiskManagement\Models\Category;
 use Modules\RiskManagement\Models\Cause;
 use Modules\RiskManagement\Models\Process;
@@ -24,9 +27,6 @@ use Modules\RiskManagement\Models\Risk;
 use Modules\RiskManagement\Models\RiskMapper;
 use Modules\RiskManagement\Models\RiskObject;
 use Modules\RiskManagement\Models\Solution;
-use Modules\Organization\Models\NullUnit;
-use Modules\Organization\Models\NullDepartment;
-use Modules\ProjectManagement\Models\NullProject;
 
 /**
  * @internal

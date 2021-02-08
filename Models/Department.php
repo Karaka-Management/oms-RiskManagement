@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Modules\RiskManagement\Models;
 
 use Modules\Organization\Models\Department as OrgDepartment;
-use Modules\Organization\Models\NullDepartment as NullOrgDepartment;
 
 /**
  * Risk Management class.

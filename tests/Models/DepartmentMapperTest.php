@@ -29,7 +29,7 @@ class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testCRUD() : void
     {
-        $obj = new Department();
+        $obj             = new Department();
         $obj->department = new NullDepartment();
         $obj->setResponsible(1);
         $obj->setDeputy(1);

@@ -16,8 +16,8 @@ namespace Modules\RiskManagement\tests\Models;
 
 use Modules\RiskManagement\Models\Cause;
 use Modules\RiskManagement\Models\NullCategory;
-use Modules\RiskManagement\Models\NullRisk;
 use Modules\RiskManagement\Models\NullDepartment;
+use Modules\RiskManagement\Models\NullRisk;
 
 /**
  * @internal

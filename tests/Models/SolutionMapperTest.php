@@ -14,10 +14,10 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
-use Modules\RiskManagement\Models\Solution;
-use Modules\RiskManagement\Models\SolutionMapper;
 use Modules\RiskManagement\Models\NullCause;
 use Modules\RiskManagement\Models\NullRisk;
+use Modules\RiskManagement\Models\Solution;
+use Modules\RiskManagement\Models\SolutionMapper;
 
 /**
  * @internal

@@ -14,9 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
+use Modules\ProjectManagement\Models\NullProject;
 use Modules\RiskManagement\Models\Project;
 use Modules\RiskManagement\Models\ProjectMapper;
-use Modules\ProjectManagement\Models\NullProject;
 
 /**
  * @internal
