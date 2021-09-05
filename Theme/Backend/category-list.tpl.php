@@ -18,6 +18,7 @@ echo $this->getData('nav')->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <div class="box wf-100">
+            <div class="slider">
             <table class="default sticky">
                 <caption><?= $this->getHtml('Categories'); ?><i class="fa fa-download floatRight download btn"></i></caption>
                 <thead>
@@ -37,6 +38,7 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                                 <?php endif; ?>
             </table>
+            </div>
         </div>
     </div>
 </div>
