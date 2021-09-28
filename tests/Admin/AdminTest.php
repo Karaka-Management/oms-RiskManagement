@@ -19,7 +19,7 @@ namespace Modules\RiskManagement\tests\Admin;
  */
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
-    protected const MODULE_NAME = 'RiskManagement';
+    protected const NAME = 'RiskManagement';
 
     protected const URI_LOAD = '';
 
