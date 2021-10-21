@@ -20,7 +20,7 @@ use Modules\RiskManagement\Models\CategoryMapper;
 /**
  * @internal
  */
-class CategoryMapperTest extends \PHPUnit\Framework\TestCase
+final class CategoryMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\CategoryMapper

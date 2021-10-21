@@ -22,7 +22,7 @@ use Modules\RiskManagement\Models\NullRisk;
 /**
  * @internal
  */
-class CauseTest extends \PHPUnit\Framework\TestCase
+final class CauseTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\Cause

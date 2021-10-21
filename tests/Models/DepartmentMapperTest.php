@@ -21,7 +21,7 @@ use Modules\RiskManagement\Models\DepartmentMapper;
 /**
  * @internal
  */
-class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
+final class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\DepartmentMapper

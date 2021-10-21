@@ -19,7 +19,7 @@ use Modules\RiskManagement\Models\Category;
 /**
  * @internal
  */
-class CategoryTest extends \PHPUnit\Framework\TestCase
+final class CategoryTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\Category

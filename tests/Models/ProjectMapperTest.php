@@ -21,7 +21,7 @@ use Modules\RiskManagement\Models\ProjectMapper;
 /**
  * @internal
  */
-class ProjectMapperTest extends \PHPUnit\Framework\TestCase
+final class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\ProjectMapper

@@ -22,7 +22,7 @@ use Modules\RiskManagement\Models\SolutionMapper;
 /**
  * @internal
  */
-class SolutionMapperTest extends \PHPUnit\Framework\TestCase
+final class SolutionMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\SolutionMapper

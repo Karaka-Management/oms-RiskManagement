@@ -21,7 +21,7 @@ use Modules\RiskManagement\Models\Process;
 /**
  * @internal
  */
-class ProcessTest extends \PHPUnit\Framework\TestCase
+final class ProcessTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\Process

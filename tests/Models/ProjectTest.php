@@ -20,7 +20,7 @@ use Modules\RiskManagement\Models\Project;
 /**
  * @internal
  */
-class ProjectTest extends \PHPUnit\Framework\TestCase
+final class ProjectTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\Project

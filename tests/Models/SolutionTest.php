@@ -21,7 +21,7 @@ use Modules\RiskManagement\Models\Solution;
 /**
  * @internal
  */
-class SolutionTest extends \PHPUnit\Framework\TestCase
+final class SolutionTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\Solution

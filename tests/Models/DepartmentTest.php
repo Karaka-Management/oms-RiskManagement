@@ -20,7 +20,7 @@ use Modules\RiskManagement\Models\Department;
 /**
  * @internal
  */
-class DepartmentTest extends \PHPUnit\Framework\TestCase
+final class DepartmentTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\Department

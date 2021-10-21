@@ -19,7 +19,7 @@ use Modules\RiskManagement\Models\RiskObject;
 /**
  * @internal
  */
-class RiskObjectTest extends \PHPUnit\Framework\TestCase
+final class RiskObjectTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\RiskObject

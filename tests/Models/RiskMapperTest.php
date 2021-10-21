@@ -31,7 +31,7 @@ use Modules\RiskManagement\Models\Solution;
 /**
  * @internal
  */
-class RiskMapperTest extends \PHPUnit\Framework\TestCase
+final class RiskMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\RiskMapper

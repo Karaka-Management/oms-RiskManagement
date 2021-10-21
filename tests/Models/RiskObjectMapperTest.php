@@ -20,7 +20,7 @@ use Modules\RiskManagement\Models\RiskObjectMapper;
 /**
  * @internal
  */
-class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
+final class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\RiskObjectMapper

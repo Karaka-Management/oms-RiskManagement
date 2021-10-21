@@ -26,7 +26,7 @@ use Modules\RiskManagement\Models\Solution;
 /**
  * @internal
  */
-class RiskTest extends \PHPUnit\Framework\TestCase
+final class RiskTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\Risk

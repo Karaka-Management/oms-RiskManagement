@@ -25,7 +25,7 @@ use Modules\RiskManagement\Models\Risk;
 /**
  * @internal
  */
-class CauseMapperTest extends \PHPUnit\Framework\TestCase
+final class CauseMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\CauseMapper
