@@ -39,7 +39,7 @@ final class CauseMapperTest extends \PHPUnit\Framework\TestCase
         $obj->setProbability(1);
 
         $department             = new Department();
-        $department->department = new NullOrgDepartment(2);
+        $department->department = new NullOrgDepartment(1);
         $obj->setDepartment($department);
 
         $category        = new Category();

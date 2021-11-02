@@ -33,7 +33,7 @@ final class ProcessMapperTest extends \PHPUnit\Framework\TestCase
         $obj                 = new Process();
         $obj->title          = 'Name';
         $obj->descriptionRaw = 'Description';
-        $obj->setDepartment(new NullDepartment(2));
+        $obj->setDepartment(new NullDepartment(1));
         $obj->setResponsible(1);
         $obj->setDeputy(1);
         $obj->setUnit(new NullUnit(1));

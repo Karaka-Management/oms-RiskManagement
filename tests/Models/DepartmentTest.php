@@ -44,8 +44,8 @@ final class DepartmentTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new Department();
 
-        $obj->department = new NullOrgDepartment(2);
-        self::assertEquals(2, $obj->department->getId());
+        $obj->department = new NullOrgDepartment(1);
+        self::assertEquals(1, $obj->department->getId());
 
         $obj->setResponsible(1);
         self::assertEquals(1, $obj->getResponsible());
