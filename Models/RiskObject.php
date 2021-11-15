@@ -50,7 +50,7 @@ class RiskObject
      */
     public string $descriptionRaw = '';
 
-    private ?int $risk = null;
+    public ?int $risk = null;
 
     /**
      * Get id.
@@ -62,31 +62,5 @@ class RiskObject
     public function getId() : int
     {
         return $this->id;
-    }
-
-    /**
-     * Get risk.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getRisk()
-    {
-        return $this->risk;
-    }
-
-    /**
-     * Set risk.
-     *
-     * @param mixed $risk Risk
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setRisk($risk) : void
-    {
-        $this->risk = $risk;
     }
 }

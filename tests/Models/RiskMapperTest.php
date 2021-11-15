@@ -43,21 +43,21 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
 
         $obj->name           = 'Risk Test';
         $obj->descriptionRaw = 'Description';
-        $obj->setUnit(new NullUnit(1));
-        $obj->setDepartment(new NullDepartment(1));
+        $obj->unit           = new NullUnit(1);
+        $obj->department     = new NullDepartment(1);
 
-        $categoryObj = new Category();
-        $obj->setCategory($categoryObj);
+        $categoryObj   = new Category();
+        $obj->category = $categoryObj;
 
-        $processObj = new Process();
-        $obj->setProcess($processObj);
+        $processObj   = new Process();
+        $obj->process = $processObj;
 
-        $projectObj = new Project();
-        $projectObj->setProject(new NullProject(1));
-        $obj->setProject($projectObj);
+        $projectObj          = new Project();
+        $projectObj->project = new NullProject(1);
+        $obj->project        = $projectObj;
 
-        $obj->setResponsible(1);
-        $obj->setDeputy(1);
+        $obj->responsible = 1;
+        $obj->deputy      = 1;
 
         $causeObj        = new Cause();
         $causeObj->title = 'Risk Test Cause';
@@ -87,13 +87,13 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $objR = RiskMapper::get($obj->getId());
         self::assertEquals($obj->name, $objR->name);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
-        self::assertEquals($obj->getUnit()->getId(), $objR->getUnit()->getId());
-        self::assertEquals($obj->getDepartment()->getId(), $objR->getDepartment()->getId());
-        self::assertEquals($obj->getCategory()->getId(), $objR->getCategory()->getId());
-        self::assertEquals($obj->getProcess()->getId(), $objR->getProcess()->getId());
-        self::assertEquals($obj->getResponsible(), $objR->getResponsible());
-        self::assertEquals($obj->getDeputy(), $objR->getDeputy());
-        self::assertEquals($obj->getProject()->getProject()->getId(), $objR->getProject()->getProject()->getId());
+        self::assertEquals($obj->unit->getId(), $objR->unit->getId());
+        self::assertEquals($obj->department->getId(), $objR->department->getId());
+        self::assertEquals($obj->category->getId(), $objR->category->getId());
+        self::assertEquals($obj->process->getId(), $objR->process->getId());
+        self::assertEquals($obj->responsible, $objR->responsible);
+        self::assertEquals($obj->deputy, $objR->deputy);
+        self::assertEquals($obj->project->project->getId(), $objR->project->project->getId());
 
         $causes = $objR->getCauses();
         self::assertEquals($obj->getCauses()[0]->title, \end($causes)->title);

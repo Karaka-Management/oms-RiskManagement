@@ -36,20 +36,20 @@ final class CauseMapperTest extends \PHPUnit\Framework\TestCase
         $obj                 = new Cause();
         $obj->title          = 'Cause Test';
         $obj->descriptionRaw = 'Description';
-        $obj->setProbability(1);
+        $obj->probability    = 1;
 
         $department             = new Department();
         $department->department = new NullOrgDepartment(1);
-        $obj->setDepartment($department);
+        $obj->department        = $department;
 
         $category        = new Category();
         $category->title = 'Test Cat';
-        $obj->setCategory($category);
+        $obj->category   = $category;
 
         $risk       = new Risk();
         $risk->name = 'Cause Test Risk';
-        $risk->setUnit(new NullUnit(1));
-        $obj->setRisk($risk);
+        $risk->unit = new NullUnit(1);
+        $obj->risk  = $risk;
 
         CauseMapper::create($obj);
 
@@ -58,7 +58,7 @@ final class CauseMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($obj->title, $objR->title);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         //self::assertEquals($obj->getDepartment()->department->getId(), $objR->getDepartment()->department->getId());
-        self::assertEquals($obj->getCategory()->title, $objR->getCategory()->title);
-        self::assertEquals($obj->getRisk()->name, $objR->getRisk()->name);
+        self::assertEquals($obj->category->title, $objR->category->title);
+        self::assertEquals($obj->risk->name, $objR->risk->name);
     }
 }

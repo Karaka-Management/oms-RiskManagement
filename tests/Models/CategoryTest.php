@@ -37,28 +37,4 @@ final class CategoryTest extends \PHPUnit\Framework\TestCase
         self::assertNull($obj->responsible);
         self::assertNull($obj->deputy);
     }
-
-    /**
-     * @covers Modules\RiskManagement\Models\Category
-     * @group module
-     */
-    public function testSetGet() : void
-    {
-        $obj = new Category();
-
-        $obj->title = 'Name';
-        self::assertEquals('Name', $obj->title);
-
-        $obj->descriptionRaw = 'Description';
-        self::assertEquals('Description', $obj->descriptionRaw);
-
-        $obj->responsible = 1;
-        self::assertEquals(1, $obj->responsible);
-
-        $obj->deputy = 1;
-        self::assertEquals(1, $obj->deputy);
-
-        $obj->parent = 1;
-        self::assertEquals(1, $obj->parent);
-    }
 }

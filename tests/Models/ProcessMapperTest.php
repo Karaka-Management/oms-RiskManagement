@@ -33,19 +33,19 @@ final class ProcessMapperTest extends \PHPUnit\Framework\TestCase
         $obj                 = new Process();
         $obj->title          = 'Name';
         $obj->descriptionRaw = 'Description';
-        $obj->setDepartment(new NullDepartment(1));
-        $obj->setResponsible(1);
-        $obj->setDeputy(1);
-        $obj->setUnit(new NullUnit(1));
+        $obj->department     = new NullDepartment(1);
+        $obj->responsible    = 1;
+        $obj->deputy         = 1;
+        $obj->unit           = new NullUnit(1);
 
         ProcessMapper::create($obj);
 
         $objR = ProcessMapper::get($obj->getId());
         self::assertEquals($obj->title, $objR->title);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
-        self::assertEquals($obj->getResponsible(), $objR->getResponsible());
-        self::assertEquals($obj->getDeputy(), $objR->getDeputy());
-        self::assertEquals($obj->getDepartment()->getId(), $objR->getDepartment()->getId());
-        self::assertEquals($obj->getUnit()->getId(), $objR->getUnit()->getId());
+        self::assertEquals($obj->responsible, $objR->responsible);
+        self::assertEquals($obj->deputy, $objR->deputy);
+        self::assertEquals($obj->department->getId(), $objR->department->getId());
+        self::assertEquals($obj->unit->getId(), $objR->unit->getId());
     }
 }

@@ -59,19 +59,19 @@ class Risk
      */
     public string $descriptionRaw = '';
 
-    private ?Unit $unit = null;
+    public ?Unit $unit = null;
 
-    private ?Department $department = null;
+    public ?Department $department = null;
 
-    private ?Category $category = null;
+    public ?Category $category = null;
 
-    private ?Project $project = null;
+    public ?Project $project = null;
 
-    private ?Process $process = null;
+    public ?Process $process = null;
 
-    private ?int $responsible = null;
+    public ?int $responsible = null;
 
-    private ?int $deputy = null;
+    public ?int $deputy = null;
 
     private array $histScore = [];
 
@@ -83,7 +83,7 @@ class Risk
 
     private array $media = [];
 
-    private \DateTimeImmutable $createdAt;
+    public \DateTimeImmutable $createdAt;
 
     /**
      * Constructor.
@@ -235,187 +235,5 @@ class Risk
     public function getHistory() : array
     {
         return $this->histScore;
-    }
-
-    /**
-     * Get unit.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getUnit()
-    {
-        return $this->unit;
-    }
-
-    /**
-     * Set unit.
-     *
-     * @param mixed $unit Unit
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setUnit($unit) : void
-    {
-        $this->unit = $unit;
-    }
-
-    /**
-     * Get department.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getDepartment()
-    {
-        return $this->department;
-    }
-
-    /**
-     * Set department.
-     *
-     * @param mixed $department Department
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setDepartment($department) : void
-    {
-        $this->department = $department;
-    }
-
-    /**
-     * Get category.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
-     * Set category.
-     *
-     * @param mixed $category Category
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setCategory($category) : void
-    {
-        $this->category = $category;
-    }
-
-    /**
-     * Get project.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getProject()
-    {
-        return $this->project;
-    }
-
-    /**
-     * Set project.
-     *
-     * @param mixed $project Project
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setProject($project) : void
-    {
-        $this->project = $project;
-    }
-
-    /**
-     * Get process.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getProcess()
-    {
-        return $this->process;
-    }
-
-    /**
-     * Set process.
-     *
-     * @param mixed $process Process
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setProcess($process) : void
-    {
-        $this->process = $process;
-    }
-
-    /**
-     * Get responsible.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getResponsible()
-    {
-        return $this->responsible;
-    }
-
-    /**
-     * Set responsible.
-     *
-     * @param mixed $responsible Responsible
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setResponsible($responsible) : void
-    {
-        $this->responsible = $responsible;
-    }
-
-    /**
-     * Get deputy.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getDeputy()
-    {
-        return $this->deputy;
-    }
-
-    /**
-     * Set deputy.
-     *
-     * @param mixed $deputy Deputy
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setDeputy($deputy) : void
-    {
-        $this->deputy = $deputy;
     }
 }

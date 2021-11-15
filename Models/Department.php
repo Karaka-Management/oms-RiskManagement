@@ -36,9 +36,9 @@ class Department
 
     public ?OrgDepartment $department = null;
 
-    private ?int $responsible = null;
+    public ?int $responsible = null;
 
-    private ?int $deputy = null;
+    public ?int $deputy = null;
 
     /**
      * Get id.
@@ -50,57 +50,5 @@ class Department
     public function getId() : int
     {
         return $this->id;
-    }
-
-    /**
-     * Get responsible.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getResponsible()
-    {
-        return $this->responsible;
-    }
-
-    /**
-     * set responsible.
-     *
-     * @param mixed $responsible Responsible
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setResponsible($responsible) : void
-    {
-        $this->responsible = $responsible;
-    }
-
-    /**
-     * Get deputy.
-     *
-     * @return mixed
-     *
-     * @since 1.0.0
-     */
-    public function getDeputy()
-    {
-        return $this->deputy;
-    }
-
-    /**
-     * Set deputy.
-     *
-     * @param mixed $deputy Deputy
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setDeputy($deputy) : void
-    {
-        $this->deputy = $deputy;
     }
 }

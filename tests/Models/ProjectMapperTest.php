@@ -29,16 +29,16 @@ final class ProjectMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testCRUD() : void
     {
-        $obj = new Project();
-        $obj->setProject(new NullProject(1));
-        $obj->setResponsible(1);
-        $obj->setDeputy(1);
+        $obj              = new Project();
+        $obj->project     = new NullProject(1);
+        $obj->responsible = 1;
+        $obj->deputy      = 1;
 
         ProjectMapper::create($obj);
 
         $objR = ProjectMapper::get($obj->getId());
-        self::assertEquals($obj->getProject()->getId(), $objR->getProject()->getId());
-        self::assertEquals($obj->getResponsible(), $objR->getResponsible());
-        self::assertEquals($obj->getDeputy(), $objR->getDeputy());
+        self::assertEquals($obj->project->getId(), $objR->project->getId());
+        self::assertEquals($obj->responsible, $objR->responsible);
+        self::assertEquals($obj->deputy, $objR->deputy);
     }
 }

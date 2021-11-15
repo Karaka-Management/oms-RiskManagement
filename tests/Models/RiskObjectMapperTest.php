@@ -31,13 +31,13 @@ final class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
         $obj                 = new RiskObject();
         $obj->title          = 'Name';
         $obj->descriptionRaw = 'Description';
-        $obj->setRisk(1);
+        $obj->risk           = 1;
 
         RiskObjectMapper::create($obj);
 
         $objR = RiskObjectMapper::get($obj->getId());
         self::assertEquals($obj->title, $objR->title);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
-        self::assertEquals($obj->getRisk(), $objR->getRisk());
+        self::assertEquals($obj->risk, $objR->risk);
     }
 }

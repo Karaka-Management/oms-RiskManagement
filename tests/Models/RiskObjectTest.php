@@ -33,24 +33,6 @@ final class RiskObjectTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $obj->title);
         self::assertEquals('', $obj->description);
         self::assertEquals('', $obj->descriptionRaw);
-        self::assertEquals(0, $obj->getRisk());
-    }
-
-    /**
-     * @covers Modules\RiskManagement\Models\RiskObject
-     * @group module
-     */
-    public function testSetGet() : void
-    {
-        $obj = new RiskObject();
-
-        $obj->title = 'Name';
-        self::assertEquals('Name', $obj->title);
-
-        $obj->descriptionRaw = 'Description';
-        self::assertEquals('Description', $obj->descriptionRaw);
-
-        $obj->setRisk(1);
-        self::assertEquals(1, $obj->getRisk());
+        self::assertEquals(0, $obj->risk);
     }
 }

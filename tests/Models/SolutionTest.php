@@ -14,8 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
-use Modules\RiskManagement\Models\NullCause;
-use Modules\RiskManagement\Models\NullRisk;
 use Modules\RiskManagement\Models\Solution;
 
 /**
@@ -35,32 +33,8 @@ final class SolutionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $obj->title);
         self::assertEquals('', $obj->description);
         self::assertEquals('', $obj->descriptionRaw);
-        self::assertEquals(0, $obj->getProbability());
-        self::assertEquals(0, $obj->getCause());
-        self::assertEquals(0, $obj->getRisk());
-    }
-
-    /**
-     * @covers Modules\RiskManagement\Models\Solution
-     * @group module
-     */
-    public function testSetGet() : void
-    {
-        $obj = new Solution();
-
-        $obj->title = 'Title';
-        self::assertEquals('Title', $obj->title);
-
-        $obj->descriptionRaw = 'Description';
-        self::assertEquals('Description', $obj->descriptionRaw);
-
-        $obj->setProbability(1);
-        self::assertEquals(1, $obj->getProbability());
-
-        $obj->setCause(new NullCause(1));
-        self::assertEquals(1, $obj->getCause()->getId());
-
-        $obj->setRisk(new NullRisk(1));
-        self::assertEquals(1, $obj->getRisk()->getId());
+        self::assertEquals(0, $obj->probability);
+        self::assertEquals(0, $obj->cause);
+        self::assertEquals(0, $obj->risk);
     }
 }

@@ -34,17 +34,17 @@ final class SolutionMapperTest extends \PHPUnit\Framework\TestCase
 
         $obj->title          = 'Title';
         $obj->descriptionRaw = 'Description';
-        $obj->setProbability(1);
-        $obj->setCause(new NullCause(1));
-        $obj->setRisk(new NullRisk(1));
+        $obj->probability    = 1;
+        $obj->cause          = new NullCause(1);
+        $obj->risk           = new NullRisk(1);
 
         SolutionMapper::create($obj);
 
         $objR = SolutionMapper::get($obj->getId());
         self::assertEquals($obj->title, $objR->title);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
-        self::assertEquals($obj->getProbability(), $objR->getProbability());
-        self::assertEquals($obj->getRisk()->getId(), $objR->getRisk()->getId());
-        self::assertEquals($obj->getCause()->getId(), $objR->getCause()->getId());
+        self::assertEquals($obj->probability, $objR->probability);
+        self::assertEquals($obj->risk->getId(), $objR->risk->getId());
+        self::assertEquals($obj->cause->getId(), $objR->cause->getId());
     }
 }

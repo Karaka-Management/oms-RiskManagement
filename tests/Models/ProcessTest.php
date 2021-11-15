@@ -14,8 +14,6 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
-use Modules\Organization\Models\NullUnit;
-use Modules\RiskManagement\Models\NullDepartment;
 use Modules\RiskManagement\Models\Process;
 
 /**
@@ -35,36 +33,9 @@ final class ProcessTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $obj->title);
         self::assertEquals('', $obj->description);
         self::assertEquals('', $obj->descriptionRaw);
-        self::assertNull($obj->getDepartment());
-        self::assertNull($obj->getUnit());
-        self::assertNull($obj->getResponsible());
-        self::assertNull($obj->getDeputy());
-    }
-
-    /**
-     * @covers Modules\RiskManagement\Models\Process
-     * @group module
-     */
-    public function testSetGet() : void
-    {
-        $obj = new Process();
-
-        $obj->title = 'Name';
-        self::assertEquals('Name', $obj->title);
-
-        $obj->descriptionRaw = 'Description';
-        self::assertEquals('Description', $obj->descriptionRaw);
-
-        $obj->setResponsible(1);
-        self::assertEquals(1, $obj->getResponsible());
-
-        $obj->setDeputy(1);
-        self::assertEquals(1, $obj->getDeputy());
-
-        $obj->setUnit(new NullUnit(1));
-        self::assertEquals(1, $obj->getUnit()->getId());
-
-        $obj->setDepartment(new NullDepartment(2));
-        self::assertEquals(2, $obj->getDepartment()->getId());
+        self::assertNull($obj->department);
+        self::assertNull($obj->unit);
+        self::assertNull($obj->responsible);
+        self::assertNull($obj->deputy);
     }
 }

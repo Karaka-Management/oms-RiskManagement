@@ -29,16 +29,16 @@ final class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
      */
     public function testCRUD() : void
     {
-        $obj             = new Department();
-        $obj->department = new NullDepartment();
-        $obj->setResponsible(1);
-        $obj->setDeputy(1);
+        $obj              = new Department();
+        $obj->department  = new NullDepartment();
+        $obj->responsible = 1;
+        $obj->deputy      = 1;
 
         DepartmentMapper::create($obj);
 
         $objR = DepartmentMapper::get($obj->getId());
         self::assertEquals($obj->department->getId(), $objR->department->getId());
-        self::assertEquals($obj->getResponsible(), $objR->getResponsible());
-        self::assertEquals($obj->getDeputy(), $objR->getDeputy());
+        self::assertEquals($obj->responsible, $objR->responsible);
+        self::assertEquals($obj->deputy, $objR->deputy);
     }
 }

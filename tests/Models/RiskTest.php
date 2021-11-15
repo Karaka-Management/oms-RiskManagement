@@ -14,12 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
-use Modules\Organization\Models\NullDepartment;
-use Modules\Organization\Models\NullUnit;
 use Modules\RiskManagement\Models\Cause;
-use Modules\RiskManagement\Models\Department;
-use Modules\RiskManagement\Models\NullCategory;
-use Modules\RiskManagement\Models\NullProcess;
 use Modules\RiskManagement\Models\Risk;
 use Modules\RiskManagement\Models\Solution;
 
@@ -28,80 +23,89 @@ use Modules\RiskManagement\Models\Solution;
  */
 final class RiskTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers Modules\RiskManagement\Models\Risk
-     * @group module
-     */
-    public function testDefault() : void
-    {
-        $obj = new Risk();
+    private Risk $risk;
 
-        self::assertEquals(0, $obj->getId());
-        self::assertEquals('', $obj->name);
-        self::assertEquals('', $obj->description);
-        self::assertEquals('', $obj->descriptionRaw);
-        self::assertNull($obj->getUnit());
-        self::assertNull($obj->getDepartment());
-        self::assertNull($obj->getCategory());
-        self::assertNull($obj->getProcess());
-        self::assertNull($obj->getProject());
-        self::assertNull($obj->getResponsible());
-        self::assertNull($obj->getDeputy());
-        self::assertEquals([], $obj->getHistory());
-        self::assertEquals([], $obj->getCauses());
-        self::assertEquals([], $obj->getSolutions());
-        self::assertEquals([], $obj->getRiskObjects());
-        self::assertEquals([], $obj->getMedia());
+    /**
+     * {@inheritdoc}
+     */
+    protected function setUp() : void
+    {
+        $this->risk = new Risk();
     }
 
     /**
      * @covers Modules\RiskManagement\Models\Risk
      * @group module
      */
-    public function testSetGet() : void
+    public function testDefault() : void
     {
-        $obj = new Risk();
+        self::assertEquals(0, $this->risk->getId());
+        self::assertEquals('', $this->risk->name);
+        self::assertEquals('', $this->risk->description);
+        self::assertEquals('', $this->risk->descriptionRaw);
+        self::assertNull($this->risk->unit);
+        self::assertNull($this->risk->department);
+        self::assertNull($this->risk->category);
+        self::assertNull($this->risk->process);
+        self::assertNull($this->risk->project);
+        self::assertNull($this->risk->responsible);
+        self::assertNull($this->risk->deputy);
+        self::assertEquals([], $this->risk->getHistory());
+        self::assertEquals([], $this->risk->getCauses());
+        self::assertEquals([], $this->risk->getSolutions());
+        self::assertEquals([], $this->risk->getRiskObjects());
+        self::assertEquals([], $this->risk->getMedia());
+    }
 
-        $obj->name = 'Name';
-        self::assertEquals('Name', $obj->name);
+    /**
+     * @covers Modules\RiskManagement\Models\Risk
+     * @group module
+     */
+    public function testCauseInputOutput() : void
+    {
+        $this->risk->addCause(new Cause());
+        self::assertCount(1, $this->risk->getCauses());
+        self::assertInstanceOf('\Modules\RiskManagement\Models\Cause', $this->risk->getCauses()[0]);
+    }
 
-        $obj->descriptionRaw = 'Description';
-        self::assertEquals('Description', $obj->descriptionRaw);
+    /**
+     * @covers Modules\RiskManagement\Models\Risk
+     * @group module
+     */
+    public function testSolutionInputOutput() : void
+    {
+        $this->risk->addSolution(new Solution());
+        self::assertCount(1, $this->risk->getSolutions());
+        self::assertInstanceOf('\Modules\RiskManagement\Models\Solution', $this->risk->getSolutions()[0]);
+    }
 
-        $obj->setUnit(new NullUnit(1));
-        self::assertEquals(1, $obj->getUnit()->getId());
+    /**
+     * @covers Modules\RiskManagement\Models\Risk
+     * @group module
+     */
+    public function testRiskObjectInputOutput() : void
+    {
+        $this->risk->addRiskObject(2);
+        self::assertCount(1, $this->risk->getRiskObjects());
+    }
 
-        $obj->setCategory(new NullCategory(3));
-        self::assertEquals(3, $obj->getCategory()->getId());
+    /**
+     * @covers Modules\RiskManagement\Models\Risk
+     * @group module
+     */
+    public function testHistoryInputOutput() : void
+    {
+        $this->risk->addHistory(2);
+        self::assertCount(1, $this->risk->getHistory());
+    }
 
-        $obj->setProcess(new NullProcess(4));
-        self::assertEquals(4, $obj->getProcess()->getId());
-
-        $department             = new Department();
-        $department->department = new NullDepartment(1);
-        $obj->setDepartment(new NullDepartment(1));
-
-        $obj->setResponsible(1);
-        self::assertEquals(1, $obj->getResponsible());
-
-        $obj->setDeputy(1);
-        self::assertEquals(1, $obj->getDeputy());
-
-        $obj->addCause(new Cause());
-        self::assertCount(1, $obj->getCauses());
-        self::assertInstanceOf('\Modules\RiskManagement\Models\Cause', $obj->getCauses()[0]);
-
-        $obj->addSolution(new Solution());
-        self::assertCount(1, $obj->getSolutions());
-        self::assertInstanceOf('\Modules\RiskManagement\Models\Solution', $obj->getSolutions()[0]);
-
-        $obj->addRiskObject(2);
-        self::assertCount(1, $obj->getRiskObjects());
-
-        $obj->addHistory(2);
-        self::assertCount(1, $obj->getHistory());
-
-        $obj->addMedia(2);
-        self::assertCount(1, $obj->getMedia());
+    /**
+     * @covers Modules\RiskManagement\Models\Risk
+     * @group module
+     */
+    public function testMediaInputOutput() : void
+    {
+        $this->risk->addMedia(2);
+        self::assertCount(1, $this->risk->getMedia());
     }
 }
