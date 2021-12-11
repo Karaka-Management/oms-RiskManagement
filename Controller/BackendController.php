@@ -77,7 +77,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/risk-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $risks = RiskMapper::getAll();
+        $risks = RiskMapper::getAll()->execute();
         $view->addData('risks', $risks);
 
         return $view;
@@ -101,7 +101,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/risk-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $risk = RiskMapper::get((int) $request->getData('id'));
+        $risk = RiskMapper::get()->where('id', (int) $request->getData('id'))->execute();
         $view->addData('risk', $risk);
 
         return $view;
@@ -146,7 +146,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cause-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $causes = CauseMapper::getAll();
+        $causes = CauseMapper::getAll()->execute();
         $view->addData('causes', $causes);
 
         return $view;
@@ -170,7 +170,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cause-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $cause = CauseMapper::get((int) $request->getData('id'));
+        $cause = CauseMapper::get()->where('id', (int) $request->getData('id'))->execute();
         $view->addData('cause', $cause);
 
         return $view;
@@ -194,7 +194,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/solution-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $solutions = SolutionMapper::getAll();
+        $solutions = SolutionMapper::getAll()->execute();
         $view->addData('solutions', $solutions);
 
         return $view;
@@ -218,7 +218,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/solution-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $solution = SolutionMapper::get((int) $request->getData('id'));
+        $solution = SolutionMapper::get()->where('id', (int) $request->getData('id'))->execute();
         $view->addData('solution', $solution);
 
         return $view;
@@ -242,7 +242,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/unit-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $units = UnitMapper::getAll();
+        $units = UnitMapper::getAll()->execute();
         $view->addData('units', $units);
 
         return $view;
@@ -266,7 +266,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/unit-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $unit = UnitMapper::get((int) $request->getData('id'));
+        $unit = UnitMapper::get()->where('id', (int) $request->getData('id'))->execute();
         $view->addData('unit', $unit);
 
         return $view;
@@ -290,7 +290,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/department-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $departments = DepartmentMapper::getAll();
+        $departments = DepartmentMapper::getAll()->execute();
         $view->addData('departments', $departments);
 
         return $view;
@@ -314,7 +314,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/department-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $department = DepartmentMapper::get((int) $request->getData('id'));
+        $department = DepartmentMapper::get()->where('id', (int) $request->getData('id'))->execute();
         $view->addData('department', $department);
 
         return $view;
@@ -338,7 +338,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/category-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $categories = CategoryMapper::getAll();
+        $categories = CategoryMapper::getAll()->execute();
         $view->addData('categories', $categories);
 
         return $view;
@@ -362,7 +362,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/category-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $category = CategoryMapper::get((int) $request->getData('id'));
+        $category = CategoryMapper::get()->where('id', (int) $request->getData('id'))->execute();
         $view->addData('category', $category);
 
         return $view;
@@ -386,7 +386,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/project-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $projects = ProjectMapper::getAll();
+        $projects = ProjectMapper::getAll()->execute();
         $view->addData('projects', $projects);
 
         return $view;
@@ -410,7 +410,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/project-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $project = ProjectMapper::get((int) $request->getData('id'));
+        $project = ProjectMapper::get()->where('id', (int) $request->getData('id'))->execute();
         $view->addData('project', $project);
 
         return $view;
@@ -434,7 +434,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/process-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $processes = ProcessMapper::getAll();
+        $processes = ProcessMapper::getAll()->execute();
         $view->addData('processes', $processes);
 
         return $view;
@@ -458,7 +458,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/process-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response));
 
-        $process = ProcessMapper::get((int) $request->getData('id'));
+        $process = ProcessMapper::get()->where('id', (int) $request->getData('id'))->execute();
         $view->addData('process', $process);
 
         return $view;

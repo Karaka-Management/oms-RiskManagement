@@ -34,9 +34,9 @@ final class CategoryMapperTest extends \PHPUnit\Framework\TestCase
         $obj->responsible    = 1;
         $obj->deputy         = 1;
 
-        CategoryMapper::create($obj);
+        CategoryMapper::create()->execute($obj);
 
-        $objR = CategoryMapper::get($obj->getId());
+        $objR = CategoryMapper::get()->where('id', $obj->getId())->execute();
         self::assertEquals($obj->title, $objR->title);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->responsible, $objR->responsible);

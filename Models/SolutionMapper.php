@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\Models;
 
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
  * Risk solution mapper class.
@@ -24,7 +24,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class SolutionMapper extends DataMapperAbstract
+final class SolutionMapper extends DataMapperFactory
 {
     /**
      * Columns.
@@ -32,7 +32,7 @@ final class SolutionMapper extends DataMapperAbstract
      * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, writeonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
-    protected static array $columns = [
+    public const COLUMNS = [
         'riskmngmt_solution_id'             => ['name' => 'riskmngmt_solution_id',             'type' => 'int',    'internal' => 'id'],
         'riskmngmt_solution_name'           => ['name' => 'riskmngmt_solution_name',           'type' => 'string', 'internal' => 'title'],
         'riskmngmt_solution_description'    => ['name' => 'riskmngmt_solution_description',    'type' => 'string', 'internal' => 'description'],
@@ -48,7 +48,7 @@ final class SolutionMapper extends DataMapperAbstract
      * @var array<string, array{mapper:string, external:string}>
      * @since 1.0.0
      */
-    protected static array $belongsTo = [
+    public const BELONGS_TO = [
         'risk'  => [
             'mapper'     => RiskMapper::class,
             'external'   => 'riskmngmt_solution_risk',
@@ -65,7 +65,7 @@ final class SolutionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'riskmngmt_solution';
+    public const TABLE = 'riskmngmt_solution';
 
     /**
      * Primary field name.
@@ -73,5 +73,5 @@ final class SolutionMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'riskmngmt_solution_id';
+    public const PRIMARYFIELD ='riskmngmt_solution_id';
 }

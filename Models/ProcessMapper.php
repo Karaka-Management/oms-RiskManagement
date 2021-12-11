@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Modules\RiskManagement\Models;
 
 use Modules\Organization\Models\UnitMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
  * Risk process mapper class.
@@ -25,7 +25,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class ProcessMapper extends DataMapperAbstract
+final class ProcessMapper extends DataMapperFactory
 {
     /**
      * Columns.
@@ -33,7 +33,7 @@ final class ProcessMapper extends DataMapperAbstract
      * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, writeonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
-    protected static array $columns = [
+    public const COLUMNS = [
         'riskmngmt_process_id'             => ['name' => 'riskmngmt_process_id',             'type' => 'int',    'internal' => 'id'],
         'riskmngmt_process_name'           => ['name' => 'riskmngmt_process_name',           'type' => 'string', 'internal' => 'title'],
         'riskmngmt_process_description'    => ['name' => 'riskmngmt_process_description',    'type' => 'string', 'internal' => 'description'],
@@ -50,7 +50,7 @@ final class ProcessMapper extends DataMapperAbstract
      * @var array<string, array{mapper:string, external:string}>
      * @since 1.0.0
      */
-    protected static array $belongsTo = [
+    public const BELONGS_TO = [
         'unit'       => [
             'mapper'     => UnitMapper::class,
             'external'   => 'riskmngmt_process_unit',
@@ -67,7 +67,7 @@ final class ProcessMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'riskmngmt_process';
+    public const TABLE = 'riskmngmt_process';
 
     /**
      * Primary field name.
@@ -75,5 +75,5 @@ final class ProcessMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'riskmngmt_process_id';
+    public const PRIMARYFIELD ='riskmngmt_process_id';
 }

@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\Models;
 
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
  * Risk category mapper class.
@@ -24,7 +24,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class CategoryMapper extends DataMapperAbstract
+final class CategoryMapper extends DataMapperFactory
 {
     /**
      * Columns.
@@ -32,7 +32,7 @@ final class CategoryMapper extends DataMapperAbstract
      * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, writeonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
-    protected static array $columns = [
+    public const COLUMNS = [
         'riskmngmt_category_id'             => ['name' => 'riskmngmt_category_id',             'type' => 'int',    'internal' => 'id'],
         'riskmngmt_category_name'           => ['name' => 'riskmngmt_category_name',           'type' => 'string', 'internal' => 'title'],
         'riskmngmt_category_description'    => ['name' => 'riskmngmt_category_description',    'type' => 'string', 'internal' => 'description'],
@@ -48,7 +48,7 @@ final class CategoryMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'riskmngmt_category';
+    public const TABLE = 'riskmngmt_category';
 
     /**
      * Primary field name.
@@ -56,5 +56,5 @@ final class CategoryMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'riskmngmt_category_id';
+    public const PRIMARYFIELD ='riskmngmt_category_id';
 }

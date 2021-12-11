@@ -82,9 +82,9 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $media->name      = 'Image';
         $obj->addMedia($media);
 
-        RiskMapper::create($obj);
+        RiskMapper::create()->execute($obj);
 
-        $objR = RiskMapper::get($obj->getId());
+        $objR = RiskMapper::get()->with('project')->with('project/project')->with('causes')->with('solutions')->with('riskObjects')->with('media')->where('id', $obj->getId())->execute();
         self::assertEquals($obj->name, $objR->name);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->unit->getId(), $objR->unit->getId());

@@ -33,9 +33,9 @@ final class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
         $obj->descriptionRaw = 'Description';
         $obj->risk           = 1;
 
-        RiskObjectMapper::create($obj);
+        RiskObjectMapper::create()->execute($obj);
 
-        $objR = RiskObjectMapper::get($obj->getId());
+        $objR = RiskObjectMapper::get()->where('id', $obj->getId())->execute();
         self::assertEquals($obj->title, $objR->title);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->risk, $objR->risk);

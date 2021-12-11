@@ -38,9 +38,9 @@ final class ProcessMapperTest extends \PHPUnit\Framework\TestCase
         $obj->deputy         = 1;
         $obj->unit           = new NullUnit(1);
 
-        ProcessMapper::create($obj);
+        ProcessMapper::create()->execute($obj);
 
-        $objR = ProcessMapper::get($obj->getId());
+        $objR = ProcessMapper::get()->where('id', $obj->getId())->execute();
         self::assertEquals($obj->title, $objR->title);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->responsible, $objR->responsible);

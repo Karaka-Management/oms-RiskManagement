@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\Models;
 
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
  * Risk project mapper class.
@@ -24,7 +24,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class ProjectMapper extends DataMapperAbstract
+final class ProjectMapper extends DataMapperFactory
 {
     /**
      * Columns.
@@ -32,7 +32,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, writeonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
-    protected static array $columns = [
+    public const COLUMNS = [
         'riskmngmt_project_id'          => ['name' => 'riskmngmt_project_id',          'type' => 'int', 'internal' => 'id'],
         'riskmngmt_project_project'     => ['name' => 'riskmngmt_project_project',     'type' => 'int', 'internal' => 'project'],
         'riskmngmt_project_responsible' => ['name' => 'riskmngmt_project_responsible', 'type' => 'int', 'internal' => 'responsible'],
@@ -45,7 +45,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'riskmngmt_project';
+    public const TABLE = 'riskmngmt_project';
 
     /**
      * Primary field name.
@@ -53,7 +53,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'riskmngmt_project_id';
+    public const PRIMARYFIELD ='riskmngmt_project_id';
 
     /**
      * Belongs to.
@@ -61,7 +61,7 @@ final class ProjectMapper extends DataMapperAbstract
      * @var array<string, array{mapper:string, external:string}>
      * @since 1.0.0
      */
-    protected static array $belongsTo = [
+    public const BELONGS_TO = [
         'project' => [
             'mapper'     => \Modules\ProjectManagement\Models\ProjectMapper::class,
             'external'   => 'riskmngmt_project_project',
