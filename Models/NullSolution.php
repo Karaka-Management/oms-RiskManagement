@@ -35,4 +35,12 @@ final class NullSolution extends Solution
     {
         $this->id = $id;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function jsonSerialize() : mixed
+    {
+        return ['id' => $this->id];
+    }
 }
