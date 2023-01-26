@@ -89,8 +89,8 @@
                 "type": "INT",
                 "default": null,
                 "null": true,
-                "foreignTable": "organization_unit",
-                "foreignKey": "organization_unit_id"
+                "foreignTable": "unit",
+                "foreignKey": "unit_id"
             },
             "riskmngmt_process_responsible": {
                 "name": "riskmngmt_process_responsible",
@@ -194,8 +194,8 @@
                 "name": "riskmngmt_unit_unit",
                 "type": "INT",
                 "null": false,
-                "foreignTable": "organization_unit",
-                "foreignKey": "organization_unit_id"
+                "foreignTable": "unit",
+                "foreignKey": "unit_id"
             },
             "riskmngmt_unit_responsible": {
                 "name": "riskmngmt_unit_responsible",
@@ -244,8 +244,8 @@
                 "name": "riskmngmt_risk_unit",
                 "type": "INT",
                 "null": false,
-                "foreignTable": "organization_unit",
-                "foreignKey": "organization_unit_id"
+                "foreignTable": "unit",
+                "foreignKey": "unit_id"
             },
             "riskmngmt_risk_department": {
                 "name": "riskmngmt_risk_department",
