@@ -53,7 +53,7 @@ final class DepartmentMapper extends DataMapperFactory
      * @var string
      * @since 1.0.0
      */
-    public const PRIMARYFIELD ='riskmngmt_department_id';
+    public const PRIMARYFIELD = 'riskmngmt_department_id';
 
     /**
      * Belongs to.

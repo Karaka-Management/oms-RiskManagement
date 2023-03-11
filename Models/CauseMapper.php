@@ -78,5 +78,5 @@ final class CauseMapper extends DataMapperFactory
      * @var string
      * @since 1.0.0
      */
-    public const PRIMARYFIELD ='riskmngmt_cause_id';
+    public const PRIMARYFIELD = 'riskmngmt_cause_id';
 }

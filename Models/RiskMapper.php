@@ -126,5 +126,5 @@ final class RiskMapper extends DataMapperFactory
      * @var string
      * @since 1.0.0
      */
-    public const PRIMARYFIELD ='riskmngmt_risk_id';
+    public const PRIMARYFIELD = 'riskmngmt_risk_id';
 }

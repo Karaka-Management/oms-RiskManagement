@@ -56,5 +56,5 @@ final class CategoryMapper extends DataMapperFactory
      * @var string
      * @since 1.0.0
      */
-    public const PRIMARYFIELD ='riskmngmt_category_id';
+    public const PRIMARYFIELD = 'riskmngmt_category_id';
 }
