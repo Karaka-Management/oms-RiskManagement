@@ -39,7 +39,7 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
      */
     public function testDefault() : void
     {
-        self::assertEquals(0, $this->risk->getId());
+        self::assertEquals(0, $this->risk->id);
         self::assertEquals('', $this->risk->name);
         self::assertEquals('', $this->risk->description);
         self::assertEquals('', $this->risk->descriptionRaw);

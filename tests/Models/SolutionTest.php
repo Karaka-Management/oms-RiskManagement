@@ -29,7 +29,7 @@ final class SolutionTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new Solution();
 
-        self::assertEquals(0, $obj->getId());
+        self::assertEquals(0, $obj->id);
         self::assertEquals('', $obj->title);
         self::assertEquals('', $obj->description);
         self::assertEquals('', $obj->descriptionRaw);

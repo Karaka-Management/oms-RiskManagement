@@ -40,12 +40,12 @@ final class ProcessMapperTest extends \PHPUnit\Framework\TestCase
 
         ProcessMapper::create()->execute($obj);
 
-        $objR = ProcessMapper::get()->where('id', $obj->getId())->execute();
+        $objR = ProcessMapper::get()->where('id', $obj->id)->execute();
         self::assertEquals($obj->title, $objR->title);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->responsible, $objR->responsible);
         self::assertEquals($obj->deputy, $objR->deputy);
-        self::assertEquals($obj->department->getId(), $objR->department->getId());
-        self::assertEquals($obj->unit->getId(), $objR->unit->getId());
+        self::assertEquals($obj->department->id, $objR->department->id);
+        self::assertEquals($obj->unit->id, $objR->unit->id);
     }
 }

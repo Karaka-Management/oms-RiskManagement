@@ -84,16 +84,16 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
 
         RiskMapper::create()->execute($obj);
 
-        $objR = RiskMapper::get()->with('project')->with('project/project')->with('causes')->with('solutions')->with('riskObjects')->with('media')->where('id', $obj->getId())->execute();
+        $objR = RiskMapper::get()->with('project')->with('project/project')->with('causes')->with('solutions')->with('riskObjects')->with('media')->where('id', $obj->id)->execute();
         self::assertEquals($obj->name, $objR->name);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
-        self::assertEquals($obj->unit->getId(), $objR->unit->getId());
-        self::assertEquals($obj->department->getId(), $objR->department->getId());
-        self::assertEquals($obj->category->getId(), $objR->category->getId());
-        self::assertEquals($obj->process->getId(), $objR->process->getId());
+        self::assertEquals($obj->unit->id, $objR->unit->id);
+        self::assertEquals($obj->department->id, $objR->department->id);
+        self::assertEquals($obj->category->id, $objR->category->id);
+        self::assertEquals($obj->process->id, $objR->process->id);
         self::assertEquals($obj->responsible, $objR->responsible);
         self::assertEquals($obj->deputy, $objR->deputy);
-        self::assertEquals($obj->project->project->getId(), $objR->project->project->getId());
+        self::assertEquals($obj->project->project->id, $objR->project->project->id);
 
         $causes = $objR->getCauses();
         self::assertEquals($obj->getCauses()[0]->title, \end($causes)->title);

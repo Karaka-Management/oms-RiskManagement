@@ -36,8 +36,8 @@ final class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 
         ProjectMapper::create()->execute($obj);
 
-        $objR = ProjectMapper::get()->where('id', $obj->getId())->execute();
-        self::assertEquals($obj->project->getId(), $objR->project->getId());
+        $objR = ProjectMapper::get()->where('id', $obj->id)->execute();
+        self::assertEquals($obj->project->id, $objR->project->id);
         self::assertEquals($obj->responsible, $objR->responsible);
         self::assertEquals($obj->deputy, $objR->deputy);
     }

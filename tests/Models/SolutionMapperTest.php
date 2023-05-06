@@ -40,11 +40,11 @@ final class SolutionMapperTest extends \PHPUnit\Framework\TestCase
 
         SolutionMapper::create()->execute($obj);
 
-        $objR = SolutionMapper::get()->where('id', $obj->getId())->execute();
+        $objR = SolutionMapper::get()->where('id', $obj->id)->execute();
         self::assertEquals($obj->title, $objR->title);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->probability, $objR->probability);
-        self::assertEquals($obj->risk->getId(), $objR->risk->getId());
-        self::assertEquals($obj->cause->getId(), $objR->cause->getId());
+        self::assertEquals($obj->risk->id, $objR->risk->id);
+        self::assertEquals($obj->cause->id, $objR->cause->id);
     }
 }

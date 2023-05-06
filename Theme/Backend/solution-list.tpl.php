@@ -32,9 +32,9 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="4">
                         <tbody>
                         <?php $c = 0; foreach ($solutions as $key => $value) : ++$c;
-                        $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/solution/single?{?}&id=' . $value->getId()); ?>
+                        $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/solution/single?{?}&id=' . $value->id); ?>
                 <tr tabindex="0" data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getRisk()->getName()); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCause()->getTitle()); ?></a>

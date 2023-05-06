@@ -29,9 +29,9 @@ echo $this->getData('nav')->render(); ?>
                 <tr><td colspan="3">
                         <tbody>
                         <?php $c = 0; foreach ($categories as $key => $value) : ++$c;
-                        $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/category/single?{?}&id=' . $value->getId()); ?>
+                        $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/category/single?{?}&id=' . $value->id); ?>
                 <tr tabindex="0" data-href="<?= $url; ?>">
-                    <td><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
                         <?php endforeach; ?>
                         <?php if ($c === 0) : ?>

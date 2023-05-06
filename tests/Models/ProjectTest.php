@@ -29,7 +29,7 @@ final class ProjectTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new Project();
 
-        self::assertEquals(0, $obj->getId());
+        self::assertEquals(0, $obj->id);
         self::assertNull($obj->project);
         self::assertNull($obj->responsible);
         self::assertNull($obj->deputy);

@@ -29,7 +29,7 @@ final class CauseTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new Cause();
 
-        self::assertEquals(0, $obj->getId());
+        self::assertEquals(0, $obj->id);
         self::assertEquals('', $obj->title);
         self::assertEquals('', $obj->description);
         self::assertEquals('', $obj->descriptionRaw);

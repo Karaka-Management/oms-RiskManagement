@@ -36,8 +36,8 @@ final class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
 
         DepartmentMapper::create()->execute($obj);
 
-        $objR = DepartmentMapper::get()->where('id', $obj->getId())->execute();
-        self::assertEquals($obj->department->getId(), $objR->department->getId());
+        $objR = DepartmentMapper::get()->where('id', $obj->id)->execute();
+        self::assertEquals($obj->department->id, $objR->department->id);
         self::assertEquals($obj->responsible, $objR->responsible);
         self::assertEquals($obj->deputy, $objR->deputy);
     }

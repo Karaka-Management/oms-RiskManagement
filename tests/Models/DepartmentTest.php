@@ -29,7 +29,7 @@ final class DepartmentTest extends \PHPUnit\Framework\TestCase
     {
         $obj = new Department();
 
-        self::assertEquals(0, $obj->getId());
+        self::assertEquals(0, $obj->id);
         self::assertNull($obj->department);
         self::assertNull($obj->responsible);
         self::assertNull($obj->deputy);
