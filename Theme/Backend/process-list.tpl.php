@@ -12,8 +12,8 @@
  */
 declare(strict_types=1);
 
-$processes = $this->getData('processes');
-echo $this->getData('nav')->render(); ?>
+$processes = $this->data['processes'];
+echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">

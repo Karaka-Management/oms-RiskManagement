@@ -12,8 +12,8 @@
  */
 declare(strict_types=1);
 
-$departments = $this->getData('departments');
-echo $this->getData('nav')->render(); ?>
+$departments = $this->data['departments'];
+echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">

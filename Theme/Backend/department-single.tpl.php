@@ -12,8 +12,8 @@
  */
 declare(strict_types=1);
 
-$department = $this->getData('department');
-echo $this->getData('nav')->render(); ?>
+$department = $this->data['department'];
+echo $this->data['nav']->render(); ?>
 
 <div class="tabview tab-2">
     <div class="box">

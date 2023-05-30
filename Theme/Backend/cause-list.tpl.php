@@ -12,8 +12,8 @@
  */
 declare(strict_types=1);
 
-$causes = $this->getData('causes');
-echo $this->getData('nav')->render(); ?>
+$causes = $this->data['causes'];
+echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">

@@ -12,8 +12,8 @@
  */
 declare(strict_types=1);
 
-$risks = $this->getData('risks');
-echo $this->getData('nav')->render(); ?>
+$risks = $this->data['risks'];
+echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">

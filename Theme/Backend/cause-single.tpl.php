@@ -12,5 +12,5 @@
  */
 declare(strict_types=1);
 
-$cause = $this->getData('cause');
-echo $this->getData('nav')->render();
+$cause = $this->data['cause'];
+echo $this->data['nav']->render();
