@@ -12,5 +12,5 @@
  */
 declare(strict_types=1);
 
-$solution = $this->getData('solution');
-echo $this->getData('nav')->render();
+$solution = $this->data['solution'];
+echo $this->data['nav']->render();

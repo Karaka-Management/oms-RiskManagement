@@ -12,8 +12,8 @@
  */
 declare(strict_types=1);
 
-$unit = $this->getData('unit');
-echo $this->getData('nav')->render(); ?>
+$unit = $this->data['unit'];
+echo $this->data['nav']->render(); ?>
 
 <div class="tabview tab-2">
     <div class="box">

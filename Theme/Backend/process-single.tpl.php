@@ -12,5 +12,5 @@
  */
 declare(strict_types=1);
 
-$process = $this->getData('process');
-echo $this->getData('nav')->render();
+$process = $this->data['process'];
+echo $this->data['nav']->render();

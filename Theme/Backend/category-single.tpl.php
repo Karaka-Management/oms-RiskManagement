@@ -12,5 +12,5 @@
  */
 declare(strict_types=1);
 
-$category = $this->getData('category');
-echo $this->getData('nav')->render();
+$category = $this->data['category'];
+echo $this->data['nav']->render();

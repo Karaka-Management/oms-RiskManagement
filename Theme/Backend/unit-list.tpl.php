@@ -12,8 +12,8 @@
  */
 declare(strict_types=1);
 
-$units = $this->getData('units');
-echo $this->getData('nav')->render(); ?>
+$units = $this->data['units'];
+echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">

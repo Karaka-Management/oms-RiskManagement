@@ -12,5 +12,5 @@
  */
 declare(strict_types=1);
 
-$project = $this->getData('project');
-echo $this->getData('nav')->render();
+$project = $this->data['project'];
+echo $this->data['nav']->render();

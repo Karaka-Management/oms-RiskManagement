@@ -12,8 +12,8 @@
  */
 declare(strict_types=1);
 
-$risk = $this->getData('risk');
-echo $this->getData('nav')->render(); ?>
+$risk = $this->data['risk'];
+echo $this->data['nav']->render(); ?>
 
 <div class="tabview tab-2">
     <div class="box">
