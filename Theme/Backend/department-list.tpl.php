@@ -20,7 +20,7 @@ echo $this->data['nav']->render(); ?>
         <div class="box wf-100">
             <div class="slider">
             <table class="default sticky">
-                <caption><?= $this->getHtml('Departments'); ?><i class="fa fa-download floatRight download btn"></i></caption>
+                <caption><?= $this->getHtml('Departments'); ?><i class="fa fa-download end-xs download btn"></i></caption>
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', '0', '0'); ?>
