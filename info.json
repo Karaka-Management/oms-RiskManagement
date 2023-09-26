@@ -18,7 +18,8 @@
     "directory": "RiskManagement",
     "dependencies": {
         "Media": "*",
-        "Organization": "*"
+        "Organization": "*",
+        "ProjectManagement": "*"
     },
     "providing": {
         "Navigation": "*"
