@@ -14,15 +14,15 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
-use Modules\ProjectManagement\Models\NullProject;
-use Modules\RiskManagement\Models\Project;
-use Modules\RiskManagement\Models\ProjectMapper;
 use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Media;
+use Modules\ProjectManagement\Models\NullProject;
 use Modules\ProjectManagement\Models\ProgressType;
-use Modules\Tasks\Models\Task;
 use Modules\ProjectManagement\Models\Project as PMProject;
 use Modules\ProjectManagement\Models\ProjectMapper as PMProjectMapper;
+use Modules\RiskManagement\Models\Project;
+use Modules\RiskManagement\Models\ProjectMapper;
+use Modules\Tasks\Models\Task;
 use phpOMS\Stdlib\Base\FloatInt;
 
 /**
