@@ -73,15 +73,15 @@ class Risk
 
     public ?int $deputy = null;
 
-    private array $histScore = [];
+    public array $histScore = [];
 
-    private array $causes = [];
+    public array $causes = [];
 
-    private array $solutions = [];
+    public array $solutions = [];
 
-    private array $riskObjects = [];
+    public array $riskObjects = [];
 
-    private array $media = [];
+    public array $media = [];
 
     public \DateTimeImmutable $createdAt;
 
