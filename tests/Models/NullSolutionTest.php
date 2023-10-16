@@ -23,7 +23,7 @@ final class NullSolutionTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\NullSolution
-     * @group framework
+     * @group module
      */
     public function testNull() : void
     {
@@ -32,11 +32,21 @@ final class NullSolutionTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\RiskManagement\Models\NullSolution
-     * @group framework
+     * @group module
      */
     public function testId() : void
     {
         $null = new NullSolution(2);
         self::assertEquals(2, $null->id);
+    }
+
+    /**
+     * @covers Modules\RiskManagement\Models\NullSolution
+     * @group module
+     */
+    public function testJsonSerialize() : void
+    {
+        $null = new NullSolution(2);
+        self::assertEquals(['id' => 2], $null);
     }
 }

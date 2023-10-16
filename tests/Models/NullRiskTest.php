@@ -23,7 +23,7 @@ final class NullRiskTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\RiskManagement\Models\NullRisk
-     * @group framework
+     * @group module
      */
     public function testNull() : void
     {
@@ -32,11 +32,21 @@ final class NullRiskTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\RiskManagement\Models\NullRisk
-     * @group framework
+     * @group module
      */
     public function testId() : void
     {
         $null = new NullRisk(2);
         self::assertEquals(2, $null->id);
+    }
+
+    /**
+     * @covers Modules\RiskManagement\Models\NullRisk
+     * @group module
+     */
+    public function testJsonSerialize() : void
+    {
+        $null = new NullRisk(2);
+        self::assertEquals(['id' => 2], $null);
     }
 }
