@@ -41,15 +41,15 @@ echo $this->data['nav']->render(); ?>
                                     <tr><td><label for="iDescription"><?= $this->getHtml('Description'); ?></label>
                                     <tr><td><textarea id="iDescription" name="description"></textarea>
                                     <tr><td><label for="iUnit"><?= $this->getHtml('Unit'); ?></label>
-                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="unit" id="iUnit"></span>
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" name="unit" id="iUnit"></span>
                                     <tr><td><label for="iCategory"><?= $this->getHtml('Category'); ?></label>
-                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="category" id="iCategory"></span>
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" name="category" id="iCategory"></span>
                                     <tr><td><label for="iDepartment"><?= $this->getHtml('Department'); ?></label>
-                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="department" id="iDepartment"></span>
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" name="department" id="iDepartment"></span>
                                     <tr><td><label for="iProcess"><?= $this->getHtml('Process'); ?></label>
-                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="process" id="iProcess"></span>
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" name="process" id="iProcess"></span>
                                     <tr><td><label for="iProject"><?= $this->getHtml('Project'); ?></label>
-                                    <tr><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" name="project" id="iProject"></span>
+                                    <tr><td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" name="project" id="iProject"></span>
                                     <tr><td><label for="iReview"><?= $this->getHtml('Review'); ?></label>
                                     <tr><td><input type="datetime-local" id="iReview" name="Review" value="<?= $this->printHtml((new \DateTime('NOW'))->format('Y-m-d\TH:i:s')); ?>">
                                     <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>" name="">
@@ -91,7 +91,7 @@ echo $this->data['nav']->render(); ?>
                                     <tr><td><select id="iStatus" name="status">
                                                 <option value="">
                                             </select>
-                                        <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
+                                        <td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
                                 </table>
                             </form>
                         </div>

@@ -87,7 +87,7 @@ echo $this->data['nav']->render(); ?>
                                     <tr><td><select id="iStatus" name="status">
                                                 <option value="">
                                             </select>
-                                        <td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
+                                        <td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
                                 </table>
                             </form>
                         </div>
@@ -101,7 +101,7 @@ echo $this->data['nav']->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Risks'); ?><i class="fa fa-download end-xs download btn"></i></caption>
+                            <caption><?= $this->getHtml('Risks'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
@@ -135,7 +135,7 @@ echo $this->data['nav']->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Departments'); ?><i class="fa fa-download end-xs download btn"></i></caption>
+                            <caption><?= $this->getHtml('Departments'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
@@ -163,7 +163,7 @@ echo $this->data['nav']->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Categories'); ?><i class="fa fa-download end-xs download btn"></i></caption>
+                            <caption><?= $this->getHtml('Categories'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
@@ -191,7 +191,7 @@ echo $this->data['nav']->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Projects'); ?><i class="fa fa-download end-xs download btn"></i></caption>
+                            <caption><?= $this->getHtml('Projects'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
@@ -219,7 +219,7 @@ echo $this->data['nav']->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Processes'); ?><i class="fa fa-download end-xs download btn"></i></caption>
+                            <caption><?= $this->getHtml('Processes'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
@@ -247,7 +247,7 @@ echo $this->data['nav']->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Causes'); ?><i class="fa fa-download end-xs download btn"></i></caption>
+                            <caption><?= $this->getHtml('Causes'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
@@ -277,7 +277,7 @@ echo $this->data['nav']->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default">
-                            <caption><?= $this->getHtml('Solutions'); ?><i class="fa fa-download end-xs download btn"></i></caption>
+                            <caption><?= $this->getHtml('Solutions'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>

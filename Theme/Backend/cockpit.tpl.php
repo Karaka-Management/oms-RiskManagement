@@ -29,7 +29,7 @@ echo $this->data['nav']->render(); ?>
     <div class="col-xs-12 col-md-9">
         <div class="box wf-100">
             <table class="default">
-                <caption><?= $this->getHtml('TopRisks'); ?><i class="fa fa-download end-xs download btn"></i></caption>
+                <caption><?= $this->getHtml('TopRisks'); ?><i class="g-icon end-xs download btn">download</i></caption>
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('Severity'); ?>
