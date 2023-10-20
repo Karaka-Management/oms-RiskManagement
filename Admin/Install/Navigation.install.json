@@ -200,7 +200,7 @@
                 "type": 3,
                 "subtype": 1,
                 "name": "Settings",
-                "uri": "{/base}riskmanagement/settings/dashboard?{?}",
+                "uri": "{/base}/riskmanagement/settings/dashboard?{?}",
                 "target": "self",
                 "icon": null,
                 "order": 45,
