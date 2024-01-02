@@ -59,7 +59,7 @@ echo $this->data['nav']->render(); ?>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td><input type="text" id="iMedia" placeholder="File"><td><button><?= $this->getHtml('Select'); ?></button>
                                     <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>
@@ -135,7 +135,7 @@ echo $this->data['nav']->render(); ?>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td><input type="text" id="iMedia" placeholder="File"><td><button><?= $this->getHtml('Select'); ?></button>
                                     <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>
@@ -157,7 +157,7 @@ echo $this->data['nav']->render(); ?>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iRiskObjectName"><?= $this->getHtml('Name'); ?></label>
-                                    <tr><td><input type="text" id="iRiskObjectName" name="riskobjectname" placeholder="&#xf040; <?= $this->getHtml('Name'); ?>">
+                                    <tr><td><input type="text" id="iRiskObjectName" name="riskobjectname" placeholder="<?= $this->getHtml('Name'); ?>">
                                     <tr><td><label for="iRiskObjectDescription"><?= $this->getHtml('Description'); ?></label>
                                     <tr><td><textarea id="iRiskObjectDescription" name="riskobjectdescription"></textarea>
                                     <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>" name="">
@@ -176,7 +176,7 @@ echo $this->data['nav']->render(); ?>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td><input type="text" id="iMedia" placeholder="File"><td><button><?= $this->getHtml('Select'); ?></button>
                                     <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>
@@ -221,7 +221,7 @@ echo $this->data['nav']->render(); ?>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td><input type="text" id="iMedia" placeholder="File"><td><button><?= $this->getHtml('Select'); ?></button>
                                     <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>
@@ -283,7 +283,7 @@ echo $this->data['nav']->render(); ?>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td><input type="text" id="iMedia" placeholder="File"><td><button><?= $this->getHtml('Select'); ?></button>
                                     <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>

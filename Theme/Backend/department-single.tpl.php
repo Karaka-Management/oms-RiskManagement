@@ -63,7 +63,7 @@ echo $this->data['nav']->render(); ?>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="&#xf15b; File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td><input type="text" id="iMedia" placeholder="File"><td><button><?= $this->getHtml('Select'); ?></button>
                                     <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>
@@ -99,7 +99,7 @@ echo $this->data['nav']->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="default">
+                        <table class="default sticky">
                             <caption><?= $this->getHtml('Risks'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
@@ -133,7 +133,7 @@ echo $this->data['nav']->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="default">
+                        <table class="default sticky">
                             <caption><?= $this->getHtml('Categories'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
@@ -161,7 +161,7 @@ echo $this->data['nav']->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="default">
+                        <table class="default sticky">
                             <caption><?= $this->getHtml('Projects'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
@@ -189,7 +189,7 @@ echo $this->data['nav']->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="default">
+                        <table class="default sticky">
                             <caption><?= $this->getHtml('Processes'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
@@ -217,7 +217,7 @@ echo $this->data['nav']->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="default">
+                        <table class="default sticky">
                             <caption><?= $this->getHtml('Causes'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
@@ -247,7 +247,7 @@ echo $this->data['nav']->render(); ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box wf-100">
-                        <table class="default">
+                        <table class="default sticky">
                             <caption><?= $this->getHtml('Solutions'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>

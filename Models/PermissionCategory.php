@@ -17,7 +17,7 @@ namespace Modules\RiskManagement\Models;
 use phpOMS\Stdlib\Base\Enum;
 
 /**
- * Permision state enum.
+ * Permission category enum.
  *
  * @package Modules\RiskManagement\Models
  * @license OMS License 2.0

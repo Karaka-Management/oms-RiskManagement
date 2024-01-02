@@ -28,7 +28,7 @@ echo $this->data['nav']->render(); ?>
 <div class="row">
     <div class="col-xs-12 col-md-9">
         <div class="box wf-100">
-            <table class="default">
+            <table class="default sticky">
                 <caption><?= $this->getHtml('TopRisks'); ?><i class="g-icon end-xs download btn">download</i></caption>
                 <thead>
                 <tr>
