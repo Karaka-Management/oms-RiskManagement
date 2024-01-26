@@ -54,7 +54,7 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $this->risk->getCauses());
         self::assertEquals([], $this->risk->getSolutions());
         self::assertEquals([], $this->risk->getRiskObjects());
-        self::assertEquals([], $this->risk->getMedia());
+        self::assertEquals([], $this->risk->files);
     }
 
     /**
@@ -97,15 +97,5 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
     {
         $this->risk->addHistory(2);
         self::assertCount(1, $this->risk->getHistory());
-    }
-
-    /**
-     * @covers Modules\RiskManagement\Models\Risk
-     * @group module
-     */
-    public function testMediaInputOutput() : void
-    {
-        $this->risk->addMedia(2);
-        self::assertCount(1, $this->risk->getMedia());
     }
 }

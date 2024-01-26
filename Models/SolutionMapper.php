@@ -52,13 +52,13 @@ final class SolutionMapper extends DataMapperFactory
      * @since 1.0.0
      */
     public const BELONGS_TO = [
-        'risk'  => [
-            'mapper'     => RiskMapper::class,
-            'external'   => 'riskmngmt_solution_risk',
+        'risk' => [
+            'mapper'   => RiskMapper::class,
+            'external' => 'riskmngmt_solution_risk',
         ],
         'cause' => [
-            'mapper'     => CauseMapper::class,
-            'external'   => 'riskmngmt_solution_cause',
+            'mapper'   => CauseMapper::class,
+            'external' => 'riskmngmt_solution_cause',
         ],
     ];
 

@@ -53,17 +53,17 @@ final class CauseMapper extends DataMapperFactory
      * @since 1.0.0
      */
     public const BELONGS_TO = [
-        'risk'       => [
-            'mapper'     => RiskMapper::class,
-            'external'   => 'riskmngmt_cause_risk',
+        'risk' => [
+            'mapper'   => RiskMapper::class,
+            'external' => 'riskmngmt_cause_risk',
         ],
-        'category'   => [
-            'mapper'     => CategoryMapper::class,
-            'external'   => 'riskmngmt_cause_category',
+        'category' => [
+            'mapper'   => CategoryMapper::class,
+            'external' => 'riskmngmt_cause_category',
         ],
         'department' => [
-            'mapper'     => DepartmentMapper::class,
-            'external'   => 'riskmngmt_cause_department',
+            'mapper'   => DepartmentMapper::class,
+            'external' => 'riskmngmt_cause_department',
         ],
     ];
 

@@ -80,11 +80,11 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $media->size      = 11;
         $media->extension = 'png';
         $media->name      = 'Image';
-        $obj->addMedia($media);
+        $obj->files[]     = $media;
 
         RiskMapper::create()->execute($obj);
 
-        $objR = RiskMapper::get()->with('project')->with('project/project')->with('causes')->with('solutions')->with('riskObjects')->with('media')->where('id', $obj->id)->execute();
+        $objR = RiskMapper::get()->with('project')->with('project/project')->with('causes')->with('solutions')->with('riskObjects')->with('files')->where('id', $obj->id)->execute();
         self::assertEquals($obj->name, $objR->name);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->unit->id, $objR->unit->id);
@@ -105,7 +105,7 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($obj->getRiskObjects()[0]->title, \end($riskObjects)->title);
 
         //self::assertEquals($obj->getHistory()[0], $objR->getHistory()[0]);
-        $media = $objR->getMedia();
-        self::assertEquals($obj->getMedia()[0]->getPath(), \end($media)->getPath());
+        $media = $objR->files;
+        self::assertEquals($obj->files[0]->getPath(), \end($media)->getPath());
     }
 }

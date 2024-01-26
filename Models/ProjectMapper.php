@@ -66,8 +66,8 @@ final class ProjectMapper extends DataMapperFactory
      */
     public const BELONGS_TO = [
         'project' => [
-            'mapper'     => \Modules\ProjectManagement\Models\ProjectMapper::class,
-            'external'   => 'riskmngmt_project_project',
+            'mapper'   => \Modules\ProjectManagement\Models\ProjectMapper::class,
+            'external' => 'riskmngmt_project_project',
         ],
     ];
 }

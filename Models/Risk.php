@@ -81,8 +81,6 @@ class Risk
 
     public array $riskObjects = [];
 
-    public array $media = [];
-
     public \DateTimeImmutable $createdAt;
 
     /**
@@ -93,18 +91,6 @@ class Risk
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable('now');
-    }
-
-    /**
-     * Get id.
-     *
-     * @return int Model id
-     *
-     * @since 1.0.0
-     */
-    public function getId() : int
-    {
-        return $this->id;
     }
 
     /**
@@ -160,32 +146,6 @@ class Risk
     }
 
     /**
-     * Get media
-     *
-     * @return array
-     *
-     * @since 1.0.0
-     */
-    public function getMedia() : array
-    {
-        return $this->media;
-    }
-
-    /**
-     * Add media.
-     *
-     * @param mixed $media Media
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function addMedia($media) : void
-    {
-        $this->media[] = $media;
-    }
-
-    /**
      * Add risk object.
      *
      * @param mixed $object Risk object
@@ -236,4 +196,6 @@ class Risk
     {
         return $this->histScore;
     }
+
+    use \Modules\Media\Models\MediaListTrait;
 }

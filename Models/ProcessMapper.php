@@ -54,13 +54,13 @@ final class ProcessMapper extends DataMapperFactory
      * @since 1.0.0
      */
     public const BELONGS_TO = [
-        'unit'       => [
-            'mapper'     => UnitMapper::class,
-            'external'   => 'riskmngmt_process_unit',
+        'unit' => [
+            'mapper'   => UnitMapper::class,
+            'external' => 'riskmngmt_process_unit',
         ],
         'department' => [
-            'mapper'     => DepartmentMapper::class,
-            'external'   => 'riskmngmt_process_department',
+            'mapper'   => DepartmentMapper::class,
+            'external' => 'riskmngmt_process_department',
         ],
     ];
 

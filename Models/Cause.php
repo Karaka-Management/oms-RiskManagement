@@ -57,16 +57,4 @@ class Cause
     public ?Risk $risk = null;
 
     public ?Category $category = null;
-
-    /**
-     * Get id.
-     *
-     * @return int Model id
-     *
-     * @since 1.0.0
-     */
-    public function getId() : int
-    {
-        return $this->id;
-    }
 }

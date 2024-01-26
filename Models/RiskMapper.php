@@ -60,29 +60,29 @@ final class RiskMapper extends DataMapperFactory
      * @since 1.0.0
      */
     public const HAS_MANY = [
-        'media'       => [
+        'files' => [
             'mapper'   => MediaMapper::class,
             'table'    => 'riskmngmt_risk_media',
             'external' => 'riskmngmt_risk_media_media',
             'self'     => 'riskmngmt_risk_media_risk',
         ],
         'riskObjects' => [
-            'mapper'       => RiskObjectMapper::class,
-            'table'        => 'riskmngmt_risk_object',
-            'self'         => 'riskmngmt_risk_object_risk',
-            'external'     => null,
+            'mapper'   => RiskObjectMapper::class,
+            'table'    => 'riskmngmt_risk_object',
+            'self'     => 'riskmngmt_risk_object_risk',
+            'external' => null,
         ],
-        'causes'      => [
-            'mapper'       => CauseMapper::class,
-            'table'        => 'riskmngmt_cause',
-            'self'         => 'riskmngmt_cause_risk',
-            'external'     => null,
+        'causes' => [
+            'mapper'   => CauseMapper::class,
+            'table'    => 'riskmngmt_cause',
+            'self'     => 'riskmngmt_cause_risk',
+            'external' => null,
         ],
-        'solutions'   => [
-            'mapper'       => SolutionMapper::class,
-            'table'        => 'riskmngmt_solution',
-            'self'         => 'riskmngmt_solution_risk',
-            'external'     => null,
+        'solutions' => [
+            'mapper'   => SolutionMapper::class,
+            'table'    => 'riskmngmt_solution',
+            'self'     => 'riskmngmt_solution_risk',
+            'external' => null,
         ],
     ];
 
@@ -93,25 +93,25 @@ final class RiskMapper extends DataMapperFactory
      * @since 1.0.0
      */
     public const BELONGS_TO = [
-        'project'    => [
-            'mapper'     => ProjectMapper::class,
-            'external'   => 'riskmngmt_risk_project',
+        'project' => [
+            'mapper'   => ProjectMapper::class,
+            'external' => 'riskmngmt_risk_project',
         ],
-        'process'    => [
-            'mapper'     => ProcessMapper::class,
-            'external'   => 'riskmngmt_risk_process',
+        'process' => [
+            'mapper'   => ProcessMapper::class,
+            'external' => 'riskmngmt_risk_process',
         ],
-        'category'   => [
-            'mapper'     => CategoryMapper::class,
-            'external'   => 'riskmngmt_risk_category',
+        'category' => [
+            'mapper'   => CategoryMapper::class,
+            'external' => 'riskmngmt_risk_category',
         ],
         'department' => [
-            'mapper'     => DepartmentMapper::class,
-            'external'   => 'riskmngmt_risk_department',
+            'mapper'   => DepartmentMapper::class,
+            'external' => 'riskmngmt_risk_department',
         ],
-        'unit'       => [
-            'mapper'     => UnitMapper::class,
-            'external'   => 'riskmngmt_risk_unit',
+        'unit' => [
+            'mapper'   => UnitMapper::class,
+            'external' => 'riskmngmt_risk_unit',
         ],
     ];
 

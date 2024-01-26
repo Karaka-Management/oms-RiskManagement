@@ -30,7 +30,7 @@ echo $this->data['nav']->render(); ?>
                 <tr><td colspan="3">
                         <tbody>
                         <?php $c = 0; foreach ($causes as $key => $value) : ++$c;
-                        $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/cause/single?{?}&id=' . $value->id); ?>
+                        $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/cause/view?{?}&id=' . $value->id); ?>
                 <tr tabindex="0" data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>

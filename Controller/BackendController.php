@@ -95,10 +95,10 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewRiskSingle(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
+    public function viewRiskView(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/risk-single');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/risk-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
         $risk               = RiskMapper::get()->where('id', (int) $request->getData('id'))->execute();
@@ -164,10 +164,10 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewRiskCauseSingle(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
+    public function viewRiskCauseView(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cause-single');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cause-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
         $cause               = CauseMapper::get()->where('id', (int) $request->getData('id'))->execute();
@@ -212,10 +212,10 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewRiskSolutionSingle(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
+    public function viewRiskSolutionView(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/solution-single');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/solution-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
         $solution               = SolutionMapper::get()->where('id', (int) $request->getData('id'))->execute();
@@ -260,10 +260,10 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewRiskUnitSingle(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
+    public function viewRiskUnitView(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/unit-single');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/unit-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
         $unit               = UnitMapper::get()->where('id', (int) $request->getData('id'))->execute();
@@ -308,10 +308,10 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewRiskDepartmentSingle(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
+    public function viewRiskDepartmentView(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/department-single');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/department-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
         $department               = DepartmentMapper::get()->where('id', (int) $request->getData('id'))->execute();
@@ -356,10 +356,10 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewRiskCategorySingle(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
+    public function viewRiskCategoryView(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/category-single');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/category-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
         $category               = CategoryMapper::get()->where('id', (int) $request->getData('id'))->execute();
@@ -404,10 +404,10 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewRiskProjectSingle(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
+    public function viewRiskProjectView(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/project-single');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/project-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
         $project               = ProjectMapper::get()->where('id', (int) $request->getData('id'))->execute();
@@ -452,10 +452,10 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewRiskProcessSingle(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
+    public function viewRiskProcessView(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/process-single');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/process-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
         $process               = ProcessMapper::get()->where('id', (int) $request->getData('id'))->execute();

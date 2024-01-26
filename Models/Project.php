@@ -39,16 +39,4 @@ class Project
     public ?int $responsible = null;
 
     public ?int $deputy = null;
-
-    /**
-     * Get id.
-     *
-     * @return int Model id
-     *
-     * @since 1.0.0
-     */
-    public function getId() : int
-    {
-        return $this->id;
-    }
 }

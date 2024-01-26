@@ -153,7 +153,7 @@
                         "type": 0,
                         "subtype": 1,
                         "name": "Risk",
-                        "uri": "{/base}/riskmanagement/risk/single/dashboard?{?}",
+                        "uri": "{/base}/riskmanagement/risk/view/dashboard?{?}",
                         "target": "self",
                         "icon": null,
                         "order": 1,

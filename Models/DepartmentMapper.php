@@ -66,8 +66,8 @@ final class DepartmentMapper extends DataMapperFactory
      */
     public const BELONGS_TO = [
         'department' => [
-            'mapper'     => \Modules\Organization\Models\DepartmentMapper::class,
-            'external'   => 'riskmngmt_department_department',
+            'mapper'   => \Modules\Organization\Models\DepartmentMapper::class,
+            'external' => 'riskmngmt_department_department',
         ],
     ];
 }

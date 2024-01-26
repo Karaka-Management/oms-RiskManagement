@@ -12,19 +12,20 @@
  */
 declare(strict_types=1);
 
-$department = $this->data['department'];
+$unit = $this->data['unit'];
 echo $this->data['nav']->render(); ?>
 
 <div class="tabview tab-2">
     <div class="box">
         <ul class="tab-links">
-            <li><label for="c-tab-1"><?= $this->getHtml('Department'); ?></label>
+            <li><label for="c-tab-1"><?= $this->getHtml('Unit'); ?></label>
             <li><label for="c-tab-2"><?= $this->getHtml('Risks'); ?></label>
-            <li><label for="c-tab-3"><?= $this->getHtml('Categories'); ?></label>
-            <li><label for="c-tab-4"><?= $this->getHtml('Projects'); ?></label>
-            <li><label for="c-tab-5"><?= $this->getHtml('Processes'); ?></label>
-            <li><label for="c-tab-6"><?= $this->getHtml('Causes'); ?></label>
-            <li><label for="c-tab-7"><?= $this->getHtml('Solutions'); ?></label>
+            <li><label for="c-tab-3"><?= $this->getHtml('Departments'); ?></label>
+            <li><label for="c-tab-4"><?= $this->getHtml('Categories'); ?></label>
+            <li><label for="c-tab-5"><?= $this->getHtml('Projects'); ?></label>
+            <li><label for="c-tab-6"><?= $this->getHtml('Processes'); ?></label>
+            <li><label for="c-tab-7"><?= $this->getHtml('Causes'); ?></label>
+            <li><label for="c-tab-8"><?= $this->getHtml('Solutions'); ?></label>
         </ul>
     </div>
     <div class="tab-content">
@@ -33,16 +34,16 @@ echo $this->data['nav']->render(); ?>
             <div class="row">
                 <div class="col-xs-12 col-md-6">
                     <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Department'); ?></h1></header>
+                        <header><h1><?= $this->getHtml('Unit'); ?></h1></header>
 
                         <div class="inner">
-                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
+                            <form id="fRisk" method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
-                                    <tr><td><?= $this->getHtml('Name'); ?></label><td><?= $this->printHtml($department->getDepartment()->getName()); ?>
-                                    <tr><td><?= $this->getHtml('Description'); ?>:<td><?= $this->printHtml($department->getDepartment()->description); ?>
-                                    <tr><td><?= $this->getHtml('Unit'); ?>:<td><?= $this->printHtml($department->getDepartment()->getUnit()->getName()); ?>
+                                    <tr><td><?= $this->getHtml('Name'); ?></label><td><?= $this->printHtml($unit->getName()); ?>
+                                    <tr><td><?= $this->getHtml('Description'); ?>:<td><?= $this->printHtml($unit->description); ?>
                                     <tr><td><?= $this->getHtml('Risks'); ?>:<td>
+                                    <tr><td><?= $this->getHtml('Departments'); ?>:<td>
                                     <tr><td><?= $this->getHtml('Categories'); ?>:<td>
                                     <tr><td><?= $this->getHtml('Projects'); ?>:<td>
                                     <tr><td><?= $this->getHtml('Processes'); ?>:<td>
@@ -112,7 +113,7 @@ echo $this->data['nav']->render(); ?>
                             <tr><td colspan="5">
                                     <tbody>
                                     <?php $c = 0; foreach ($risks as $key => $value) : ++$c;
-                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/cause/single?{?}&id=' . $value->id); ?>
+                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/cause/view?{?}&id=' . $value->id); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->name); ?></a>
@@ -134,7 +135,7 @@ echo $this->data['nav']->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default sticky">
-                            <caption><?= $this->getHtml('Categories'); ?><i class="g-icon end-xs download btn">download</i></caption>
+                            <caption><?= $this->getHtml('Departments'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
@@ -142,11 +143,11 @@ echo $this->data['nav']->render(); ?>
                                     <tfoot>
                             <tr><td colspan="3">
                                     <tbody>
-                                    <?php $c = 0; foreach ($categories as $key => $value) : ++$c;
-                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/category/single?{?}&id=' . $value->id); ?>
+                                    <?php $c = 0; foreach ($departments as $key => $value) : ++$c;
+                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/department/view?{?}&id=' . $value->id); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getDepartment()->getName()); ?></a>
                                     <?php endforeach; ?>
                                     <?php if ($c === 0) : ?>
                                     <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
@@ -162,7 +163,7 @@ echo $this->data['nav']->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default sticky">
-                            <caption><?= $this->getHtml('Projects'); ?><i class="g-icon end-xs download btn">download</i></caption>
+                            <caption><?= $this->getHtml('Categories'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
@@ -170,11 +171,11 @@ echo $this->data['nav']->render(); ?>
                                     <tfoot>
                             <tr><td colspan="3">
                                     <tbody>
-                                    <?php $c = 0; foreach ($projects as $key => $value) : ++$c;
-                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/project/single?{?}&id=' . $value->id); ?>
+                                    <?php $c = 0; foreach ($categories as $key => $value) : ++$c;
+                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/category/view?{?}&id=' . $value->id); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProject()->getName()); ?></a>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
                                     <?php endforeach; ?>
                                     <?php if ($c === 0) : ?>
                                     <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
@@ -190,7 +191,7 @@ echo $this->data['nav']->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default sticky">
-                            <caption><?= $this->getHtml('Processes'); ?><i class="g-icon end-xs download btn">download</i></caption>
+                            <caption><?= $this->getHtml('Projects'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
@@ -198,11 +199,11 @@ echo $this->data['nav']->render(); ?>
                                     <tfoot>
                             <tr><td colspan="3">
                                     <tbody>
-                                    <?php $c = 0; foreach ($processes as $key => $value) : ++$c;
-                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/process/single?{?}&id=' . $value->id); ?>
+                                    <?php $c = 0; foreach ($projects as $key => $value) : ++$c;
+                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/project/view?{?}&id=' . $value->id); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProject()->getName()); ?></a>
                                     <?php endforeach; ?>
                                     <?php if ($c === 0) : ?>
                                     <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
@@ -218,6 +219,34 @@ echo $this->data['nav']->render(); ?>
                 <div class="col-xs-12">
                     <div class="box wf-100">
                         <table class="default sticky">
+                            <caption><?= $this->getHtml('Processes'); ?><i class="g-icon end-xs download btn">download</i></caption>
+                            <thead>
+                            <tr>
+                                <td><?= $this->getHtml('ID', '0', '0'); ?>
+                                <td class="wf-100"><?= $this->getHtml('Title'); ?>
+                                    <tfoot>
+                            <tr><td colspan="3">
+                                    <tbody>
+                                    <?php $c = 0; foreach ($processes as $key => $value) : ++$c;
+                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/process/view?{?}&id=' . $value->id); ?>
+                            <tr data-href="<?= $url; ?>">
+                                <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
+                                    <?php endforeach; ?>
+                                    <?php if ($c === 0) : ?>
+                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                                            <?php endif; ?>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="radio" id="c-tab-7" name="tabular-2"<?= $this->request->uri->fragment === 'c-tab-7' ? ' checked' : ''; ?>>
+        <div class="tab">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box wf-100">
+                        <table class="default sticky">
                             <caption><?= $this->getHtml('Causes'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
@@ -228,7 +257,7 @@ echo $this->data['nav']->render(); ?>
                             <tr><td colspan="3">
                                     <tbody>
                                     <?php $c = 0; foreach ($causes as $key => $value) : ++$c;
-                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/cause/single?{?}&id=' . $value->id); ?>
+                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/cause/view?{?}&id=' . $value->id); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
@@ -242,7 +271,7 @@ echo $this->data['nav']->render(); ?>
                 </div>
             </div>
         </div>
-        <input type="radio" id="c-tab-7" name="tabular-2"<?= $this->request->uri->fragment === 'c-tab-7' ? ' checked' : ''; ?>>
+        <input type="radio" id="c-tab-8" name="tabular-2"<?= $this->request->uri->fragment === 'c-tab-8' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
@@ -259,7 +288,7 @@ echo $this->data['nav']->render(); ?>
                             <tr><td colspan="4">
                                     <tbody>
                                     <?php $c = 0; foreach ($solutions as $key => $value) : ++$c;
-                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/solution/single?{?}&id=' . $value->id); ?>
+                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/solution/view?{?}&id=' . $value->id); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
