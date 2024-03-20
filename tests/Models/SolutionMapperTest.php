@@ -22,12 +22,10 @@ use Modules\RiskManagement\Models\SolutionMapper;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\RiskManagement\Models\SolutionMapper::class)]
 final class SolutionMapperTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\RiskManagement\Models\SolutionMapper
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testCRUD() : void
     {
         $obj = new Solution();

@@ -19,12 +19,10 @@ use Modules\RiskManagement\Models\Department;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\RiskManagement\Models\Department::class)]
 final class DepartmentTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\RiskManagement\Models\Department
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testDefault() : void
     {
         $obj = new Department();

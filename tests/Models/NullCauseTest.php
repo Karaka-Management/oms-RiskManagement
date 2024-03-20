@@ -19,31 +19,23 @@ use Modules\RiskManagement\Models\NullCause;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\RiskManagement\Models\NullCause::class)]
 final class NullCauseTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\RiskManagement\Models\NullCause
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testNull() : void
     {
         self::assertInstanceOf('\Modules\RiskManagement\Models\Cause', new NullCause());
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\NullCause
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testId() : void
     {
         $null = new NullCause(2);
         self::assertEquals(2, $null->id);
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\NullCause
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testJsonSerialize() : void
     {
         $null = new NullCause(2);

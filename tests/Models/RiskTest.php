@@ -21,6 +21,7 @@ use Modules\RiskManagement\Models\Solution;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\RiskManagement\Models\Risk::class)]
 final class RiskTest extends \PHPUnit\Framework\TestCase
 {
     private Risk $risk;
@@ -33,10 +34,7 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
         $this->risk = new Risk();
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\Risk
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testDefault() : void
     {
         self::assertEquals(0, $this->risk->id);
@@ -57,10 +55,7 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $this->risk->files);
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\Risk
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testCauseInputOutput() : void
     {
         $this->risk->addCause(new Cause());
@@ -68,10 +63,7 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\Modules\RiskManagement\Models\Cause', $this->risk->getCauses()[0]);
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\Risk
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testSolutionInputOutput() : void
     {
         $this->risk->addSolution(new Solution());
@@ -79,20 +71,14 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\Modules\RiskManagement\Models\Solution', $this->risk->getSolutions()[0]);
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\Risk
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testRiskObjectInputOutput() : void
     {
         $this->risk->addRiskObject(2);
         self::assertCount(1, $this->risk->getRiskObjects());
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\Risk
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testHistoryInputOutput() : void
     {
         $this->risk->addHistory(2);

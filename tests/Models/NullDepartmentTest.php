@@ -19,31 +19,23 @@ use Modules\RiskManagement\Models\NullDepartment;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\RiskManagement\Models\NullDepartment::class)]
 final class NullDepartmentTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\RiskManagement\Models\NullDepartment
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testNull() : void
     {
         self::assertInstanceOf('\Modules\RiskManagement\Models\Department', new NullDepartment());
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\NullDepartment
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testId() : void
     {
         $null = new NullDepartment(2);
         self::assertEquals(2, $null->id);
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\NullDepartment
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testJsonSerialize() : void
     {
         $null = new NullDepartment(2);

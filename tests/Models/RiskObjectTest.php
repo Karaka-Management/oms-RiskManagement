@@ -19,12 +19,10 @@ use Modules\RiskManagement\Models\RiskObject;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\RiskManagement\Models\RiskObject::class)]
 final class RiskObjectTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\RiskManagement\Models\RiskObject
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testDefault() : void
     {
         $obj = new RiskObject();

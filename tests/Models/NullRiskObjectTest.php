@@ -19,31 +19,23 @@ use Modules\RiskManagement\Models\NullRiskObject;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\RiskManagement\Models\NullRiskObject::class)]
 final class NullRiskObjectTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\RiskManagement\Models\NullRiskObject
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testNull() : void
     {
         self::assertInstanceOf('\Modules\RiskManagement\Models\RiskObject', new NullRiskObject());
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\NullRiskObject
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testId() : void
     {
         $null = new NullRiskObject(2);
         self::assertEquals(2, $null->id);
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\NullRiskObject
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testJsonSerialize() : void
     {
         $null = new NullRiskObject(2);

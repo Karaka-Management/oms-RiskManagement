@@ -19,31 +19,23 @@ use Modules\RiskManagement\Models\NullCategory;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\RiskManagement\Models\NullCategory::class)]
 final class NullCategoryTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\RiskManagement\Models\NullCategory
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testNull() : void
     {
         self::assertInstanceOf('\Modules\RiskManagement\Models\Category', new NullCategory());
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\NullCategory
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testId() : void
     {
         $null = new NullCategory(2);
         self::assertEquals(2, $null->id);
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\NullCategory
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testJsonSerialize() : void
     {
         $null = new NullCategory(2);

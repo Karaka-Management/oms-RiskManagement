@@ -20,12 +20,10 @@ use Modules\RiskManagement\Models\RiskObjectMapper;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\RiskManagement\Models\RiskObjectMapper::class)]
 final class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\RiskManagement\Models\RiskObjectMapper
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testCRUD() : void
     {
         $obj                 = new RiskObject();

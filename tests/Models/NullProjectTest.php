@@ -19,31 +19,23 @@ use Modules\RiskManagement\Models\NullProject;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\RiskManagement\Models\NullProject::class)]
 final class NullProjectTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\RiskManagement\Models\NullProject
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testNull() : void
     {
         self::assertInstanceOf('\Modules\RiskManagement\Models\Project', new NullProject());
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\NullProject
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testId() : void
     {
         $null = new NullProject(2);
         self::assertEquals(2, $null->id);
     }
 
-    /**
-     * @covers \Modules\RiskManagement\Models\NullProject
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testJsonSerialize() : void
     {
         $null = new NullProject(2);
