@@ -22,7 +22,7 @@ use Modules\RiskManagement\Models\Cause;
 final class CauseTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\Cause
+     * @covers \Modules\RiskManagement\Models\Cause
      * @group module
      */
     public function testDefault() : void

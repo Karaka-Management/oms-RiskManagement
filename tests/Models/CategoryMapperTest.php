@@ -23,7 +23,7 @@ use Modules\RiskManagement\Models\CategoryMapper;
 final class CategoryMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\CategoryMapper
+     * @covers \Modules\RiskManagement\Models\CategoryMapper
      * @group module
      */
     public function testCRUD() : void

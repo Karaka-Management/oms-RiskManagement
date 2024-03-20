@@ -22,7 +22,7 @@ use Modules\RiskManagement\Models\Process;
 final class ProcessTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\Process
+     * @covers \Modules\RiskManagement\Models\Process
      * @group module
      */
     public function testDefault() : void

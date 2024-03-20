@@ -22,7 +22,7 @@ use Modules\RiskManagement\Models\RiskObject;
 final class RiskObjectTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\RiskObject
+     * @covers \Modules\RiskManagement\Models\RiskObject
      * @group module
      */
     public function testDefault() : void

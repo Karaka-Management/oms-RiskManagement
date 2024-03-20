@@ -22,7 +22,7 @@ use Modules\RiskManagement\Models\Category;
 final class CategoryTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\Category
+     * @covers \Modules\RiskManagement\Models\Category
      * @group module
      */
     public function testDefault() : void

@@ -22,7 +22,7 @@ use Modules\RiskManagement\Models\Project;
 final class ProjectTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\Project
+     * @covers \Modules\RiskManagement\Models\Project
      * @group module
      */
     public function testDefault() : void

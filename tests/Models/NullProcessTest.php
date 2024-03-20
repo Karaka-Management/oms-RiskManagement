@@ -22,7 +22,7 @@ use Modules\RiskManagement\Models\NullProcess;
 final class NullProcessTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\NullProcess
+     * @covers \Modules\RiskManagement\Models\NullProcess
      * @group module
      */
     public function testNull() : void
@@ -31,7 +31,7 @@ final class NullProcessTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\RiskManagement\Models\NullProcess
+     * @covers \Modules\RiskManagement\Models\NullProcess
      * @group module
      */
     public function testId() : void
@@ -41,7 +41,7 @@ final class NullProcessTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\RiskManagement\Models\NullProcess
+     * @covers \Modules\RiskManagement\Models\NullProcess
      * @group module
      */
     public function testJsonSerialize() : void

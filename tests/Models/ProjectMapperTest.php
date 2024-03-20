@@ -31,7 +31,7 @@ use phpOMS\Stdlib\Base\FloatInt;
 final class ProjectMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\ProjectMapper
+     * @covers \Modules\RiskManagement\Models\ProjectMapper
      * @group module
      */
     public function testCRUD() : void

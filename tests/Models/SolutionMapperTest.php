@@ -25,7 +25,7 @@ use Modules\RiskManagement\Models\SolutionMapper;
 final class SolutionMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\SolutionMapper
+     * @covers \Modules\RiskManagement\Models\SolutionMapper
      * @group module
      */
     public function testCRUD() : void

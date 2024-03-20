@@ -34,7 +34,7 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\RiskManagement\Models\Risk
+     * @covers \Modules\RiskManagement\Models\Risk
      * @group module
      */
     public function testDefault() : void
@@ -58,7 +58,7 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\RiskManagement\Models\Risk
+     * @covers \Modules\RiskManagement\Models\Risk
      * @group module
      */
     public function testCauseInputOutput() : void
@@ -69,7 +69,7 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\RiskManagement\Models\Risk
+     * @covers \Modules\RiskManagement\Models\Risk
      * @group module
      */
     public function testSolutionInputOutput() : void
@@ -80,7 +80,7 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\RiskManagement\Models\Risk
+     * @covers \Modules\RiskManagement\Models\Risk
      * @group module
      */
     public function testRiskObjectInputOutput() : void
@@ -90,7 +90,7 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\RiskManagement\Models\Risk
+     * @covers \Modules\RiskManagement\Models\Risk
      * @group module
      */
     public function testHistoryInputOutput() : void

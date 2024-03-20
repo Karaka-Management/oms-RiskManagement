@@ -28,7 +28,7 @@ use Modules\RiskManagement\Models\Risk;
 final class CauseMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\CauseMapper
+     * @covers \Modules\RiskManagement\Models\CauseMapper
      * @group module
      */
     public function testCRUD() : void

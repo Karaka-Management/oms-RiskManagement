@@ -22,7 +22,7 @@ use Modules\RiskManagement\Models\Department;
 final class DepartmentTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\Department
+     * @covers \Modules\RiskManagement\Models\Department
      * @group module
      */
     public function testDefault() : void

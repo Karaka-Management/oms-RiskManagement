@@ -34,7 +34,7 @@ use Modules\RiskManagement\Models\Solution;
 final class RiskMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\RiskMapper
+     * @covers \Modules\RiskManagement\Models\RiskMapper
      * @group module
      */
     public function testCRUD() : void

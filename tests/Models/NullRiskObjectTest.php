@@ -22,7 +22,7 @@ use Modules\RiskManagement\Models\NullRiskObject;
 final class NullRiskObjectTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\NullRiskObject
+     * @covers \Modules\RiskManagement\Models\NullRiskObject
      * @group module
      */
     public function testNull() : void
@@ -31,7 +31,7 @@ final class NullRiskObjectTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\RiskManagement\Models\NullRiskObject
+     * @covers \Modules\RiskManagement\Models\NullRiskObject
      * @group module
      */
     public function testId() : void
@@ -41,7 +41,7 @@ final class NullRiskObjectTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\RiskManagement\Models\NullRiskObject
+     * @covers \Modules\RiskManagement\Models\NullRiskObject
      * @group module
      */
     public function testJsonSerialize() : void

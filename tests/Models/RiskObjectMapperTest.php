@@ -23,7 +23,7 @@ use Modules\RiskManagement\Models\RiskObjectMapper;
 final class RiskObjectMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\RiskObjectMapper
+     * @covers \Modules\RiskManagement\Models\RiskObjectMapper
      * @group module
      */
     public function testCRUD() : void

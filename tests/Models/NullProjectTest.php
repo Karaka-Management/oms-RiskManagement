@@ -22,7 +22,7 @@ use Modules\RiskManagement\Models\NullProject;
 final class NullProjectTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\NullProject
+     * @covers \Modules\RiskManagement\Models\NullProject
      * @group module
      */
     public function testNull() : void
@@ -31,7 +31,7 @@ final class NullProjectTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\RiskManagement\Models\NullProject
+     * @covers \Modules\RiskManagement\Models\NullProject
      * @group module
      */
     public function testId() : void
@@ -41,7 +41,7 @@ final class NullProjectTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\RiskManagement\Models\NullProject
+     * @covers \Modules\RiskManagement\Models\NullProject
      * @group module
      */
     public function testJsonSerialize() : void

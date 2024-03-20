@@ -24,7 +24,7 @@ use Modules\RiskManagement\Models\DepartmentMapper;
 final class DepartmentMapperTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\RiskManagement\Models\DepartmentMapper
+     * @covers \Modules\RiskManagement\Models\DepartmentMapper
      * @group module
      */
     public function testCRUD() : void
