@@ -19,6 +19,7 @@
     "dependencies": {
         "Media": "*",
         "Organization": "*",
+        "Controlling": "*",
         "ProjectManagement": "*"
     },
     "providing": {
@@ -27,7 +28,7 @@
     "load": [
         {
             "pid": [
-                "/riskmanagement"
+                "/controlling/riskmanagement"
             ],
             "type": 4,
             "for": 0,

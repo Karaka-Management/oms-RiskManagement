@@ -13,7 +13,29 @@
 declare(strict_types=1);
 
 $department = $this->data['department'];
-echo $this->data['nav']->render(); ?>
+
+$categories = [];
+$projects = [];
+$processes = [];
+
+$causes = [];
+$solutions = [];
+foreach ($this->data['risks'] as $risk) {
+    $categories[$risk->category?->id] = $risk->category;
+    $projects[$risk->project?->id] = $risk->project;
+    $processes[$risk->process?->id] = $risk->process;
+
+    foreach ($risk->causes as $cause) {
+        $causes[$cause->id] = $cause;
+    }
+
+    foreach ($risk->solutions as $solution) {
+        $solutions[$solution->id] = $solution;
+    }
+}
+
+echo $this->data['nav']->render();
+?>
 
 <div class="tabview tab-2">
     <div class="box">
@@ -32,16 +54,16 @@ echo $this->data['nav']->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Department'); ?></h1></header>
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Department'); ?></div>
 
-                        <div class="inner">
+                        <div class="portlet-body">
                             <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
-                                    <tr><td><?= $this->getHtml('Name'); ?></label><td><?= $this->printHtml($department->getDepartment()->getName()); ?>
-                                    <tr><td><?= $this->getHtml('Description'); ?>:<td><?= $this->printHtml($department->getDepartment()->description); ?>
-                                    <tr><td><?= $this->getHtml('Unit'); ?>:<td><?= $this->printHtml($department->getDepartment()->getUnit()->getName()); ?>
+                                    <tr><td><?= $this->getHtml('Name'); ?></label><td><?= $this->printHtml($department->department->name); ?>
+                                    <tr><td><?= $this->getHtml('Description'); ?>:<td><?= $this->printHtml($department->department->description); ?>
+                                    <tr><td><?= $this->getHtml('Unit'); ?>:<td><?= $this->printHtml($department->department->unit->name); ?>
                                     <tr><td><?= $this->getHtml('Risks'); ?>:<td>
                                     <tr><td><?= $this->getHtml('Categories'); ?>:<td>
                                     <tr><td><?= $this->getHtml('Projects'); ?>:<td>
@@ -55,15 +77,15 @@ echo $this->data['nav']->render(); ?>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Media'); ?></h1></header>
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Media'); ?></div>
 
-                        <div class="inner">
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td><input type="text" id="iMedia"><td><button><?= $this->getHtml('Select'); ?></button>
                                     <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>
@@ -75,10 +97,10 @@ echo $this->data['nav']->render(); ?>
 
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Responsibility'); ?></h1></header>
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Responsibility'); ?></div>
 
-                        <div class="inner">
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
@@ -86,7 +108,7 @@ echo $this->data['nav']->render(); ?>
                                     <tr><td><select id="iStatus" name="status">
                                                 <option value="">
                                             </select>
-                                        <td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
+                                        <td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" id="iUser" name="user"></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
                                 </table>
                             </form>
                         </div>
@@ -98,9 +120,9 @@ echo $this->data['nav']->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box wf-100">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Risks'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
-                            <caption><?= $this->getHtml('Risks'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
@@ -108,21 +130,20 @@ echo $this->data['nav']->render(); ?>
                                 <td><?= $this->getHtml('Causes'); ?>
                                 <td><?= $this->getHtml('Solutions'); ?>
                                 <td><?= $this->getHtml('RiskObjects'); ?>
-                                    <tfoot>
-                            <tr><td colspan="5">
-                                    <tbody>
-                                    <?php $c = 0; foreach ($risks as $key => $value) : ++$c;
-                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/cause/view?{?}&id=' . $value->id); ?>
+                            <tbody>
+                            <?php $c = 0;
+                            foreach ($this->data['risks'] as $key => $value) : ++$c;
+                                $url = \phpOMS\Uri\UriFactory::build('{/base}/controlling/riskmanagement/cause/view?{?}&id=' . $value->id); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
                                 <td><a href="<?= $url; ?>"><?= $this->printHtml($value->name); ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml(\count($value->getCauses())); ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml(\count($value->getSolutions())); ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml(\count($value->getRiskObjects())); ?></a>
-                                    <?php endforeach; ?>
-                                    <?php if ($c === 0) : ?>
-                                    <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                                            <?php endif; ?>
+                                <td><a href="<?= $url; ?>"><?= \count($value->causes); ?></a>
+                                <td><a href="<?= $url; ?>"><?= \count($value->solutions); ?></a>
+                                <td><a href="<?= $url; ?>"><?= \count($value->riskObjects); ?></a>
+                            <?php endforeach; ?>
+                            <?php if ($c === 0) : ?>
+                            <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                            <?php endif; ?>
                         </table>
                     </div>
                 </div>
@@ -132,25 +153,24 @@ echo $this->data['nav']->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box wf-100">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Categories'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
-                            <caption><?= $this->getHtml('Categories'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100"><?= $this->getHtml('Title'); ?>
-                                    <tfoot>
-                            <tr><td colspan="3">
-                                    <tbody>
-                                    <?php $c = 0; foreach ($categories as $key => $value) : ++$c;
-                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/category/view?{?}&id=' . $value->id); ?>
+                            <tbody>
+                            <?php $c = 0;
+                            foreach ($categories as $key => $value) : ++$c;
+                                $url = \phpOMS\Uri\UriFactory::build('{/base}/controlling/riskmanagement/category/view?{?}&id=' . $value->id); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
-                                    <?php endforeach; ?>
-                                    <?php if ($c === 0) : ?>
-                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                                            <?php endif; ?>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->title); ?></a>
+                            <?php endforeach; ?>
+                            <?php if ($c === 0) : ?>
+                            <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                            <?php endif; ?>
                         </table>
                     </div>
                 </div>
@@ -160,25 +180,25 @@ echo $this->data['nav']->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box wf-100">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Projects'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
-                            <caption><?= $this->getHtml('Projects'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100"><?= $this->getHtml('Title'); ?>
-                                    <tfoot>
-                            <tr><td colspan="3">
-                                    <tbody>
-                                    <?php $c = 0; foreach ($projects as $key => $value) : ++$c;
-                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/project/view?{?}&id=' . $value->id); ?>
+                            <tbody>
+                            <?php $c = 0;
+                            foreach ($projects as $key => $value) : ++$c;
+                                $url = \phpOMS\Uri\UriFactory::build('{/base}/controlling/riskmanagement/project/view?{?}&id=' . $value->id); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getProject()->getName()); ?></a>
-                                    <?php endforeach; ?>
-                                    <?php if ($c === 0) : ?>
-                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                                            <?php endif; ?>
+
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->project->name); ?></a>
+                            <?php endforeach; ?>
+                            <?php if ($c === 0) : ?>
+                            <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                            <?php endif; ?>
                         </table>
                     </div>
                 </div>
@@ -188,25 +208,23 @@ echo $this->data['nav']->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box wf-100">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Processes'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
-                            <caption><?= $this->getHtml('Processes'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100"><?= $this->getHtml('Title'); ?>
-                                    <tfoot>
-                            <tr><td colspan="3">
                                     <tbody>
-                                    <?php $c = 0; foreach ($processes as $key => $value) : ++$c;
-                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/process/view?{?}&id=' . $value->id); ?>
+                            <?php $c = 0; foreach ($processes as $key => $value) : ++$c;
+                                $url = \phpOMS\Uri\UriFactory::build('{/base}/controlling/riskmanagement/process/view?{?}&id=' . $value->id); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
-                                    <?php endforeach; ?>
-                                    <?php if ($c === 0) : ?>
-                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                                            <?php endif; ?>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->title); ?></a>
+                            <?php endforeach; ?>
+                            <?php if ($c === 0) : ?>
+                            <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                            <?php endif; ?>
                         </table>
                     </div>
                 </div>
@@ -216,27 +234,26 @@ echo $this->data['nav']->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box wf-100">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Causes'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
-                            <caption><?= $this->getHtml('Causes'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100"><?= $this->getHtml('Title'); ?>
                                 <td><?= $this->getHtml('Risk'); ?>
-                                    <tfoot>
-                            <tr><td colspan="3">
-                                    <tbody>
-                                    <?php $c = 0; foreach ($causes as $key => $value) : ++$c;
-                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/cause/view?{?}&id=' . $value->id); ?>
+                            <tbody>
+                            <?php $c = 0;
+                            foreach ($causes as $key => $value) : ++$c;
+                                $url = \phpOMS\Uri\UriFactory::build('{/base}/controlling/riskmanagement/cause/view?{?}&id=' . $value->id); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getRisk()->getName()); ?></a>
-                                    <?php endforeach; ?>
-                                    <?php if ($c === 0) : ?>
-                                    <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                                            <?php endif; ?>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->title); ?></a>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->risk->name); ?></a>
+                            <?php endforeach; ?>
+                            <?php if ($c === 0) : ?>
+                            <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                            <?php endif; ?>
                         </table>
                     </div>
                 </div>
@@ -246,29 +263,28 @@ echo $this->data['nav']->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box wf-100">
+                    <div class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Solutions'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
-                            <caption><?= $this->getHtml('Solutions'); ?><i class="g-icon end-xs download btn">download</i></caption>
                             <thead>
                             <tr>
                                 <td><?= $this->getHtml('ID', '0', '0'); ?>
                                 <td class="wf-100"><?= $this->getHtml('Title'); ?>
                                 <td><?= $this->getHtml('Risk'); ?>
                                 <td><?= $this->getHtml('Cause'); ?>
-                                    <tfoot>
-                            <tr><td colspan="4">
-                                    <tbody>
-                                    <?php $c = 0; foreach ($solutions as $key => $value) : ++$c;
-                                    $url     = \phpOMS\Uri\UriFactory::build('riskmanagement/solution/view?{?}&id=' . $value->id); ?>
+                            <tbody>
+                            <?php $c = 0;
+                            foreach ($solutions as $key => $value) : ++$c;
+                                $url = \phpOMS\Uri\UriFactory::build('{/base}/controlling/riskmanagement/solution/view?{?}&id=' . $value->id); ?>
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getTitle()); ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getRisk()->getName()); ?></a>
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->getCause()->getTitle()); ?></a>
-                                    <?php endforeach; ?>
-                                    <?php if ($c === 0) : ?>
-                                    <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                                            <?php endif; ?>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->title); ?></a>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->risk->name); ?></a>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->cause->title); ?></a>
+                            <?php endforeach; ?>
+                            <?php if ($c === 0) : ?>
+                            <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                            <?php endif; ?>
                         </table>
                     </div>
                 </div>

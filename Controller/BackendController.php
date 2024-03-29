@@ -14,15 +14,18 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\Controller;
 
-use Modules\Organization\Models\UnitMapper;
+use Modules\Organization\Models\DepartmentMapper;
+use Modules\ProjectManagement\Models\ProjectMapper;
 use Modules\RiskManagement\Models\CategoryMapper;
 use Modules\RiskManagement\Models\CauseMapper;
-use Modules\RiskManagement\Models\DepartmentMapper;
 use Modules\RiskManagement\Models\ProcessMapper;
-use Modules\RiskManagement\Models\ProjectMapper;
+use Modules\RiskManagement\Models\RiskHistoryMapper;
 use Modules\RiskManagement\Models\RiskMapper;
+use Modules\RiskManagement\Models\RiskStatus;
 use Modules\RiskManagement\Models\SolutionMapper;
+use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
+use phpOMS\DataStorage\Database\Query\OrderType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
@@ -52,9 +55,70 @@ final class BackendController extends Controller
      */
     public function viewRiskCockpit(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
+        $head  = $response->data['Content']->head;
+        $nonce = $this->app->appSettings->getOption('script-nonce');
+
+        $head->addAsset(AssetType::CSS, 'Resources/chartjs/chart.css?v=' . $this->app->version);
+        $head->addAsset(AssetType::JSLATE, 'Resources/chartjs/chart.js?v=' . $this->app->version, ['nonce' => $nonce]);
+        $head->addAsset(AssetType::JSLATE, 'Modules/RiskManagement/Controller/BackendController.js?v=' . self::VERSION, ['nonce' => $nonce, 'type' => 'module']);
+
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cockpit');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
+
+        $view->data['toprisks'] = RiskMapper::getAll()
+            ->with('department')
+            ->with('category')
+            ->with('process')
+            ->with('project')
+            ->where('unit', $this->app->unitId)
+            ->where('status', RiskStatus::ACTIVE)
+            ->sort('netExpectedCost', OrderType::DESC)
+            ->limit(10)
+            ->executeGetArray();
+
+        $view->data['risks'] = RiskMapper::getAll()
+            ->with('department')
+            ->with('category')
+            ->where('unit', $this->app->unitId)
+            ->where('status', RiskStatus::ACTIVE)
+            ->executeGetArray();
+
+        $tmp = CategoryMapper::getAll()
+            ->with('title')
+            ->where('title/language', $request->header->l11n->language)
+            ->executeGetArray();
+
+        $view->data['categories'] = [];
+        foreach ($tmp as $category) {
+            $view->data['categories'][$category->id] = $category;
+        }
+
+        $view->data['unit'] = $this->app->unitId;
+
+        $statsDepartments = [];
+        $statsCategories = [];
+        foreach ($view->data['risks'] as $risk) {
+            if ($risk->department->id !== 0) {
+                if (!isset($statsDepartments[$risk->department->name])) {
+                    $statsDepartments[$risk->department->name] = [];
+                }
+
+                $statsDepartments[$risk->department->name][] = $risk;
+            }
+
+            if ($risk->category->id !== 0) {
+                if (!isset($statsCategories[$view->data['categories'][$risk->category->id]->title])) {
+                    $statsCategories[$view->data['categories'][$risk->category->id]->title] = [];
+                }
+
+                $statsCategories[$view->data['categories'][$risk->category->id]->title][] = $risk;
+            }
+        }
+
+        $view->data['stats-departments'] = $statsDepartments;
+        $view->data['stats-categories'] = $statsCategories;
+        $view->data['history'] = RiskHistoryMapper::getHistory($this->app->unitId, new \DateTime(), new \DateTime());
 
         return $view;
     }
@@ -146,7 +210,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cause-list');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $causes               = CauseMapper::getAll()->execute();
+        $causes               = CauseMapper::getAll()->with('risk')->execute();
         $view->data['causes'] = $causes;
 
         return $view;
@@ -194,7 +258,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/solution-list');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $solutions               = SolutionMapper::getAll()->execute();
+        $solutions               = SolutionMapper::getAll()->with('risk')->with('cause')->execute();
         $view->data['solutions'] = $solutions;
 
         return $view;
@@ -218,56 +282,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/solution-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $solution               = SolutionMapper::get()->where('id', (int) $request->getData('id'))->execute();
-        $view->data['solution'] = $solution;
-
-        return $view;
-    }
-
-    /**
-     * Routing end-point for application behavior.
-     *
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param array            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since 1.0.0
-     * @codeCoverageIgnore
-     */
-    public function viewRiskUnitList(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
-    {
-        $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/unit-list');
-        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
-
-        $units               = UnitMapper::getAll()->execute();
-        $view->data['units'] = $units;
-
-        return $view;
-    }
-
-    /**
-     * Routing end-point for application behavior.
-     *
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param array            $data     Generic data
-     *
-     * @return RenderableInterface
-     *
-     * @since 1.0.0
-     * @codeCoverageIgnore
-     */
-    public function viewRiskUnitView(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
-    {
-        $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/unit-view');
-        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
-
-        $unit               = UnitMapper::get()->where('id', (int) $request->getData('id'))->execute();
-        $view->data['unit'] = $unit;
+        $view->data['solution'] = SolutionMapper::get()->where('id', (int) $request->getData('id'))->execute();
 
         return $view;
     }
@@ -290,8 +305,9 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/department-list');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $departments               = DepartmentMapper::getAll()->execute();
-        $view->data['departments'] = $departments;
+        $view->data['departments'] = DepartmentMapper::getAll()
+            ->where('unit', $this->app->unitId)
+            ->executeGetArray();
 
         return $view;
     }
@@ -314,8 +330,18 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/department-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $department               = DepartmentMapper::get()->where('id', (int) $request->getData('id'))->execute();
-        $view->data['department'] = $department;
+        $view->data['department'] = DepartmentMapper::get()
+            ->where('id', (int) $request->getData('id'))
+            ->execute();
+
+        $view->data['risks'] = RiskMapper::getAll()
+            ->with('category')
+            ->with('category/title')
+            ->with('project')
+            ->with('process')
+            ->where('department', (int) $request->getData('id'))
+            ->where('category/title/language', $request->header->l11n->language)
+            ->executeGetArray();
 
         return $view;
     }
@@ -338,8 +364,10 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/category-list');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $categories               = CategoryMapper::getAll()->execute();
-        $view->data['categories'] = $categories;
+        $view->data['categories'] = CategoryMapper::getAll()
+            ->with('title')
+            ->where('title/language', $response->header->l11n->language)
+            ->execute();
 
         return $view;
     }
@@ -386,7 +414,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/project-list');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $projects               = ProjectMapper::getAll()->execute();
+        $projects               = ProjectMapper::getAll()->executeGetArray();
         $view->data['projects'] = $projects;
 
         return $view;

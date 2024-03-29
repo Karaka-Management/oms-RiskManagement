@@ -14,33 +14,19 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\Models;
 
+use phpOMS\Stdlib\Base\Enum;
+
 /**
- * Risk Management class.
+ * Risk status enum.
  *
  * @package Modules\RiskManagement\Models
  * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  */
-final class NullProject extends Project
+abstract class RiskStatus extends Enum
 {
-    /**
-     * Constructor
-     *
-     * @param int $id Model id
-     *
-     * @since 1.0.0
-     */
-    public function __construct(int $id = 0)
-    {
-        $this->id = $id;
-    }
+    public const ACTIVE = 1;
 
-    /**
-     * {@inheritdoc}
-     */
-    public function jsonSerialize() : mixed
-    {
-        return ['id' => $this->id];
-    }
+    public const INACTIVE = 2;
 }

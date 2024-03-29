@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\Models;
 
+use Modules\Organization\Models\Department;
 use Modules\Organization\Models\Unit;
 
 /**
@@ -36,27 +37,11 @@ class Process
 
     public string $title = '';
 
-    /**
-     * Description.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    public string $description = '';
-
-    /**
-     * Description.
-     *
-     * @var string
-     * @since 1.0.0
-     */
-    public string $descriptionRaw = '';
-
     public ?Department $department = null;
 
     public ?int $responsible = null;
 
     public ?int $deputy = null;
 
-    public ?Unit $unit = null;
+    public int $unit = 0;
 }

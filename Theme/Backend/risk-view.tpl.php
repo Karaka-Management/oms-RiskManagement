@@ -30,20 +30,19 @@ echo $this->data['nav']->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Risk'); ?></h1></header>
-
-                        <div class="inner">
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Risk'); ?></div>
+                        <div class="portlet-body">
                             <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
-                                    <tr><td><?= $this->getHtml('Name'); ?><td><?= $this->printHtml($risk->getName()); ?>
+                                    <tr><td><?= $this->getHtml('Name'); ?><td><?= $this->printHtml($risk->name); ?>
                                     <tr><td><?= $this->getHtml('Description'); ?><td><?= $this->printHtml($risk->description); ?>
-                                    <tr><td><?= $this->getHtml('Unit'); ?><td><?= $this->printHtml($risk->getUnit()->getName()); ?>
-                                    <tr><td><?= $this->getHtml('Category'); ?><td><?= $this->printHtml($risk->getCategory()->getTitle()); ?>
-                                    <tr><td><?= $this->getHtml('Department'); ?><td><?= $this->printHtml($risk->getDepartment()->getDepartment()->getName()); ?>
-                                    <tr><td><?= $this->getHtml('Process'); ?><td><?= $this->printHtml($risk->getProcess()->getTitle()); ?>
-                                    <tr><td><?= $this->getHtml('Project'); ?><td><?= $this->printHtml($risk->getProject()->getProject()->getName()); ?>
+                                    <tr><td><?= $this->getHtml('Unit'); ?><td><?= $this->printHtml($risk->unit->name); ?>
+                                    <tr><td><?= $this->getHtml('Category'); ?><td><?= $this->printHtml($risk->category->title); ?>
+                                    <tr><td><?= $this->getHtml('Department'); ?><td><?= $this->printHtml($risk->department->department?->name); ?>
+                                    <tr><td><?= $this->getHtml('Process'); ?><td><?= $this->printHtml($risk->process->title); ?>
+                                    <tr><td><?= $this->getHtml('Project'); ?><td><?= $this->printHtml($risk->project->project?->name); ?>
                                 </table>
                             </form>
                         </div>
@@ -51,15 +50,14 @@ echo $this->data['nav']->render(); ?>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Media'); ?></h1></header>
-
-                        <div class="inner">
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Media'); ?></div>
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td><input type="text" id="iMedia"><td><button><?= $this->getHtml('Select'); ?></button>
                                     <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>
@@ -71,10 +69,9 @@ echo $this->data['nav']->render(); ?>
 
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Responsibility'); ?></h1></header>
-
-                        <div class="inner">
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Responsibility'); ?></div>
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
@@ -82,7 +79,7 @@ echo $this->data['nav']->render(); ?>
                                     <tr><td><select id="iStatus" name="status">
                                                 <option value="">
                                             </select>
-                                        <td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" id="iUser" name="user" placeholder=""></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
+                                        <td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" id="iUser" name="user"></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
                                 </table>
                             </form>
                         </div>
@@ -94,10 +91,9 @@ echo $this->data['nav']->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('RiskStatus'); ?></h1></header>
-
-                        <div class="inner">
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('RiskStatus'); ?></div>
+                        <div class="portlet-body">
                             <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
@@ -127,15 +123,14 @@ echo $this->data['nav']->render(); ?>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Media'); ?></h1></header>
-
-                        <div class="inner">
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Media'); ?></div>
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td><input type="text" id="iMedia"><td><button><?= $this->getHtml('Select'); ?></button>
                                     <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>
@@ -149,15 +144,14 @@ echo $this->data['nav']->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('RiskObjects'); ?></h1></header>
-
-                        <div class="inner">
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('RiskObjects'); ?></div>
+                        <div class="portlet-body">
                             <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td><label for="iRiskObjectName"><?= $this->getHtml('Name'); ?></label>
-                                    <tr><td><input type="text" id="iRiskObjectName" name="riskobjectname" placeholder="<?= $this->getHtml('Name'); ?>">
+                                    <tr><td><input type="text" id="iRiskObjectName" name="riskobjectname">
                                     <tr><td><label for="iRiskObjectDescription"><?= $this->getHtml('Description'); ?></label>
                                     <tr><td><textarea id="iRiskObjectDescription" name="riskobjectdescription"></textarea>
                                     <tr><td><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>" name="">
@@ -168,15 +162,14 @@ echo $this->data['nav']->render(); ?>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Media'); ?></h1></header>
-
-                        <div class="inner">
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Media'); ?></div>
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td><input type="text" id="iMedia"><td><button><?= $this->getHtml('Select'); ?></button>
                                     <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>
@@ -190,10 +183,9 @@ echo $this->data['nav']->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('RiskObjectStatus'); ?></h1></header>
-
-                        <div class="inner">
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('RiskObjectStatus'); ?></div>
+                        <div class="portlet-body">
                             <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
@@ -213,15 +205,14 @@ echo $this->data['nav']->render(); ?>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Media'); ?></h1></header>
-
-                        <div class="inner">
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Media'); ?></div>
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td><input type="text" id="iMedia"><td><button><?= $this->getHtml('Select'); ?></button>
                                     <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>
@@ -235,10 +226,9 @@ echo $this->data['nav']->render(); ?>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Solution'); ?></h1></header>
-
-                        <div class="inner">
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Solution'); ?></div>
+                        <div class="portlet-body">
                             <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
@@ -275,15 +265,14 @@ echo $this->data['nav']->render(); ?>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
-                    <section class="box wf-100">
-                        <header><h1><?= $this->getHtml('Media'); ?></h1></header>
-
-                        <div class="inner">
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('Media'); ?></div>
+                        <div class="portlet-body">
                             <form>
                                 <table class="layout wf-100">
                                     <tbody>
                                     <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia" placeholder="File"><td><button><?= $this->getHtml('Select'); ?></button>
+                                    <tr><td><input type="text" id="iMedia"><td><button><?= $this->getHtml('Select'); ?></button>
                                     <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
                                     <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
                                 </table>

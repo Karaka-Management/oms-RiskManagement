@@ -22,7 +22,7 @@ namespace Modules\RiskManagement\Models;
  * @link    https://jingga.app
  * @since   1.0.0
  */
-final class NullDepartment extends Department
+final class NullRiskHistory extends RiskHistory
 {
     /**
      * Constructor
@@ -34,6 +34,7 @@ final class NullDepartment extends Department
     public function __construct(int $id = 0)
     {
         $this->id = $id;
+        parent::__construct();
     }
 
     /**

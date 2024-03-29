@@ -94,4 +94,7 @@ return ['RiskManagement' => [
     'UserGroup'         => 'Benutzergruppe',
     'Value'             => 'Wert',
     'Watchlist'         => 'Beobachtungsliste',
+    'Net'         => 'Netto',
+    'Gross'         => 'Brutto',
+    'Likelihood'         => 'Wahrscheinlichkeit',
 ]];
