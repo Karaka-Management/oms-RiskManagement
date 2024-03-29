@@ -18,7 +18,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/controlling/riskmanagement/cockpit(\?.*$|$)' => [
+    '^/controlling/riskmanagement/cockpit(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCockpit',
             'verb'       => RouteVerb::GET,
@@ -29,7 +29,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/risk/list(\?.*$|$)' => [
+    '^/controlling/riskmanagement/risk/list(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskList',
             'verb'       => RouteVerb::GET,
@@ -40,7 +40,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/risk/create(\?.*$|$)' => [
+    '^/controlling/riskmanagement/risk/create(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCreate',
             'verb'       => RouteVerb::GET,
@@ -51,7 +51,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/risk/view(\?.*$|$)' => [
+    '^/controlling/riskmanagement/risk/view(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskView',
             'verb'       => RouteVerb::GET,
@@ -62,7 +62,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/cause/list(\?.*$|$)' => [
+    '^/controlling/riskmanagement/cause/list(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCauseList',
             'verb'       => RouteVerb::GET,
@@ -73,7 +73,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/cause/view(\?.*$|$)' => [
+    '^/controlling/riskmanagement/cause/view(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCauseView',
             'verb'       => RouteVerb::GET,
@@ -84,7 +84,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/solution/list(\?.*$|$)' => [
+    '^/controlling/riskmanagement/solution/list(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskSolutionList',
             'verb'       => RouteVerb::GET,
@@ -95,7 +95,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/solution/view(\?.*$|$)' => [
+    '^/controlling/riskmanagement/solution/view(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskSolutionView',
             'verb'       => RouteVerb::GET,
@@ -106,7 +106,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/department/list(\?.*$|$)' => [
+    '^/controlling/riskmanagement/department/list(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskDepartmentList',
             'verb'       => RouteVerb::GET,
@@ -117,7 +117,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/department/view(\?.*$|$)' => [
+    '^/controlling/riskmanagement/department/view(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskDepartmentView',
             'verb'       => RouteVerb::GET,
@@ -128,7 +128,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/category/list(\?.*$|$)' => [
+    '^/controlling/riskmanagement/category/list(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCategoryList',
             'verb'       => RouteVerb::GET,
@@ -139,7 +139,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/category/view(\?.*$|$)' => [
+    '^/controlling/riskmanagement/category/view(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCategoryView',
             'verb'       => RouteVerb::GET,
@@ -150,7 +150,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/project/list(\?.*$|$)' => [
+    '^/controlling/riskmanagement/project/list(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskProjectList',
             'verb'       => RouteVerb::GET,
@@ -161,7 +161,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/project/view(\?.*$|$)' => [
+    '^/controlling/riskmanagement/project/view(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskProjectView',
             'verb'       => RouteVerb::GET,
@@ -172,7 +172,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/process/list(\?.*$|$)' => [
+    '^/controlling/riskmanagement/process/list(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskProcessList',
             'verb'       => RouteVerb::GET,
@@ -183,7 +183,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/process/view(\?.*$|$)' => [
+    '^/controlling/riskmanagement/process/view(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskProcessView',
             'verb'       => RouteVerb::GET,
@@ -194,7 +194,7 @@ return [
             ],
         ],
     ],
-    '^.*/controlling/riskmanagement/settings/dashboard(\?.*$|$)' => [
+    '^/controlling/riskmanagement/settings/dashboard(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskSettings',
             'verb'       => RouteVerb::GET,
