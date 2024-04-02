@@ -39,7 +39,7 @@ final class CategoryL11nMapper extends DataMapperFactory
     public const COLUMNS = [
         'riskmngmt_category_l11n_id'       => ['name' => 'riskmngmt_category_l11n_id',       'type' => 'int',    'internal' => 'id'],
         'riskmngmt_category_l11n_title'    => ['name' => 'riskmngmt_category_l11n_title',    'type' => 'string', 'internal' => 'content', 'autocomplete' => true],
-        'riskmngmt_category_l11n_category'      => ['name' => 'riskmngmt_category_l11n_category',      'type' => 'int',    'internal' => 'ref'],
+        'riskmngmt_category_l11n_category' => ['name' => 'riskmngmt_category_l11n_category',      'type' => 'int',    'internal' => 'ref'],
         'riskmngmt_category_l11n_language' => ['name' => 'riskmngmt_category_l11n_language', 'type' => 'string', 'internal' => 'language'],
     ];
 

@@ -36,10 +36,10 @@ final class CategoryMapper extends DataMapperFactory
      * @since 1.0.0
      */
     public const COLUMNS = [
-        'riskmngmt_category_id'             => ['name' => 'riskmngmt_category_id',             'type' => 'int',    'internal' => 'id'],
-        'riskmngmt_category_parent'         => ['name' => 'riskmngmt_category_parent',         'type' => 'int',    'internal' => 'parent'],
-        'riskmngmt_category_responsible'    => ['name' => 'riskmngmt_category_responsible',    'type' => 'int',    'internal' => 'responsible'],
-        'riskmngmt_category_deputy'         => ['name' => 'riskmngmt_category_deputy',         'type' => 'int',    'internal' => 'deputy'],
+        'riskmngmt_category_id'          => ['name' => 'riskmngmt_category_id',             'type' => 'int',    'internal' => 'id'],
+        'riskmngmt_category_parent'      => ['name' => 'riskmngmt_category_parent',         'type' => 'int',    'internal' => 'parent'],
+        'riskmngmt_category_responsible' => ['name' => 'riskmngmt_category_responsible',    'type' => 'int',    'internal' => 'responsible'],
+        'riskmngmt_category_deputy'      => ['name' => 'riskmngmt_category_deputy',         'type' => 'int',    'internal' => 'deputy'],
     ];
 
     /**

@@ -15,15 +15,15 @@ declare(strict_types=1);
 $department = $this->data['department'];
 
 $categories = [];
-$projects = [];
-$processes = [];
+$projects   = [];
+$processes  = [];
 
-$causes = [];
+$causes    = [];
 $solutions = [];
 foreach ($this->data['risks'] as $risk) {
     $categories[$risk->category?->id] = $risk->category;
-    $projects[$risk->project?->id] = $risk->project;
-    $processes[$risk->process?->id] = $risk->process;
+    $projects[$risk->project?->id]    = $risk->project;
+    $processes[$risk->process?->id]   = $risk->process;
 
     foreach ($risk->causes as $cause) {
         $causes[$cause->id] = $cause;

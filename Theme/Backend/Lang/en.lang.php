@@ -94,7 +94,7 @@ return ['RiskManagement' => [
     'UserGroup'         => 'User/Group',
     'Value'             => 'Value',
     'Watchlist'         => 'Watchlist',
-    'Net'         => 'Net',
-    'Gross'         => 'Gross',
-    'Likelihood'         => 'Likelihood',
+    'Net'               => 'Net',
+    'Gross'             => 'Gross',
+    'Likelihood'        => 'Likelihood',
 ]];

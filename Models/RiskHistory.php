@@ -51,15 +51,23 @@ class RiskHistory
     public \DateTimeImmutable $createdAt;
 
     public float $grossLikelihoodR = 0.0;
+
     public int $grossLikelihoodLevel = 0;
+
     public int $grossCostLevel = 0;
+
     public FloatInt $grossCost;
+
     public FloatInt $grossExpectedCost;
 
     public float $netLikelihoodR = 0.0;
+
     public int $netLikelihoodLevel = 0;
+
     public int $netCostLevel = 0;
+
     public FloatInt $netCost;
+
     public FloatInt $netExpectedCost;
 
     /**
@@ -69,13 +77,12 @@ class RiskHistory
      */
     public function __construct()
     {
-        $this->risk = new NullRisk();
-        $this->createdAt = new \DateTimeImmutable('now');
-        $this->grossCost = new FloatInt();
+        $this->risk              = new NullRisk();
+        $this->createdAt         = new \DateTimeImmutable('now');
+        $this->grossCost         = new FloatInt();
         $this->grossExpectedCost = new FloatInt();
-        $this->netCost = new FloatInt();
-        $this->netExpectedCost = new FloatInt();
-
+        $this->netCost           = new FloatInt();
+        $this->netExpectedCost   = new FloatInt();
     }
 
     use \Modules\Media\Models\MediaListTrait;

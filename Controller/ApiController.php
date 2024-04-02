@@ -219,7 +219,7 @@ final class ApiController extends Controller
     private function validateRiskProcessCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if ($val['name'] = !$request->hasData('name')
+        if ($val['name']    = !$request->hasData('name')
             || $val['unit'] = !$request->hasData('unit')
         ) {
             return $val;
@@ -241,8 +241,8 @@ final class ApiController extends Controller
     {
         $process = new Process();
 
-        $process->title = $request->getDataString('name') ?? '';
-        $process->unit = $request->getDataInt('unit') ?? 1;
+        $process->title      = $request->getDataString('name') ?? '';
+        $process->unit       = $request->getDataInt('unit') ?? 1;
         $process->department = $request->hasData('department') ? new NullDepartment((int) $request->getData('department')) : null;
 
         return $process;
@@ -287,7 +287,7 @@ final class ApiController extends Controller
     private function validateRiskCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if ($val['name'] = !$request->hasData('name')
+        if ($val['name']    = !$request->hasData('name')
             || $val['unit'] = !$request->hasData('unit')
         ) {
             return $val;
@@ -309,29 +309,29 @@ final class ApiController extends Controller
     {
         $risk = new Risk();
 
-        $risk->name = $request->getDataString('name') ?? '';
+        $risk->name           = $request->getDataString('name') ?? '';
         $risk->descriptionRaw = $request->getDataString('description') ?? '';
 
         $risk->responsible = $request->hasData('responsible') ? new NullAccount((int) $request->getData('responsible')) : null;
-        $risk->deputy = $request->hasData('deputy') ? new NullAccount((int) $request->getData('deputy')) : null;
+        $risk->deputy      = $request->hasData('deputy') ? new NullAccount((int) $request->getData('deputy')) : null;
 
-        $risk->unit = $request->getDataInt('unit') ?? 1;
-        $risk->category = $request->hasData('category') ? new NullCategory((int) $request->getData('category')) : null;
+        $risk->unit       = $request->getDataInt('unit') ?? 1;
+        $risk->category   = $request->hasData('category') ? new NullCategory((int) $request->getData('category')) : null;
         $risk->department = $request->hasData('department') ? new NullDepartment((int) $request->getData('department')) : null;
-        $risk->process = $request->hasData('process') ? new NullProcess((int) $request->getData('process')) : null;
-        $risk->project = $request->hasData('project') ? new NullProject((int) $request->getData('project')) : null;
+        $risk->process    = $request->hasData('process') ? new NullProcess((int) $request->getData('process')) : null;
+        $risk->project    = $request->hasData('project') ? new NullProject((int) $request->getData('project')) : null;
 
-        $risk->grossLikelihoodR = $request->getDataFloat('grosslikelihoodratio') ?? 0.0;
+        $risk->grossLikelihoodR     = $request->getDataFloat('grosslikelihoodratio') ?? 0.0;
         $risk->grossLikelihoodLevel = $request->getDataInt('grosslikelihoodlevel') ?? 0;
-        $risk->grossCostLevel = $request->getDataInt('grosscostlevel') ?? 0;
-        $risk->grossCost = new FloatInt($request->getDataString('grosscost') ?? 0);
-        $risk->grossExpectedCost = new FloatInt((int) ($risk->grossLikelihoodR / 100 * $risk->grossCost->value));
+        $risk->grossCostLevel       = $request->getDataInt('grosscostlevel') ?? 0;
+        $risk->grossCost            = new FloatInt($request->getDataString('grosscost') ?? 0);
+        $risk->grossExpectedCost    = new FloatInt((int) ($risk->grossLikelihoodR / 100 * $risk->grossCost->value));
 
-        $risk->netLikelihoodR = $request->getDataFloat('netlikelihoodratio') ?? 0.0;
+        $risk->netLikelihoodR     = $request->getDataFloat('netlikelihoodratio') ?? 0.0;
         $risk->netLikelihoodLevel = $request->getDataInt('netlikelihoodlevel') ?? 0;
-        $risk->netCostLevel = $request->getDataInt('netcostlevel') ?? 0;
-        $risk->netCost = new FloatInt($request->getDataString('netcost') ?? 0);
-        $risk->netExpectedCost = new FloatInt((int) ($risk->netLikelihoodR / 100 * $risk->netCost->value));
+        $risk->netCostLevel       = $request->getDataInt('netcostlevel') ?? 0;
+        $risk->netCost            = new FloatInt($request->getDataString('netcost') ?? 0);
+        $risk->netExpectedCost    = new FloatInt((int) ($risk->netLikelihoodR / 100 * $risk->netCost->value));
 
         return $risk;
     }
@@ -405,26 +405,26 @@ final class ApiController extends Controller
         ) {
             $history = new RiskHistory();
 
-            $history->risk = $risk;
-            $history->unit = $risk->unit;
+            $history->risk      = $risk;
+            $history->unit      = $risk->unit;
             $history->createdAt = $now;
 
-            $history->category = $risk->category;
+            $history->category   = $risk->category;
             $history->department = $risk->department;
-            $history->process = $risk->process;
-            $history->project = $risk->project;
+            $history->process    = $risk->process;
+            $history->project    = $risk->project;
 
-            $history->grossLikelihoodR = $risk->grossLikelihoodR;
+            $history->grossLikelihoodR     = $risk->grossLikelihoodR;
             $history->grossLikelihoodLevel = $risk->grossLikelihoodLevel;
-            $history->grossCostLevel = $risk->grossCostLevel;
-            $history->grossCost = $risk->grossCost;
-            $history->grossExpectedCost = $risk->grossExpectedCost;
+            $history->grossCostLevel       = $risk->grossCostLevel;
+            $history->grossCost            = $risk->grossCost;
+            $history->grossExpectedCost    = $risk->grossExpectedCost;
 
-            $history->netLikelihoodR = $risk->netLikelihoodR;
+            $history->netLikelihoodR     = $risk->netLikelihoodR;
             $history->netLikelihoodLevel = $risk->netLikelihoodLevel;
-            $history->netCostLevel = $risk->netCostLevel;
-            $history->netCost = $risk->netCost;
-            $history->netExpectedCost = $risk->netExpectedCost;
+            $history->netCostLevel       = $risk->netCostLevel;
+            $history->netCost            = $risk->netCost;
+            $history->netExpectedCost    = $risk->netExpectedCost;
 
             yield $history;
         }
