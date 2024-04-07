@@ -22,7 +22,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCockpit',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -34,7 +34,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskList',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -46,7 +46,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCreate',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::CREATE,
@@ -58,7 +58,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskView',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -70,7 +70,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCauseList',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -82,7 +82,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCauseView',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -94,7 +94,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskSolutionList',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -106,7 +106,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskSolutionView',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -118,7 +118,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskDepartmentList',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -130,7 +130,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskDepartmentView',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -142,7 +142,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCategoryList',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -154,7 +154,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCategoryView',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -166,7 +166,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskProjectList',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -178,7 +178,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskProjectView',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -190,7 +190,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskProcessList',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -202,7 +202,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskProcessView',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -214,7 +214,7 @@ return [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskSettings',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
