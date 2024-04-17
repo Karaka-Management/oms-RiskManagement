@@ -12,10 +12,14 @@
  */
 declare(strict_types=1);
 
-$risk = $this->data['risk'];
-echo $this->data['nav']->render(); ?>
+use Modules\RiskManagement\Models\NullRisk;
 
+$risk = $this->data['risk'] ?? new NullRisk();
+$isNew = $risk->id === 0;
+
+echo $this->data['nav']->render(); ?>
 <div class="tabview tab-2">
+    <?php if (!$isNew) : ?>
     <div class="box">
         <ul class="tab-links">
             <li><label for="c-tab-1"><?= $this->getHtml('Risk'); ?></label>
@@ -25,68 +29,89 @@ echo $this->data['nav']->render(); ?>
             <li><label for="c-tab-5"><?= $this->getHtml('Solutions'); ?></label>
         </ul>
     </div>
+    <?php endif; ?>
     <div class="tab-content">
-        <input type="radio" id="c-tab-1" name="tabular-2"<?= $this->request->uri->fragment === 'c-tab-1' ? ' checked' : ''; ?>>
+        <input type="radio" id="c-tab-1" name="tabular-2"<?= $isNew || $this->request->uri->fragment === 'c-tab-1' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-6">
                     <section class="portlet">
+                        <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                         <div class="portlet-head"><?= $this->getHtml('Risk'); ?></div>
-                        <div class="portlet-body">
-                            <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
-                                <table class="layout wf-100">
-                                    <tbody>
-                                    <tr><td><?= $this->getHtml('Name'); ?><td><?= $this->printHtml($risk->name); ?>
-                                    <tr><td><?= $this->getHtml('Description'); ?><td><?= $this->printHtml($risk->description); ?>
-                                    <tr><td><?= $this->getHtml('Unit'); ?><td><?= $this->printHtml($risk->unit->name); ?>
-                                    <tr><td><?= $this->getHtml('Category'); ?><td><?= $this->printHtml($risk->category->title); ?>
-                                    <tr><td><?= $this->getHtml('Department'); ?><td><?= $this->printHtml($risk->department->department?->name); ?>
-                                    <tr><td><?= $this->getHtml('Process'); ?><td><?= $this->printHtml($risk->process->title); ?>
-                                    <tr><td><?= $this->getHtml('Project'); ?><td><?= $this->printHtml($risk->project->project?->name); ?>
-                                </table>
-                            </form>
-                        </div>
-                    </section>
-                </div>
+                            <div class="portlet-body">
+                                <div class="form-group">
+                                    <label for="iId"><?= $this->getHtml('ID', '0', '0'); ?></label>
+                                    <input type="text" name="id" id="iId" value="<?= $risk->id; ?>" disabled>
+                                </div>
 
-                <div class="col-xs-12 col-md-6">
-                    <section class="portlet">
-                        <div class="portlet-head"><?= $this->getHtml('Media'); ?></div>
-                        <div class="portlet-body">
-                            <form>
-                                <table class="layout wf-100">
-                                    <tbody>
-                                    <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia"><td><button><?= $this->getHtml('Select'); ?></button>
-                                    <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
-                                    <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
-                                </table>
-                            </form>
-                        </div>
-                    </section>
-                </div>
-            </div>
+                                <div class="form-group">
+                                    <label for="iName"><?= $this->getHtml('Name'); ?></label>
+                                    <input type="text" name="name" id="iName" value="<?= $this->printHtml($risk->name); ?>" required>
+                                </div>
 
-            <div class="row">
-                <div class="col-xs-12 col-md-6">
-                    <section class="portlet">
-                        <div class="portlet-head"><?= $this->getHtml('Responsibility'); ?></div>
-                        <div class="portlet-body">
-                            <form>
-                                <table class="layout wf-100">
-                                    <tbody>
-                                    <tr><td><label for="iResponsibility"><?= $this->getHtml('Responsibility'); ?></label><td><label for="iUser"><?= $this->getHtml('UserGroup'); ?></label><td>
-                                    <tr><td><select id="iStatus" name="status">
-                                                <option value="">
-                                            </select>
-                                        <td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" id="iUser" name="user"></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
-                                </table>
-                            </form>
-                        </div>
+                                <div class="form-group">
+                                    <label for="iDescription"><?= $this->getHtml('Description'); ?></label>
+                                    <textarea name="description" id="iDescription"><?= $this->printTextarea($risk->description); ?></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="iUnit"><?= $this->getHtml('Unit'); ?></label>
+                                    <select id="iUnit" name="unit">
+                                        <option value="">
+                                        <?php
+                                        foreach ($this->data['units'] as $unit) : ?>
+                                            <option value="<?= $unit->id; ?>"<?= $unit->id === $risk->unit ? ' selected' : ''; ?>><?= $this->printHtml($unit->name); ?>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="iCategory"><?= $this->getHtml('Category'); ?></label>
+                                    <select id="iCategory" name="category">
+                                        <option value="">
+                                        <?php
+                                        foreach ($this->data['categories'] as $category) : ?>
+                                            <option value="<?= $category->id; ?>"<?= $category->id === $risk->category->id ? ' selected' : ''; ?>><?= $this->printHtml($category->getL11n()); ?>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="iDepartment"><?= $this->getHtml('Department'); ?></label>
+                                    <select id="iDepartment" name="department">
+                                        <option value="">
+                                        <?php
+                                        foreach ($this->data['departments'] as $department) : ?>
+                                            <option value="<?= $department->id; ?>"<?= $department->id === $risk->department->id ? ' selected' : ''; ?>><?= $this->printHtml($department->name); ?>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="iProcess"><?= $this->getHtml('Process'); ?></label>
+                                    <select id="iProcess" name="process">
+                                        <option value="">
+                                        <?php
+                                        foreach ($this->data['processes'] as $process) : ?>
+                                            <option value="<?= $process->id; ?>"<?= $process->id === $risk->process->id ? ' selected' : ''; ?>><?= $this->printHtml($process->title); ?>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="portlet-foot">
+                                <?php if ($isNew) : ?>
+                                    <input id="iCreateSubmit" type="Submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
+                                <?php else : ?>
+                                    <input id="iSaveSubmit" type="Submit" value="<?= $this->getHtml('Save', '0', '0'); ?>">
+                                <?php endif; ?>
+                            </div>
+                        </form>
                     </section>
                 </div>
             </div>
         </div>
+
+        <?php if (!$isNew) : ?>
         <input type="radio" id="c-tab-2" name="tabular-2"<?= $this->request->uri->fragment === 'c-tab-2' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
@@ -121,25 +146,9 @@ echo $this->data['nav']->render(); ?>
                         </div>
                     </section>
                 </div>
-
-                <div class="col-xs-12 col-md-6">
-                    <section class="portlet">
-                        <div class="portlet-head"><?= $this->getHtml('Media'); ?></div>
-                        <div class="portlet-body">
-                            <form>
-                                <table class="layout wf-100">
-                                    <tbody>
-                                    <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia"><td><button><?= $this->getHtml('Select'); ?></button>
-                                    <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
-                                    <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
-                                </table>
-                            </form>
-                        </div>
-                    </section>
-                </div>
             </div>
         </div>
+
         <input type="radio" id="c-tab-3" name="tabular-2"<?= $this->request->uri->fragment === 'c-tab-3' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
@@ -160,25 +169,9 @@ echo $this->data['nav']->render(); ?>
                         </div>
                     </section>
                 </div>
-
-                <div class="col-xs-12 col-md-6">
-                    <section class="portlet">
-                        <div class="portlet-head"><?= $this->getHtml('Media'); ?></div>
-                        <div class="portlet-body">
-                            <form>
-                                <table class="layout wf-100">
-                                    <tbody>
-                                    <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia"><td><button><?= $this->getHtml('Select'); ?></button>
-                                    <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
-                                    <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
-                                </table>
-                            </form>
-                        </div>
-                    </section>
-                </div>
             </div>
         </div>
+
         <input type="radio" id="c-tab-4" name="tabular-2"<?= $this->request->uri->fragment === 'c-tab-4' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
@@ -203,25 +196,9 @@ echo $this->data['nav']->render(); ?>
                         </div>
                     </section>
                 </div>
-
-                <div class="col-xs-12 col-md-6">
-                    <section class="portlet">
-                        <div class="portlet-head"><?= $this->getHtml('Media'); ?></div>
-                        <div class="portlet-body">
-                            <form>
-                                <table class="layout wf-100">
-                                    <tbody>
-                                    <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia"><td><button><?= $this->getHtml('Select'); ?></button>
-                                    <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
-                                    <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
-                                </table>
-                            </form>
-                        </div>
-                    </section>
-                </div>
             </div>
         </div>
+
         <input type="radio" id="c-tab-5" name="tabular-2"<?= $this->request->uri->fragment === 'c-tab-5' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
@@ -263,24 +240,8 @@ echo $this->data['nav']->render(); ?>
                         </div>
                     </section>
                 </div>
-
-                <div class="col-xs-12 col-md-6">
-                    <section class="portlet">
-                        <div class="portlet-head"><?= $this->getHtml('Media'); ?></div>
-                        <div class="portlet-body">
-                            <form>
-                                <table class="layout wf-100">
-                                    <tbody>
-                                    <tr><td colspan="2"><label for="iMedia"><?= $this->getHtml('Media'); ?></label>
-                                    <tr><td><input type="text" id="iMedia"><td><button><?= $this->getHtml('Select'); ?></button>
-                                    <tr><td colspan="2"><label for="iUpload"><?= $this->getHtml('Upload'); ?></label>
-                                    <tr><td><input type="file" id="iUpload" form="fTask"><input form="fTask" type="hidden" name="type"><td>
-                                </table>
-                            </form>
-                        </div>
-                    </section>
-                </div>
             </div>
         </div>
+        <?php endif; ?>
     </div>
 </div>

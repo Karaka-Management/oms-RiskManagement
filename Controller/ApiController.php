@@ -315,7 +315,7 @@ final class ApiController extends Controller
         $risk->responsible = $request->hasData('responsible') ? new NullAccount((int) $request->getData('responsible')) : null;
         $risk->deputy      = $request->hasData('deputy') ? new NullAccount((int) $request->getData('deputy')) : null;
 
-        $risk->unit       = $request->getDataInt('unit') ?? 1;
+        $risk->unit       = $request->getDataInt('unit') ?? $this->app->unitId;
         $risk->category   = $request->hasData('category') ? new NullCategory((int) $request->getData('category')) : null;
         $risk->department = $request->hasData('department') ? new NullDepartment((int) $request->getData('department')) : null;
         $risk->process    = $request->hasData('process') ? new NullProcess((int) $request->getData('process')) : null;

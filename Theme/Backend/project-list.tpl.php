@@ -12,13 +12,18 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Uri\UriFactory;
+
 $projects = $this->data['projects'];
 echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
         <div class="portlet">
-            <div class="portlet-head"><?= $this->getHtml('Projects'); ?><i class="g-icon download btn end-xs">download</i></div>
+            <div class="portlet-head">
+                <?= $this->getHtml('Projects'); ?>
+                <i class="g-icon download btn end-xs">download</i>
+            </div>
             <div class="slider">
             <table class="default sticky">
                 <thead>
@@ -31,7 +36,7 @@ echo $this->data['nav']->render(); ?>
                     $url = \phpOMS\Uri\UriFactory::build('{/base}/controlling/riskmanagement/project/view?{?}&id=' . $value->id); ?>
                 <tr tabindex="0" data-href="<?= $url; ?>">
                     <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->project->name); ?></a>
+                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->name); ?></a>
                 <?php endforeach; ?>
                 <?php if ($c === 0) : ?>
                 <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>

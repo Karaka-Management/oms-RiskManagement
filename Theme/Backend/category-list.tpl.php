@@ -12,13 +12,19 @@
  */
 declare(strict_types=1);
 
+use phpOMS\Uri\UriFactory;
+
 $categories = $this->data['categories'];
 echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
         <div class="portlet">
-            <div class="portlet-head"><?= $this->getHtml('Categories'); ?><i class="g-icon download btn end-xs">download</i></div>
+            <div class="portlet-head">
+                <?= $this->getHtml('Categories'); ?>
+                <i class="g-icon download btn end-xs">download</i>
+                <a class="button end-xs save" href="<?= UriFactory::build('{/base}/controlling/riskmanagement/category/create'); ?>"><?= $this->getHtml('New', '0', '0'); ?></a>
+            </div>
             <div class="slider">
             <table class="default sticky">
                 <thead>

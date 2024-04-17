@@ -162,6 +162,18 @@ return [
             ],
         ],
     ],
+    '^/controlling/riskmanagement/category/create(\?.*$|$)' => [
+        [
+            'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskCategoryCreate',
+            'verb'       => RouteVerb::GET,
+            'active'     => true,
+            'permission' => [
+                'module' => BackendController::NAME,
+                'type'   => PermissionType::CREATE,
+                'state'  => PermissionCategory::CATEGORY,
+            ],
+        ],
+    ],
     '^/controlling/riskmanagement/project/list(\?.*$|$)' => [
         [
             'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskProjectList',
@@ -206,6 +218,18 @@ return [
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
+                'state'  => PermissionCategory::PROCESS,
+            ],
+        ],
+    ],
+    '^/controlling/riskmanagement/process/create(\?.*$|$)' => [
+        [
+            'dest'       => '\Modules\RiskManagement\Controller\BackendController:viewRiskProcessCreate',
+            'verb'       => RouteVerb::GET,
+            'active'     => true,
+            'permission' => [
+                'module' => BackendController::NAME,
+                'type'   => PermissionType::CREATE,
                 'state'  => PermissionCategory::PROCESS,
             ],
         ],

@@ -12,7 +12,9 @@
  */
 declare(strict_types=1);
 
-$department = $this->data['department'];
+use Modules\Organization\Models\NullDepartment;
+
+$department = $this->data['department'] ?? new NullDepartment();
 
 $categories = [];
 $projects   = [];
@@ -61,9 +63,8 @@ echo $this->data['nav']->render();
                             <form id="fRisk"  method="POST" action="<?= \phpOMS\Uri\UriFactory::build('{/api}controlling/riskmanagement?{?}&csrf={$CSRF}'); ?>">
                                 <table class="layout wf-100">
                                     <tbody>
-                                    <tr><td><?= $this->getHtml('Name'); ?></label><td><?= $this->printHtml($department->department->name); ?>
-                                    <tr><td><?= $this->getHtml('Description'); ?>:<td><?= $this->printHtml($department->department->description); ?>
-                                    <tr><td><?= $this->getHtml('Unit'); ?>:<td><?= $this->printHtml($department->department->unit->name); ?>
+                                    <tr><td><?= $this->getHtml('Name'); ?></label><td><?= $this->printHtml($department->name); ?>
+                                    <tr><td><?= $this->getHtml('Unit'); ?>:<td><?= $this->printHtml($department->unit->name); ?>
                                     <tr><td><?= $this->getHtml('Risks'); ?>:<td>
                                     <tr><td><?= $this->getHtml('Categories'); ?>:<td>
                                     <tr><td><?= $this->getHtml('Projects'); ?>:<td>

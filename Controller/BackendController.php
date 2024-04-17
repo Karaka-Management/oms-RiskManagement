@@ -15,7 +15,9 @@ declare(strict_types=1);
 namespace Modules\RiskManagement\Controller;
 
 use Modules\Organization\Models\DepartmentMapper;
+use Modules\Organization\Models\UnitMapper;
 use Modules\ProjectManagement\Models\ProjectMapper;
+use Modules\RiskManagement\Models\CategoryL11nMapper;
 use Modules\RiskManagement\Models\CategoryMapper;
 use Modules\RiskManagement\Models\CauseMapper;
 use Modules\RiskManagement\Models\ProcessMapper;
@@ -141,8 +143,9 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/risk-list');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $risks               = RiskMapper::getAll()->executeGetArray();
-        $view->data['risks'] = $risks;
+        $view->data['risks'] = RiskMapper::getAll()
+            ->where('unit', $this->app->unitId)
+            ->executeGetArray();
 
         return $view;
     }
@@ -165,8 +168,22 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/risk-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $risk               = RiskMapper::get()->where('id', (int) $request->getData('id'))->execute();
-        $view->data['risk'] = $risk;
+        $view->data['risk'] = RiskMapper::get()
+            ->where('id', (int) $request->getData('id'))
+            ->execute();
+
+        $view->data['units']      = UnitMapper::getAll()->executeGetArray();
+        $view->data['categories'] = CategoryMapper::getAll()
+            ->with('title')
+            ->where('title/language', $response->header->l11n->language)
+            ->executeGetArray();
+
+        $view->data['departments'] = DepartmentMapper::getAll()
+            ->where('unit', $this->app->unitId)
+            ->executeGetArray();
+
+        $view->data['processes'] = ProcessMapper::getAll()
+            ->executeGetArray();
 
         return $view;
     }
@@ -186,8 +203,21 @@ final class BackendController extends Controller
     public function viewRiskCreate(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
-        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/risk-create');
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/risk-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
+
+        $view->data['units']      = UnitMapper::getAll()->executeGetArray();
+        $view->data['categories'] = CategoryMapper::getAll()
+            ->with('title')
+            ->where('title/language', $response->header->l11n->language)
+            ->executeGetArray();
+
+        $view->data['departments'] = DepartmentMapper::getAll()
+            ->where('unit', $this->app->unitId)
+            ->executeGetArray();
+
+        $view->data['processes'] = ProcessMapper::getAll()
+            ->executeGetArray();
 
         return $view;
     }
@@ -210,8 +240,9 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cause-list');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $causes               = CauseMapper::getAll()->with('risk')->executeGetArray();
-        $view->data['causes'] = $causes;
+        $view->data['causes'] = CauseMapper::getAll()
+            ->with('risk')
+            ->executeGetArray();
 
         return $view;
     }
@@ -234,8 +265,9 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/cause-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $cause               = CauseMapper::get()->where('id', (int) $request->getData('id'))->execute();
-        $view->data['cause'] = $cause;
+        $view->data['cause'] = CauseMapper::get()
+            ->where('id', (int) $request->getData('id'))
+            ->execute();
 
         return $view;
     }
@@ -258,8 +290,10 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/solution-list');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $solutions               = SolutionMapper::getAll()->with('risk')->with('cause')->executeGetArray();
-        $view->data['solutions'] = $solutions;
+        $view->data['solutions'] = SolutionMapper::getAll()
+            ->with('risk')
+            ->with('cause')
+            ->executeGetArray();
 
         return $view;
     }
@@ -282,7 +316,9 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/solution-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $view->data['solution'] = SolutionMapper::get()->where('id', (int) $request->getData('id'))->execute();
+        $view->data['solution'] = SolutionMapper::get()
+            ->where('id', (int) $request->getData('id'))
+            ->execute();
 
         return $view;
     }
@@ -384,14 +420,75 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
+    public function viewRiskProcessCreate(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
+    {
+        $view = new View($this->app->l11nManager, $request, $response);
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/process-view');
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
+
+        return $view;
+    }
+
+    /**
+     * Routing end-point for application behavior.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param array            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since 1.0.0
+     * @codeCoverageIgnore
+     */
+    public function viewRiskCategoryCreate(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
+    {
+        $view = new View($this->app->l11nManager, $request, $response);
+        $view->setTemplate('/Modules/RiskManagement/Theme/Backend/category-view');
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
+
+        return $view;
+    }
+
+    /**
+     * Routing end-point for application behavior.
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param array            $data     Generic data
+     *
+     * @return RenderableInterface
+     *
+     * @since 1.0.0
+     * @codeCoverageIgnore
+     */
     public function viewRiskCategoryView(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/category-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $category               = CategoryMapper::get()->where('id', (int) $request->getData('id'))->execute();
-        $view->data['category'] = $category;
+        $view->data['category'] = CategoryMapper::get()
+            ->with('title')
+            ->where('id', (int) $request->getData('id'))
+            ->where('title/language', $response->header->l11n->language)
+            ->execute();
+
+        $view->data['risks'] = RiskMapper::getAll()
+            ->with('project')
+            ->with('process')
+            ->with('department')
+            ->where('category', (int) $request->getData('id'))
+            ->where('unit', $this->app->unitId)
+            ->executeGetArray();
+
+        /** @var \phpOMS\Localization\BaseStringL11n[] $l11nValues */
+        $l11nValues = CategoryL11nMapper::getAll()
+            ->where('ref', $view->data['category']->id)
+            ->executeGetArray();
+
+        $view->data['l11nView']   = new \Web\Backend\Views\L11nView($this->app->l11nManager, $request, $response);
+        $view->data['l11nValues'] = $l11nValues;
 
         return $view;
     }
@@ -414,8 +511,8 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/project-list');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $projects               = ProjectMapper::getAll()->executeGetArray();
-        $view->data['projects'] = $projects;
+        $view->data['projects'] = ProjectMapper::getAll()
+            ->executeGetArray();
 
         return $view;
     }
@@ -438,8 +535,17 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/project-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $project               = ProjectMapper::get()->where('id', (int) $request->getData('id'))->execute();
-        $view->data['project'] = $project;
+        $view->data['project'] = ProjectMapper::get()
+            ->where('id', (int) $request->getData('id'))
+            ->execute();
+
+        $view->data['risks'] = RiskMapper::getAll()
+            ->with('project')
+            ->with('process')
+            ->with('department')
+            ->where('category', (int) $request->getData('id'))
+            ->where('unit', $this->app->unitId)
+            ->executeGetArray();
 
         return $view;
     }
@@ -462,8 +568,8 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/process-list');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $processes               = ProcessMapper::getAll()->executeGetArray();
-        $view->data['processes'] = $processes;
+        $view->data['processes'] = ProcessMapper::getAll()
+            ->executeGetArray();
 
         return $view;
     }
@@ -486,8 +592,29 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/RiskManagement/Theme/Backend/process-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1003001001, $request, $response);
 
-        $process               = ProcessMapper::get()->where('id', (int) $request->getData('id'))->execute();
-        $view->data['process'] = $process;
+        $view->data['process'] = ProcessMapper::get()
+            ->with('title')
+            ->where('id', (int) $request->getData('id'))
+            ->where('title/language', $response->header->l11n->language)
+            ->execute();
+
+        $view->data['risks'] = RiskMapper::getAll()
+            ->with('project')
+            ->with('process')
+            ->with('department')
+            ->where('process', (int) $request->getData('id'))
+            ->where('unit', $this->app->unitId)
+            ->executeGetArray();
+
+        /** @var \phpOMS\Localization\BaseStringL11n[] $l11nValues */
+        /*
+        $l11nValues = ProcessL11nMapper::getAll()
+            ->where('ref', $view->data['category']->id)
+            ->executeGetArray();
+
+        $view->data['l11nView']   = new \Web\Backend\Views\L11nView($this->app->l11nManager, $request, $response);
+        $view->data['l11nValues'] = $l11nValues;
+        */
 
         return $view;
     }
