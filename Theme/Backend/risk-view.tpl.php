@@ -71,7 +71,7 @@ echo $this->data['nav']->render(); ?>
                                         <option value="">
                                         <?php
                                         foreach ($this->data['categories'] as $category) : ?>
-                                            <option value="<?= $category->id; ?>"<?= $category->id === $risk->category->id ? ' selected' : ''; ?>><?= $this->printHtml($category->getL11n()); ?>
+                                            <option value="<?= $category->id; ?>"<?= $category->id === $risk->category?->id ? ' selected' : ''; ?>><?= $this->printHtml($category->getL11n()); ?>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -82,7 +82,7 @@ echo $this->data['nav']->render(); ?>
                                         <option value="">
                                         <?php
                                         foreach ($this->data['departments'] as $department) : ?>
-                                            <option value="<?= $department->id; ?>"<?= $department->id === $risk->department->id ? ' selected' : ''; ?>><?= $this->printHtml($department->name); ?>
+                                            <option value="<?= $department->id; ?>"<?= $department->id === $risk->department?->id ? ' selected' : ''; ?>><?= $this->printHtml($department->name); ?>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -93,7 +93,7 @@ echo $this->data['nav']->render(); ?>
                                         <option value="">
                                         <?php
                                         foreach ($this->data['processes'] as $process) : ?>
-                                            <option value="<?= $process->id; ?>"<?= $process->id === $risk->process->id ? ' selected' : ''; ?>><?= $this->printHtml($process->title); ?>
+                                            <option value="<?= $process->id; ?>"<?= $process->id === $risk->process?->id ? ' selected' : ''; ?>><?= $this->printHtml($process->title); ?>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

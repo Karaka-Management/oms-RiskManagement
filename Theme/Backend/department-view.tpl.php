@@ -195,7 +195,7 @@ echo $this->data['nav']->render();
                             <tr data-href="<?= $url; ?>">
                                 <td><a href="<?= $url; ?>"><?= $value->id; ?></a>
 
-                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->project->name); ?></a>
+                                <td><a href="<?= $url; ?>"><?= $this->printHtml($value->name); ?></a>
                             <?php endforeach; ?>
                             <?php if ($c === 0) : ?>
                             <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>

@@ -15,7 +15,6 @@ declare(strict_types=1);
 use Modules\Organization\Models\NullDepartment;
 
 $departments = $this->data['departments'] ?? new NullDepartment();
-$isNew = $departments->id === 0;
 
 echo $this->data['nav']->render(); ?>
 
