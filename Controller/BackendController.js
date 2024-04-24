@@ -3,6 +3,7 @@ import { Autoloader } from '../../../jsOMS/Autoloader.js';
 
 Autoloader.defineNamespace('omsApp.Modules');
 
+/* global omsApp */
 omsApp.Modules.RiskManagement = class {
     /**
      * @constructor
@@ -45,26 +46,25 @@ omsApp.Modules.RiskManagement = class {
             return;
         }
 
-        const self = this;
         const data = JSON.parse(chart.getAttribute('data-chart'));
 
         if (data.type === 'scatter') {
             const gradientPlugin = {
                 id: 'gradientPlugin',
-                beforeDraw: function(chart, args, options) {
-                    const {ctx} = chart;
+                beforeDraw: function (chart, args, options) {
+                    const { ctx } = chart;
                     const canvas = chart.canvas;
                     const chartArea = chart.chartArea;
 
                     // Chart background
-                    const gradientBack = canvas.getContext("2d").createLinearGradient(0,
+                    const gradientBack = canvas.getContext('2d').createLinearGradient(0,
                         canvas.height,
                         canvas.width, 0
                     );
 
-                    gradientBack.addColorStop(0.2, "rgba(0, 255, 0, 0.5)");
-                    gradientBack.addColorStop(0.55, "rgba(255, 255, 0, 0.5)");
-                    gradientBack.addColorStop(0.8, "rgba(255, 0, 0, 0.5)");
+                    gradientBack.addColorStop(0.2, 'rgba(0, 255, 0, 0.5)');
+                    gradientBack.addColorStop(0.55, 'rgba(255, 255, 0, 0.5)');
+                    gradientBack.addColorStop(0.8, 'rgba(255, 0, 0, 0.5)');
 
                     ctx.fillStyle = gradientBack;
                     ctx.fillRect(
@@ -79,7 +79,8 @@ omsApp.Modules.RiskManagement = class {
             data.plugins = [gradientPlugin];
         }
 
-        /** global: Chart */
+        /* global Chart */
+        // eslint-disable-next-line no-unused-vars
         const myChart = new Chart(chart.getContext('2d'), data);
     };
 };
