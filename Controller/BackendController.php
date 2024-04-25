@@ -101,6 +101,8 @@ final class BackendController extends Controller
 
         $statsDepartments = [];
         $statsCategories  = [];
+
+        /** @var \Modules\RiskManagement\Models\Risk $risk */
         foreach ($view->data['risks'] as $risk) {
             if ($risk->department->id !== 0) {
                 if (!isset($statsDepartments[$risk->department->name])) {

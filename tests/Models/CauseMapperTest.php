@@ -19,7 +19,6 @@ use Modules\Organization\Models\NullUnit;
 use Modules\RiskManagement\Models\Category;
 use Modules\RiskManagement\Models\Cause;
 use Modules\RiskManagement\Models\CauseMapper;
-use Modules\RiskManagement\Models\Department;
 use Modules\RiskManagement\Models\Risk;
 
 /**
@@ -35,10 +34,7 @@ final class CauseMapperTest extends \PHPUnit\Framework\TestCase
         $obj->title          = 'Cause Test';
         $obj->descriptionRaw = 'Description';
         $obj->probability    = 1;
-
-        $department             = new Department();
-        $department->department = new NullOrgDepartment(1);
-        $obj->department        = $department;
+        $obj->department        = new NullOrgDepartment(1);
 
         $category        = new Category();
         $category->title = 'Test Cat';

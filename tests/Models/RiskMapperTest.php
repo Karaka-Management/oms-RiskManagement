@@ -17,12 +17,10 @@ namespace Modules\RiskManagement\tests\Models;
 use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Media;
 use Modules\Organization\Models\NullDepartment;
-use Modules\Organization\Models\NullUnit;
 use Modules\ProjectManagement\Models\NullProject;
 use Modules\RiskManagement\Models\Category;
 use Modules\RiskManagement\Models\Cause;
 use Modules\RiskManagement\Models\Process;
-use Modules\RiskManagement\Models\Project;
 use Modules\RiskManagement\Models\Risk;
 use Modules\RiskManagement\Models\RiskMapper;
 use Modules\RiskManagement\Models\RiskObject;
@@ -41,7 +39,7 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
 
         $obj->name           = 'Risk Test';
         $obj->descriptionRaw = 'Description';
-        $obj->unit           = new NullUnit(1);
+        $obj->unit           = 1;
         $obj->department     = new NullDepartment(1);
 
         $categoryObj   = new Category();
@@ -50,26 +48,24 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $processObj   = new Process();
         $obj->process = $processObj;
 
-        $projectObj          = new Project();
-        $projectObj->project = new NullProject(1);
-        $obj->project        = $projectObj;
+        $obj->project        = new NullProject(1);
 
         $obj->responsible = 1;
         $obj->deputy      = 1;
 
         $causeObj        = new Cause();
         $causeObj->title = 'Risk Test Cause';
-        $obj->addCause($causeObj);
+        $obj->causes[] = $causeObj;
 
         $solutionObj        = new Solution();
         $solutionObj->title = 'Risk Test Solution';
-        $obj->addSolution($solutionObj);
+        $obj->solutions[] = $solutionObj;
 
         $riskObj        = new RiskObject();
         $riskObj->title = 'Risk Test Object';
-        $obj->addRiskObject($riskObj);
+        $obj->riskObjects[] = $riskObj;
 
-        $obj->addHistory(2);
+        $obj->histScore[] = 2;
 
         $media              = new Media();
         $media->createdBy   = new NullAccount(1);
@@ -85,22 +81,22 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $objR = RiskMapper::get()->with('project')->with('project/project')->with('causes')->with('solutions')->with('riskObjects')->with('files')->where('id', $obj->id)->execute();
         self::assertEquals($obj->name, $objR->name);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
-        self::assertEquals($obj->unit->id, $objR->unit->id);
+        self::assertEquals($obj->unit, $objR->unit);
         self::assertEquals($obj->department->id, $objR->department->id);
         self::assertEquals($obj->category->id, $objR->category->id);
         self::assertEquals($obj->process->id, $objR->process->id);
         self::assertEquals($obj->responsible, $objR->responsible);
         self::assertEquals($obj->deputy, $objR->deputy);
-        self::assertEquals($obj->project->project->id, $objR->project->project->id);
+        self::assertEquals($obj->project->id, $objR->project->id);
 
-        $causes = $objR->getCauses();
-        self::assertEquals($obj->getCauses()[0]->title, \end($causes)->title);
+        $causes = $objR->causes;
+        self::assertEquals($obj->causes[0]->title, \end($causes)->title);
 
-        $solutions = $objR->getSolutions();
-        self::assertEquals($obj->getSolutions()[0]->title, \end($solutions)->title);
+        $solutions = $objR->solutions;
+        self::assertEquals($obj->solutions[0]->title, \end($solutions)->title);
 
-        $riskObjects = $objR->getRiskObjects();
-        self::assertEquals($obj->getRiskObjects()[0]->title, \end($riskObjects)->title);
+        $riskObjects = $objR->riskObjects;
+        self::assertEquals($obj->riskObjects[0]->title, \end($riskObjects)->title);
 
         //self::assertEquals($obj->getHistory()[0], $objR->getHistory()[0]);
         $media = $objR->files;

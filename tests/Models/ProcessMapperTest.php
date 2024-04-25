@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
+use Modules\Organization\Models\NullDepartment;
 use Modules\Organization\Models\NullUnit;
-use Modules\RiskManagement\Models\NullDepartment;
 use Modules\RiskManagement\Models\Process;
 use Modules\RiskManagement\Models\ProcessMapper;
 
@@ -30,11 +30,10 @@ final class ProcessMapperTest extends \PHPUnit\Framework\TestCase
     {
         $obj                 = new Process();
         $obj->title          = 'Name';
-        $obj->descriptionRaw = 'Description';
         $obj->department     = new NullDepartment(1);
         $obj->responsible    = 1;
         $obj->deputy         = 1;
-        $obj->unit           = new NullUnit(1);
+        $obj->unit           = 1;
 
         ProcessMapper::create()->execute($obj);
 
@@ -44,6 +43,6 @@ final class ProcessMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($obj->responsible, $objR->responsible);
         self::assertEquals($obj->deputy, $objR->deputy);
         self::assertEquals($obj->department->id, $objR->department->id);
-        self::assertEquals($obj->unit->id, $objR->unit->id);
+        self::assertEquals($obj->unit, $objR->unit);
     }
 }
