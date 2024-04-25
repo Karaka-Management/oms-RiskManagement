@@ -41,7 +41,7 @@ final class RiskTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $this->risk->name);
         self::assertEquals('', $this->risk->description);
         self::assertEquals('', $this->risk->descriptionRaw);
-        self::assertNull($this->risk->unit);
+        self::assertEquals(0, $this->risk->unit);
         self::assertNull($this->risk->department);
         self::assertNull($this->risk->category);
         self::assertNull($this->risk->process);

@@ -42,13 +42,14 @@ final class CauseMapperTest extends \PHPUnit\Framework\TestCase
 
         $risk       = new Risk();
         $risk->name = 'Cause Test Risk';
-        $risk->unit = new NullUnit(1);
+        $risk->unit = 1;
         $obj->risk  = $risk;
 
         CauseMapper::create()->execute($obj);
 
         /** @var Cause $objR */
         $objR = CauseMapper::get()->with('risk')->with('category')->where('id', $obj->id)->execute();
+        self::assertGreaterThan(0, $objR->id);
         self::assertEquals($obj->title, $objR->title);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         //self::assertEquals($obj->getDepartment()->department->id, $objR->getDepartment()->department->id);

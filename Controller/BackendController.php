@@ -104,7 +104,7 @@ final class BackendController extends Controller
 
         /** @var \Modules\RiskManagement\Models\Risk $risk */
         foreach ($view->data['risks'] as $risk) {
-            if ($risk->department->id !== 0) {
+            if ($risk->department !== null && $risk->department->id !== 0) {
                 if (!isset($statsDepartments[$risk->department->name])) {
                     $statsDepartments[$risk->department->name] = [];
                 }
@@ -112,7 +112,7 @@ final class BackendController extends Controller
                 $statsDepartments[$risk->department->name][] = $risk;
             }
 
-            if ($risk->category->id !== 0) {
+            if ($risk->category !== null && $risk->category->id !== 0) {
                 if (!isset($statsCategories[$view->data['categories'][$risk->category->id]->title])) {
                     $statsCategories[$view->data['categories'][$risk->category->id]->title] = [];
                 }
