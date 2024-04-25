@@ -37,6 +37,7 @@ final class SolutionMapperTest extends \PHPUnit\Framework\TestCase
         $obj->risk           = new Risk();
 
         SolutionMapper::create()->execute($obj);
+        self::assertGreaterThan(0, $obj->id);
 
         $objR = SolutionMapper::get()->where('id', $obj->id)->execute();
         self::assertGreaterThan(0, $objR->id);

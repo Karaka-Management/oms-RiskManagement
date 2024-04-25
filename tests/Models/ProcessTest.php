@@ -32,7 +32,7 @@ final class ProcessTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $obj->description);
         self::assertEquals('', $obj->descriptionRaw);
         self::assertNull($obj->department);
-        self::assertNull($obj->unit);
+        self::assertEquals(0, $obj->unit);
         self::assertNull($obj->responsible);
         self::assertNull($obj->deputy);
     }

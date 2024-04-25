@@ -77,8 +77,18 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $obj->files[]     = $media;
 
         RiskMapper::create()->execute($obj);
+        self::assertGreaterThan(0, $obj->id);
 
-        $objR = RiskMapper::get()->with('project')->with('project/project')->with('causes')->with('solutions')->with('riskObjects')->with('files')->where('id', $obj->id)->execute();
+        $objR = RiskMapper::get()
+            ->with('project')
+            ->with('causes')
+            ->with('solutions')
+            ->with('riskObjects')
+            ->with('files')
+            ->where('id', $obj->id)
+            ->execute();
+
+        self::assertGreaterThan(0, $objR->id);
         self::assertEquals($obj->name, $objR->name);
         self::assertEquals($obj->descriptionRaw, $objR->descriptionRaw);
         self::assertEquals($obj->unit, $objR->unit);
