@@ -43,6 +43,7 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $obj->department     = new NullDepartment(1);
         $obj->category = new Category();
         $obj->process = new Process();
+        $obj->process->unit = 1;
 
         $obj->responsible = new NullAccount(1);
         $obj->deputy      = new NullAccount(1);

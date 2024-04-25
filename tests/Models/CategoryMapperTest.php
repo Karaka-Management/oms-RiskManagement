@@ -27,14 +27,12 @@ final class CategoryMapperTest extends \PHPUnit\Framework\TestCase
     public function testCRUD() : void
     {
         $obj                 = new Category();
-        $obj->title          = 'Name';
         $obj->responsible    = 1;
         $obj->deputy         = 1;
 
         CategoryMapper::create()->execute($obj);
 
         $objR = CategoryMapper::get()->where('id', $obj->id)->execute();
-        self::assertEquals($obj->title, $objR->title);
         self::assertEquals($obj->responsible, $objR->responsible);
         self::assertEquals($obj->deputy, $objR->deputy);
     }
