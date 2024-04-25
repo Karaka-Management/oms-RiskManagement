@@ -54,5 +54,10 @@ class Solution
 
     public ?Cause $cause = null;
 
-    public ?Risk $risk = null;
+    public Risk $risk;
+
+    public function __construct()
+    {
+        $this->risk = new Risk();
+    }
 }

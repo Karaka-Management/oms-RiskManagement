@@ -9,21 +9,6 @@
                 "primary": true,
                 "autoincrement": true
             },
-            "riskmngmt_category_name": {
-                "name": "riskmngmt_category_name",
-                "type": "VARCHAR(255)",
-                "null": false
-            },
-            "riskmngmt_category_description": {
-                "name": "riskmngmt_category_description",
-                "type": "TEXT",
-                "null": false
-            },
-            "riskmngmt_category_descriptionraw": {
-                "name": "riskmngmt_category_descriptionraw",
-                "type": "TEXT",
-                "null": false
-            },
             "riskmngmt_category_parent": {
                 "name": "riskmngmt_category_parent",
                 "type": "INT",
@@ -558,12 +543,6 @@
                 "name": "riskmngmt_solution_probability",
                 "type": "INT",
                 "null": false
-            },
-            "riskmngmt_solution_effect": {
-                "name": "riskmngmt_solution_effect",
-                "type": "INT",
-                "default": null,
-                "null": true
             },
             "riskmngmt_solution_cause": {
                 "name": "riskmngmt_solution_cause",

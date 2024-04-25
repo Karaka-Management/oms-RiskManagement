@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\RiskManagement\tests\Models;
 
 use Modules\RiskManagement\Models\Cause;
+use Modules\RiskManagement\Models\NullRisk;
 use Modules\RiskManagement\Models\Risk;
 use Modules\RiskManagement\Models\Solution;
 use Modules\RiskManagement\Models\SolutionMapper;
@@ -33,8 +34,7 @@ final class SolutionMapperTest extends \PHPUnit\Framework\TestCase
         $obj->title          = 'Title';
         $obj->descriptionRaw = 'Description';
         $obj->probability    = 1;
-        $obj->cause          = new Cause();
-        $obj->risk           = new Risk();
+        $obj->risk           = new NullRisk(1);
 
         SolutionMapper::create()->execute($obj);
         self::assertGreaterThan(0, $obj->id);
