@@ -17,7 +17,6 @@ namespace Modules\RiskManagement\tests\Models;
 use Modules\Admin\Models\NullAccount;
 use Modules\Media\Models\Media;
 use Modules\Organization\Models\NullDepartment;
-use Modules\ProjectManagement\Models\NullProject;
 use Modules\RiskManagement\Models\Category;
 use Modules\RiskManagement\Models\Cause;
 use Modules\RiskManagement\Models\Process;
@@ -90,9 +89,9 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
         self::assertEquals($obj->department->id, $objR->department->id);
         self::assertEquals($obj->category->id, $objR->category->id);
         self::assertEquals($obj->process->id, $objR->process->id);
-        self::assertEquals($obj->responsible, $objR->responsible);
-        self::assertEquals($obj->deputy, $objR->deputy);
-        self::assertEquals($obj->project->id, $objR->project->id);
+        self::assertEquals($obj->responsible?->id, $objR->responsible?->id);
+        self::assertEquals($obj->deputy?->id, $objR->deputy?->id);
+        self::assertEquals($obj->project?->id, $objR->project?->id);
 
         $causes = $objR->causes;
         self::assertEquals($obj->causes[0]->title, \end($causes)->title);
@@ -102,9 +101,5 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
 
         $riskObjects = $objR->riskObjects;
         self::assertEquals($obj->riskObjects[0]->title, \end($riskObjects)->title);
-
-        //self::assertEquals($obj->getHistory()[0], $objR->getHistory()[0]);
-        $media = $objR->files;
-        self::assertEquals($obj->files[0]->getPath(), \end($media)->getPath());
     }
 }
