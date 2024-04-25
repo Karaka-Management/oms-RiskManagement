@@ -56,6 +56,11 @@ class Solution
 
     public Risk $risk;
 
+    /**
+     * Constructor.
+     *
+     * @since 1.0.0
+     */
     public function __construct()
     {
         $this->risk = new Risk();
