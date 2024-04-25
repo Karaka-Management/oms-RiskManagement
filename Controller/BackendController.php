@@ -86,6 +86,7 @@ final class BackendController extends Controller
             ->where('status', RiskStatus::ACTIVE)
             ->executeGetArray();
 
+        /** @var \Modules\RiskManagement\Models\Category[] $tmp */
         $tmp = CategoryMapper::getAll()
             ->with('title')
             ->where('title/language', $request->header->l11n->language)
@@ -606,7 +607,6 @@ final class BackendController extends Controller
             ->where('unit', $this->app->unitId)
             ->executeGetArray();
 
-        /** @var \phpOMS\Localization\BaseStringL11n[] $l11nValues */
         /*
         $l11nValues = ProcessL11nMapper::getAll()
             ->where('ref', $view->data['category']->id)
