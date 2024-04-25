@@ -113,11 +113,11 @@ final class BackendController extends Controller
             }
 
             if ($risk->category !== null && $risk->category->id !== 0) {
-                if (!isset($statsCategories[$view->data['categories'][$risk->category->id]->title])) {
-                    $statsCategories[$view->data['categories'][$risk->category->id]->title] = [];
+                if (!isset($statsCategories[$view->data['categories'][$risk->category->id]->getL11n()])) {
+                    $statsCategories[$view->data['categories'][$risk->category->id]->getL11n()] = [];
                 }
 
-                $statsCategories[$view->data['categories'][$risk->category->id]->title][] = $risk;
+                $statsCategories[$view->data['categories'][$risk->category->id]->getL11n()][] = $risk;
             }
         }
 

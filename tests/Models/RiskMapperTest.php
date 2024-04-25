@@ -51,7 +51,7 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $obj->project        = new NullProject(1);
 
         $obj->responsible = new NullAccount(1);
-        $obj->deputy      = 1;
+        $obj->deputy      = new NullAccount(1);
 
         $causeObj        = new Cause();
         $causeObj->title = 'Risk Test Cause';
