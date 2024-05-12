@@ -121,7 +121,7 @@ echo $this->data['nav']->render();
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="portlet">
+                    <section class="portlet">
                         <div class="portlet-head"><?= $this->getHtml('Risks'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
                             <thead>
@@ -146,7 +146,7 @@ echo $this->data['nav']->render();
                             <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                             <?php endif; ?>
                         </table>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -154,7 +154,7 @@ echo $this->data['nav']->render();
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="portlet">
+                    <section class="portlet">
                         <div class="portlet-head"><?= $this->getHtml('Categories'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
                             <thead>
@@ -173,7 +173,7 @@ echo $this->data['nav']->render();
                             <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                             <?php endif; ?>
                         </table>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -181,7 +181,7 @@ echo $this->data['nav']->render();
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="portlet">
+                    <section class="portlet">
                         <div class="portlet-head"><?= $this->getHtml('Projects'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
                             <thead>
@@ -201,7 +201,7 @@ echo $this->data['nav']->render();
                             <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                             <?php endif; ?>
                         </table>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -209,7 +209,7 @@ echo $this->data['nav']->render();
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="portlet">
+                    <section class="portlet">
                         <div class="portlet-head"><?= $this->getHtml('Processes'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
                             <thead>
@@ -227,7 +227,7 @@ echo $this->data['nav']->render();
                             <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                             <?php endif; ?>
                         </table>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -235,7 +235,7 @@ echo $this->data['nav']->render();
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="portlet">
+                    <section class="portlet">
                         <div class="portlet-head"><?= $this->getHtml('Causes'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
                             <thead>
@@ -256,7 +256,7 @@ echo $this->data['nav']->render();
                             <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                             <?php endif; ?>
                         </table>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -264,7 +264,7 @@ echo $this->data['nav']->render();
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="portlet">
+                    <section class="portlet">
                         <div class="portlet-head"><?= $this->getHtml('Solutions'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
                             <thead>
@@ -287,7 +287,7 @@ echo $this->data['nav']->render();
                             <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                             <?php endif; ?>
                         </table>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>

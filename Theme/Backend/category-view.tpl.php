@@ -35,7 +35,7 @@ echo $this->data['nav']->render();
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <div class="portlet">
+                    <section class="portlet">
                         <form id="materialForm" method="<?= $isNew ? 'PUT' : 'POST'; ?>" action="<?= UriFactory::build('{/api}controlling/riskmanagement/category?csrf={$CSRF}'); ?>">
                             <div class="portlet-head"><?= $this->getHtml('Category'); ?></div>
                             <div class="portlet-body">
@@ -58,7 +58,7 @@ echo $this->data['nav']->render();
                                 <?php endif; ?>
                             </div>
                         </form>
-                    </div>
+                    </section>
                 </div>
             </div>
 
@@ -79,7 +79,7 @@ echo $this->data['nav']->render();
         <div class="tab">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="portlet">
+                    <section class="portlet">
                         <div class="portlet-head"><?= $this->getHtml('Risks'); ?><i class="g-icon download btn end-xs">download</i></div>
                         <table class="default sticky">
                             <thead>
@@ -104,7 +104,7 @@ echo $this->data['nav']->render();
                             <tr><td colspan="5" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                             <?php endif; ?>
                         </table>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>

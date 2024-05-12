@@ -30,7 +30,7 @@ echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-9">
-        <div class="portlet">
+        <section class="portlet">
             <div class="portlet-head"><?= $this->getHtml('TopRisks'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="slider">
             <table class="default sticky">
@@ -59,7 +59,7 @@ echo $this->data['nav']->render(); ?>
                 <?php endif; ?>
             </table>
             </div>
-        </div>
+        </section>
     </div>
 
     <div class="col-xs-12 col-md-3">
@@ -120,7 +120,7 @@ echo $this->data['nav']->render(); ?>
 <?php if (!empty($this->data['risks'])) : ?>
 <div class="row">
     <div class="col-xs-12 col-md-6 col-lg-4">
-        <div class="portlet">
+        <section class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Net'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="portlet-body">
                 <div style="position: relative; width: 100%; height: 100%; aspect-ratio: 1;">
@@ -195,11 +195,11 @@ echo $this->data['nav']->render(); ?>
                 }'></canvas>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 
     <div class="col-xs-12 col-md-6 col-lg-4">
-        <div class="portlet">
+        <section class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Gross'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="portlet-body">
                 <div style="position: relative; width: 100%; height: 100%; aspect-ratio: 1;">
@@ -274,12 +274,12 @@ echo $this->data['nav']->render(); ?>
                 }'></canvas>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 
     <?php if (!empty($this->data['history'])) : ?>
     <div class="col-xs-12 col-lg-4">
-        <div class="portlet">
+        <section class="portlet">
             <div class="portlet-head"><?= $this->getHtml('History'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="portlet-body">
             <div style="position: relative; width: 100%; height: 100%; aspect-ratio: 2;">
@@ -333,7 +333,7 @@ echo $this->data['nav']->render(); ?>
                 }'></canvas>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
     <?php endif; ?>
 </div>
@@ -341,7 +341,7 @@ echo $this->data['nav']->render(); ?>
 <div class="row">
     <?php if (!empty($this->data['stats-departments'])) : ?>
     <div class="col-xs-12 col-md-6">
-        <div class="portlet">
+        <section class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Departments'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="portlet-body">
                 <div style="position: relative; width: 100%; height: 100%; aspect-ratio: 2;">
@@ -394,13 +394,13 @@ echo $this->data['nav']->render(); ?>
                 }'></canvas>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
     <?php endif; ?>
 
     <?php if (!empty($this->data['stats-categories'])) : ?>
     <div class="col-xs-12 col-md-6">
-        <div class="portlet">
+        <section class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Categories'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="portlet-body">
                 <div style="position: relative; width: 100%; height: 100%; aspect-ratio: 2;">
@@ -453,13 +453,13 @@ echo $this->data['nav']->render(); ?>
                 }'></canvas>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
     <?php endif; ?>
 
     <?php if (!empty($this->data['stats-departments'])) : ?>
     <div class="col-xs-12 col-md-6">
-        <div class="portlet">
+        <section class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Departments'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="portlet-body">
                 <div style="position: relative; width: 100%; height: 100%; aspect-ratio: 1;">
@@ -497,13 +497,13 @@ echo $this->data['nav']->render(); ?>
                 }'></canvas>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
     <?php endif; ?>
 
     <?php if (!empty($this->data['stats-categories'])) : ?>
     <div class="col-xs-12 col-md-6">
-        <div class="portlet">
+        <section class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Categories'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="portlet-body">
                 <div style="position: relative; width: 100%; height: 100%; aspect-ratio: 1;">
@@ -541,7 +541,7 @@ echo $this->data['nav']->render(); ?>
                 }'></canvas>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
     <?php endif; ?>
 </div>
