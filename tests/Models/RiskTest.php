@@ -14,9 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\RiskManagement\tests\Models;
 
-use Modules\RiskManagement\Models\Cause;
 use Modules\RiskManagement\Models\Risk;
-use Modules\RiskManagement\Models\Solution;
 
 /**
  * @internal

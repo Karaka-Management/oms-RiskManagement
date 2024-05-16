@@ -26,9 +26,9 @@ final class CategoryMapperTest extends \PHPUnit\Framework\TestCase
     #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testCRUD() : void
     {
-        $obj                 = new Category();
-        $obj->responsible    = 1;
-        $obj->deputy         = 1;
+        $obj              = new Category();
+        $obj->responsible = 1;
+        $obj->deputy      = 1;
 
         CategoryMapper::create()->execute($obj);
 

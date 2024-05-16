@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 use Modules\RiskManagement\Models\NullRisk;
 
-$risk = $this->data['risk'] ?? new NullRisk();
+$risk  = $this->data['risk'] ?? new NullRisk();
 $isNew = $risk->id === 0;
 
 echo $this->data['nav']->render(); ?>

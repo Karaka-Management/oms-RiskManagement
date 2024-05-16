@@ -13,10 +13,9 @@
 declare(strict_types=1);
 
 use Modules\ProjectManagement\Models\NullProject;
-use phpOMS\Uri\UriFactory;
 
 $project = $this->data['project'] ?? new NullProject();
-$isNew = $project->id === 0;
+$isNew   = $project->id === 0;
 
 echo $this->data['nav']->render();
 ?>

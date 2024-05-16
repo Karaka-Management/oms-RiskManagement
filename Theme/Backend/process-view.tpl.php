@@ -16,7 +16,7 @@ use Modules\RiskManagement\Models\NullProcess;
 use phpOMS\Uri\UriFactory;
 
 $process = $this->data['process'] ?? new NullProcess();
-$isNew = $process->id === 0;
+$isNew   = $process->id === 0;
 
 echo $this->data['nav']->render();
 ?>

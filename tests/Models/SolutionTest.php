@@ -32,7 +32,7 @@ final class SolutionTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $obj->description);
         self::assertEquals('', $obj->descriptionRaw);
         self::assertEquals(0, $obj->probability);
-        self::assertEquals(null, $obj->cause);
+        self::assertNull($obj->cause);
         self::assertEquals(0, $obj->risk->id);
     }
 }

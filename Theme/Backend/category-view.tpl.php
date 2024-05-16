@@ -16,7 +16,7 @@ use Modules\RiskManagement\Models\NullCategory;
 use phpOMS\Uri\UriFactory;
 
 $category = $this->data['category'] ?? new NullCategory();
-$isNew = $category->id === 0;
+$isNew    = $category->id === 0;
 
 echo $this->data['nav']->render();
 ?>

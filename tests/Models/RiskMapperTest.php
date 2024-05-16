@@ -40,23 +40,23 @@ final class RiskMapperTest extends \PHPUnit\Framework\TestCase
         $obj->descriptionRaw = 'Description';
         $obj->unit           = 1;
         $obj->department     = new NullDepartment(1);
-        $obj->category = new Category();
-        $obj->process = new Process();
-        $obj->process->unit = 1;
+        $obj->category       = new Category();
+        $obj->process        = new Process();
+        $obj->process->unit  = 1;
 
         $obj->responsible = new NullAccount(1);
         $obj->deputy      = new NullAccount(1);
 
         $causeObj        = new Cause();
         $causeObj->title = 'Risk Test Cause';
-        $obj->causes[] = $causeObj;
+        $obj->causes[]   = $causeObj;
 
         $solutionObj        = new Solution();
         $solutionObj->title = 'Risk Test Solution';
-        $obj->solutions[] = $solutionObj;
+        $obj->solutions[]   = $solutionObj;
 
-        $riskObj        = new RiskObject();
-        $riskObj->title = 'Risk Test Object';
+        $riskObj            = new RiskObject();
+        $riskObj->title     = 'Risk Test Object';
         $obj->riskObjects[] = $riskObj;
 
         $obj->histScore[] = 2;

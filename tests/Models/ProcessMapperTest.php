@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Modules\RiskManagement\tests\Models;
 
 use Modules\Organization\Models\NullDepartment;
-use Modules\Organization\Models\NullUnit;
 use Modules\RiskManagement\Models\Process;
 use Modules\RiskManagement\Models\ProcessMapper;
 
@@ -28,12 +27,12 @@ final class ProcessMapperTest extends \PHPUnit\Framework\TestCase
     #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testCRUD() : void
     {
-        $obj                 = new Process();
-        $obj->title          = 'Name';
-        $obj->department     = new NullDepartment(1);
-        $obj->responsible    = 1;
-        $obj->deputy         = 1;
-        $obj->unit           = 1;
+        $obj              = new Process();
+        $obj->title       = 'Name';
+        $obj->department  = new NullDepartment(1);
+        $obj->responsible = 1;
+        $obj->deputy      = 1;
+        $obj->unit        = 1;
 
         ProcessMapper::create()->execute($obj);
 
