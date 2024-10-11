@@ -67,7 +67,8 @@ echo $this->data['nav']->render();
                 <?= $this->data['l11nView']->render(
                     $this->data['l11nValues'],
                     [],
-                    '{/api}controlling/riskmanagement/process/l11n?csrf={$CSRF}'
+                    '{/api}controlling/riskmanagement/process/l11n?csrf={$CSRF}',
+                    (string) $process->id
                 );
                 ?>
             </div>

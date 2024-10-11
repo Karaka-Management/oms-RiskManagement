@@ -85,7 +85,7 @@ final class ApiController extends Controller
     private function validateRiskCategoryCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if ($val['title'] = !$request->hasData('title')) {
+        if ($val['content'] = !$request->hasData('content')) {
             return $val;
         }
 
@@ -107,7 +107,7 @@ final class ApiController extends Controller
 
         $category->title = new BaseStringL11n($request->getDataString('name') ?? '');
         $category->setL11n(
-            $request->getDataString('title') ?? '',
+            $request->getDataString('content') ?? '',
             ISO639x1Enum::tryFromValue($request->getDataString('language')) ?? ISO639x1Enum::_EN
         );
 
@@ -173,9 +173,9 @@ final class ApiController extends Controller
     private function createCategoryL11nFromRequest(RequestAbstract $request) : BaseStringL11n
     {
         $categoryL11n           = new BaseStringL11n();
-        $categoryL11n->ref      = $request->getDataInt('category') ?? 0;
+        $categoryL11n->ref      = $request->getDataInt('ref') ?? 0;
         $categoryL11n->language = ISO639x1Enum::tryFromValue($request->getDataString('language')) ?? $request->header->l11n->language;
-        $categoryL11n->content  = $request->getDataString('title') ?? '';
+        $categoryL11n->content  = $request->getDataString('content') ?? '';
 
         return $categoryL11n;
     }
