@@ -38,7 +38,6 @@ foreach ($this->data['risks'] as $risk) {
 
 echo $this->data['nav']->render();
 ?>
-
 <div class="tabview tab-2">
     <div class="box">
         <ul class="tab-links">

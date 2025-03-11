@@ -19,7 +19,6 @@ $isNew   = $project->id === 0;
 
 echo $this->data['nav']->render();
 ?>
-
 <div class="tabview tab-2">
     <?php if (!$isNew) : ?>
     <div class="box">
